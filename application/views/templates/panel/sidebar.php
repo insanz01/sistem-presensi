@@ -73,6 +73,12 @@
                   <p>Cabang</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?= base_url('katalog') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon ml-3"></i>
+                  <p>Katalog</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item has-treeview">

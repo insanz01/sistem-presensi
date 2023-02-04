@@ -76,3 +76,7 @@ $route['katalog/do_add'] = "KatalogController/do_add";
 $route['katalog/edit/(:any)'] = "KatalogController/edit";
 $route['katalog/do_edit/(:any)'] = "KatalogController/do_edit/$1";
 $route['katalog/delete'] = "KatalogController/delete";
+
+$route['laporan/produk'] = "LaporanController/produk";
+$route['laporan/cabang'] = "LaporanController/cabang";
+$route['laporan/katalog'] = "LaporanController/katalog";

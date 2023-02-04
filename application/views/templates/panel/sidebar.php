@@ -102,6 +102,12 @@
                   <p>Cabang</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?= base_url('laporan/katalog') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon ml-3"></i>
+                  <p>Transaksi</p>
+                </a>
+              </li>
             </ul>
           </li>
 

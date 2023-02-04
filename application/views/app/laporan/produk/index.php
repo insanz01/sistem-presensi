@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Katalog Cabang</h1>
+          <h1 class="m-0 text-dark">Produk</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <!-- <ol class="breadcrumb float-sm-right">
@@ -24,13 +24,7 @@
       <div class="row">
         <div class="col-12 mb-3">
           <div class="form-group">
-            <select name="" id="" class="form-control">
-              <option value="">Cabang Satu</option>
-              <option value="">Cabang Dua</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <a href="#!" class="btn btn-primary float-right">TAMBAH DATA</a>
+            <!-- <a href="#!" class="btn btn-primary float-right">TAMBAH DATA</a> -->
           </div>
         </div>
         <div class="col-12">
@@ -38,28 +32,21 @@
             <thead>
               <th>#</th>
               <th>Nama Produk</th>
-              <th>Nama Cabang</th>
-              <!-- <th>File</th> -->
-              <th>Aksi</th>
+              <th>Harga Sewa</th>
+              <th>Tanggal Ditambahkan</th>
             </thead>
             <tbody>
               <tr>
                 <td>1</td>
                 <td>Helm</td>
-                <td>Yogyakarta</td>
-                <td>
-                  <a href="#!" class="badge badge-info badge-sm">edit</a>
-                  <a href="#!" class="badge badge-danger badge-sm">hapus</a>
-                </td>
+                <td>50.000</td>
+                <td>25 Desember 2022</td>
               </tr>
               <tr>
                 <td>2</td>
                 <td>Buff</td>
-                <td>Yogyakarta</td>
-                <td>
-                  <a href="#!" class="badge badge-info badge-sm">edit</a>
-                  <a href="#!" class="badge badge-danger badge-sm">hapus</a>
-                </td>
+                <td>20.000</td>
+                <td>15 Desember 2022</td>
               </tr>
             </tbody>
           </table>

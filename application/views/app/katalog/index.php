@@ -39,6 +39,7 @@
               <th>#</th>
               <th>Nama Produk</th>
               <th>Nama Cabang</th>
+              <th>Jumlah Item</th>
               <!-- <th>File</th> -->
               <th>Aksi</th>
             </thead>
@@ -47,6 +48,7 @@
                 <td>1</td>
                 <td>Helm</td>
                 <td>Yogyakarta</td>
+                <td>5</td>
                 <td>
                   <a href="#!" class="badge badge-info badge-sm">edit</a>
                   <a href="#!" class="badge badge-danger badge-sm">hapus</a>
@@ -56,6 +58,7 @@
                 <td>2</td>
                 <td>Buff</td>
                 <td>Yogyakarta</td>
+                <td>8</td>
                 <td>
                   <a href="#!" class="badge badge-info badge-sm">edit</a>
                   <a href="#!" class="badge badge-danger badge-sm">hapus</a>

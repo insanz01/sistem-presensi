@@ -85,15 +85,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= base_url('na/bpd/laporan') ?>" class="nav-link">
+                <a href="<?= base_url('laporan/produk') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon ml-3"></i>
-                  <p>BPD</p>
+                  <p>Produk</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('na/lpd') ?>" class="nav-link">
+                <a href="<?= base_url('laporan/cabang') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon ml-3"></i>
-                  <p>LPD</p>
+                  <p>Cabang</p>
                 </a>
               </li>
             </ul>

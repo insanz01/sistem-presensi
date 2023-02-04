@@ -16,7 +16,7 @@ class CabangController extends CI_Controller
 
   public function index()
   {
-    $data['katalog'] = $this->cabang_m->get_all();
+    $data['cabang'] = $this->cabang_m->get_all();
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');

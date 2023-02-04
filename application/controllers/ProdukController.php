@@ -16,10 +16,12 @@ class ProdukController extends CI_Controller
 
   public function index()
   {
+    $data['produk'] = $this->produk_m->get_all();
+
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');
-    $this->load->view('app/produk/index');
+    $this->load->view('app/produk/index', $data);
     $this->load->view('templates/panel/footer');
   }
 

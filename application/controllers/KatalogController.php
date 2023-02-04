@@ -16,6 +16,8 @@ class KatalogController extends CI_Controller
 
   public function index()
   {
+    // $data['produk'] = $this->produk_m->get_all();
+
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');

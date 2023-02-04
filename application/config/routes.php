@@ -57,7 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['cabang'] = "CabangController/index";
 $route['cabang/add'] = "CabangController/add";
 $route['cabang/do_add'] = "CabangController/do_add";
-$route['cabang/edit/(:any)'] = "CabangController/edit";
+$route['cabang/edit/(:any)'] = "CabangController/edit/$1";
 $route['cabang/do_edit/(:any)'] = "CabangController/do_edit/$1";
 $route['cabang/delete'] = "CabangController/delete";
 
@@ -65,7 +65,7 @@ $route['cabang/delete'] = "CabangController/delete";
 $route['produk'] = "ProdukController/index";
 $route['produk/add'] = "ProdukController/add";
 $route['produk/do_add'] = "ProdukController/do_add";
-$route['produk/edit/(:any)'] = "ProdukController/edit";
+$route['produk/edit/(:any)'] = "ProdukController/edit/$1";
 $route['produk/do_edit/(:any)'] = "ProdukController/do_edit/$1";
 $route['produk/delete'] = "ProdukController/delete";
 
@@ -73,7 +73,7 @@ $route['produk/delete'] = "ProdukController/delete";
 $route['katalog'] = "KatalogController/index";
 $route['katalog/add'] = "KatalogController/add";
 $route['katalog/do_add'] = "KatalogController/do_add";
-$route['katalog/edit/(:any)'] = "KatalogController/edit";
+$route['katalog/edit/(:any)'] = "KatalogController/edit/$1";
 $route['katalog/do_edit/(:any)'] = "KatalogController/do_edit/$1";
 $route['katalog/delete'] = "KatalogController/delete";
 

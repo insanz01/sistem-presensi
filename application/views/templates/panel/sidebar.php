@@ -56,21 +56,21 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                PENGAJUAN
+                MASTER DATA
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= base_url('na/bpd') ?>" class="nav-link">
+                <a href="<?= base_url('produk') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon ml-3"></i>
-                  <p>BPD</p>
+                  <p>Produk</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('pengajuan/lpd') ?>" class="nav-link">
+                <a href="<?= base_url('cabang') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon ml-3"></i>
-                  <p>LPD</p>
+                  <p>Cabang</p>
                 </a>
               </li>
             </ul>

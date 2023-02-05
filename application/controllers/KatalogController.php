@@ -22,7 +22,7 @@ class KatalogController extends CI_Controller
     $id_cabang = null;
     $data['katalog'] = NULL;
 
-    $filter_cabang = $this->input->post();
+    $filter_cabang = $this->input->post('filter_cabang');
     if($filter_cabang) {
       $data['katalog'] = $this->katalog_m->get_all_by_cabang_id($filter_cabang);
       $id_cabang = $filter_cabang;

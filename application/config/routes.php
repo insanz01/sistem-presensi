@@ -80,3 +80,6 @@ $route['katalog/delete'] = "KatalogController/delete";
 $route['laporan/produk'] = "LaporanController/produk";
 $route['laporan/cabang'] = "LaporanController/cabang";
 $route['laporan/katalog'] = "LaporanController/katalog";
+
+$route["transaksi/pinjam"] = "TransaksiController/pinjam";
+$route["transaksi/kembali"] = "TransaksiController/kembali";

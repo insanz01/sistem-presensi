@@ -27,7 +27,7 @@
             <div class="form-group">
               <select name="filter_cabang" id="filter_cabang" class="form-control" onchange="showKatalog(this)">
                 <?php foreach($cabang as $data): ?>
-                  <option value="<?= $data['id'] ?>"><?= $data['nama'] ?></option>
+                  <option value="<?= $data['id'] ?>" <?= ($id_cabang == $data['id']) ? 'selected' : '' ?>><?= $data['nama'] ?></option>
                 <?php endforeach; ?>
               </select>
             </div>

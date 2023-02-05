@@ -45,10 +45,10 @@
                   </select>
                 </div>
  
-                <!-- <div class="form-group">
-                  <label for="file_katalog">File katalog</label>
-                  <input type="file" class="form-control" id="file_katalog" name="file_katalog">
-                </div> -->
+                <div class="form-group">
+                  <label for="jumlah">Jumlah Item</label>
+                  <input type="number" min="0" class="form-control" id="jumlah" name="jumlah">
+                </div>
 
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary btn-block btn-lg">SIMPAN DATA</button>

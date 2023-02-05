@@ -31,7 +31,8 @@
               <th>#</th>
               <th>Nama Produk</th>
               <th>Harga</th>
-              <!-- <th>File</th> -->
+              <th>Detail</th>
+              <th>File</th>
               <th>Aksi</th>
             </thead>
             <tbody>
@@ -41,6 +42,10 @@
                 <td><?= $nomor++ ?></td>
                 <td><?= $data['nama'] ?></td>
                 <td><?= $data['harga'] ?></td>
+                <td><?= $data['detail'] ?></td>
+                <td>
+                  <img src="<?= base_url("uploads/image/") . $data['foto'] ?>" width="200px">
+                </td>
                 <!-- <td>
                   <a href="<?= base_url("uploads/cabang/") . $data['file'] ?>" download>
                     <i class="fas fa-fw fa-download"></i>

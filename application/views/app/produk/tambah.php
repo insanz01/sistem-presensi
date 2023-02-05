@@ -36,11 +36,16 @@
                   <label for="harga">Harga Produk</label>
                   <input type="number" min="0" class="form-control" id="harga" name="harga">
                 </div>
+
+                <div class="form-group">
+                  <label for="detail">Detail</label>
+                  <textarea name="detail" id="detail" class="form-control" rows="10"></textarea>
+                </div>
  
-                <!-- <div class="form-group">
-                  <label for="file_cabang">File Cabang</label>
-                  <input type="file" class="form-control" id="file_cabang" name="file_cabang">
-                </div> -->
+                <div class="form-group">
+                  <label for="foto">Foto Produk</label>
+                  <input type="file" class="form-control" id="foto" name="foto">
+                </div>
 
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary btn-block btn-lg">SIMPAN DATA</button>

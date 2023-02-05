@@ -46,7 +46,7 @@ class CabangController extends CI_Controller
   }
 
   public function edit($id) {
-    $data['produk'] = $this->cabang_m->get_single($id);
+    $data['cabang'] = $this->cabang_m->get_single($id);
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');

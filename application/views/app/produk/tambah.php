@@ -38,6 +38,11 @@
                 </div>
 
                 <div class="form-group">
+                  <label for="merk">Merk Produk</label>
+                  <input type="text" class="form-control" id="merk" name="merk">
+                </div>
+
+                <div class="form-group">
                   <label for="detail">Detail</label>
                   <textarea name="detail" id="detail" class="form-control" rows="10"></textarea>
                 </div>

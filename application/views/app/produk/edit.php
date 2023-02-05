@@ -38,6 +38,11 @@
                 </div>
 
                 <div class="form-group">
+                  <label for="merk">Merk Produk</label>
+                  <input type="text" class="form-control" id="merk" name="merk" value="<?= $produk['merk'] ?>">
+                </div>
+
+                <div class="form-group">
                   <label for="detail">Detail</label>
                   <textarea name="detail" id="detail" class="form-control" rows="10"><?= $produk['detail'] ?></textarea>
                 </div>
@@ -45,7 +50,7 @@
                 <div class="form-group">
                   <label for="foto">Foto Produk</label>
                   <br>
-                  <img src="<?= base_url("uploads/image/") . $produk['foto'] ?>" alt="Belum atur gambar">
+                  <img src="<?= base_url("uploads/image/") . $produk['foto'] ?>" width="200px" alt="Belum atur gambar">
                   <input type="file" class="form-control" id="foto" name="foto">
                 </div>
 

@@ -32,22 +32,21 @@
             <thead>
               <th>#</th>
               <th>Nama Produk</th>
+              <th>Merk Produk</th>
               <th>Harga Sewa</th>
               <th>Tanggal Ditambahkan</th>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Helm</td>
-                <td>50.000</td>
-                <td>25 Desember 2022</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Buff</td>
-                <td>20.000</td>
-                <td>15 Desember 2022</td>
-              </tr>
+              <?php $nomor = 1 ?>
+              <?php foreach($produk as $data): ?>
+                <tr>
+                  <td><?= $nomor++ ?></td>
+                  <td><?= $data['nama'] ?></td>
+                  <td><?= $data['merk'] ?></td>
+                  <td><?= $data['harga'] ?></td>
+                  <td><?= date("d M Y", strtotime($data['created_at'])) ?></td>
+                </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>

@@ -33,24 +33,24 @@
           <a href="<?= base_url() ?>" class="nav-link">
             <i class="nav-icon fas fa-home"></i>
             <p>
-              Dashboard
+              DASHBOARD
               <!-- <span class="badge badge-info right">2</span> -->
             </p>
           </a>
         </li>
 
-        <!-- <li class="nav-item">
-          <a href="<?= base_url('log/pinjam') ?>" class="nav-link">
+        <li class="nav-item">
+          <a href="<?= base_url('transaksi/pinjam') ?>" class="nav-link">
             <i class="nav-icon fas fa-upload"></i>
-            <p>Log Peminjaman</p>
+            <p>PEMINJAMAN</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?= base_url('log/kembali') ?>" class="nav-link">
+          <a href="<?= base_url('transaksi/kembali') ?>" class="nav-link">
             <i class="nav-icon fas fa-download"></i>
-            <p>Log Buku Kembali</p>
+            <p>BARANG KEMBALI</p>
           </a>
-        </li> -->
+        </li>
 
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

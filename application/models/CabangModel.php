@@ -13,6 +13,30 @@ class CabangModel extends CI_Model {
     return $this->db->get_where("cabang", ['id' => $id])->row_array();
   }
 
+  public function get_all_report() {
+    $query = "SELECT cabang.id, cabang.nama, cabang.lokasi, cabang.created_at FROM cabang";
+    $cabang = $this->db->query($query)->result_array();
+
+    $result = [];
+
+    foreach($cabang as $cab) {
+      $query = "SELECT COUNT(*) as total_item FROM katalog WHERE id_cabang = $cab[id]";
+      $produk = $this->db->query($query)->row_array();
+
+      $temp = [
+        "id" => $cab['id'],
+        "nama" => $cab['nama'],
+        "lokasi" => $cab['lokasi'],
+        "created_at" => $cab['created_at'],
+        "total_item" => $produk["total_item"]
+      ];
+
+      array_push($result, $temp);
+    }
+
+    return $result;
+  }
+
   public function insert($data) {
     return $this->db->insert("cabang", $data);
   }

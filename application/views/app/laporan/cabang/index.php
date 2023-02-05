@@ -33,24 +33,20 @@
               <th>#</th>
               <th>Nama Cabang</th>
               <th>Lokasi Cabang</th>
-              <th>Item Produk (Qty)</th>
+              <th>Total Produk</th>
               <th>Tanggal Registrasi</th>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>ABCD Adventure</td>
-                <td>Yogyakarta</td>
-                <td>20</td>
-                <td>25 Desember 2022</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Merapi Adventure</td>
-                <td>Yogyakarta</td>
-                <td>10</td>
-                <td>15 Desember 2022</td>
-              </tr>
+              <?php $nomor = 1; ?>
+              <?php foreach($cabang as $data): ?>
+                <tr>
+                  <td><?= $nomor++ ?></td>
+                  <td><?= $data['nama'] ?></td>
+                  <td><?= $data['lokasi'] ?></td>
+                  <td><?= $data['total_item'] ?></td>
+                  <td><?= date("d M Y", strtotime($data['created_at'])) ?></td>
+                </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>

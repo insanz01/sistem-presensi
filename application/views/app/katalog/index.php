@@ -25,7 +25,7 @@
         <div class="col-12 mb-3">
           <form id="myForm" action="<?= base_url("katalog") ?>" method="post">
             <div class="form-group">
-              <select name="filter_katalog" id="filter_katalog" class="form-control" onchange="showKatalog(this)">
+              <select name="filter_cabang" id="filter_cabang" class="form-control" onchange="showKatalog(this)">
                 <?php foreach($cabang as $data): ?>
                   <option value="<?= $data['id'] ?>"><?= $data['nama'] ?></option>
                 <?php endforeach; ?>

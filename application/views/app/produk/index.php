@@ -31,6 +31,7 @@
               <th>#</th>
               <th>Nama Produk</th>
               <th>Harga</th>
+              <th>Merk</th>
               <th>Detail</th>
               <th>File</th>
               <th>Aksi</th>
@@ -42,6 +43,7 @@
                 <td><?= $nomor++ ?></td>
                 <td><?= $data['nama'] ?></td>
                 <td><?= $data['harga'] ?></td>
+                <td><?= $data['merk'] ?></td>
                 <td><?= $data['detail'] ?></td>
                 <td>
                   <img src="<?= base_url("uploads/image/") . $data['foto'] ?>" width="200px">

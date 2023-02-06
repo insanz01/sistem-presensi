@@ -65,7 +65,7 @@
                   <td><?= $data['jumlah'] ?></td>
                   <td>
                     <a href="<?= base_url("katalog/edit/") . $data['id'] ?>" class="badge badge-info badge-sm">edit</a>
-                    <a href="#!" class="badge badge-danger badge-sm">hapus</a>
+                    <a href="#!" class="badge badge-danger badge-sm" data-id="<?= $data['id'] ?>" data-toggle="modal" data-target="#hapusModal" onclick="hapusData(this)">hapus</a>
                   </td>
                 </tr>
               <?php endforeach; ?>

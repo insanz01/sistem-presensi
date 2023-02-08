@@ -31,6 +31,7 @@
               <th>#</th>
               <th>Nama Cabang</th>
               <th>Lokasi</th>
+              <th>Nomor WA</th>
               <!-- <th>File</th> -->
               <th>Aksi</th>
             </thead>
@@ -41,6 +42,7 @@
                 <td><?= $nomor++ ?></td>
                 <td><?= $data['nama'] ?></td>
                 <td><?= $data['lokasi'] ?></td>
+                <td><?= $data['nomor_hp'] ?></td>
                 <!-- <td>
                   <a href="<?= base_url("uploads/cabang/") . $data['file'] ?>" download>
                     <i class="fas fa-fw fa-download"></i>

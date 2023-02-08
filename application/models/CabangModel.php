@@ -14,7 +14,7 @@ class CabangModel extends CI_Model {
   }
 
   public function get_all_report() {
-    $query = "SELECT cabang.id, cabang.nama, cabang.lokasi, cabang.created_at FROM cabang";
+    $query = "SELECT cabang.id, cabang.nama, cabang.lokasi, cabang.nomor_hp, cabang.created_at FROM cabang";
     $cabang = $this->db->query($query)->result_array();
 
     $result = [];

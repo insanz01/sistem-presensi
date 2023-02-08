@@ -36,6 +36,11 @@
                   <label for="lokasi">Lokasi Cabang</label>
                   <input type="text" class="form-control" id="lokasi" name="lokasi">
                 </div>
+
+                <div class="form-group">
+                  <label for="nomor_hp">Nomor HP Cabang</label>
+                  <input type="text" class="form-control" id="nomor_hp" name="nomor_hp">
+                </div>
  
                 <!-- <div class="form-group">
                   <label for="file_cabang">File Cabang</label>

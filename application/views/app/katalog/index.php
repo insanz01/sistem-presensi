@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Katalog Cabang</h1>
+          <h1 class="m-0 text-dark">Katalog Cabang <?= $nama_cabang ?></h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <!-- <ol class="breadcrumb float-sm-right">
@@ -23,54 +23,64 @@
     <div class="container">
       <div class="row">
         <div class="col-12 mb-3">
-          <form id="myForm" action="<?= base_url("katalog") ?>" method="post">
-            <div class="form-group">
-              <select name="filter_cabang" id="filter_cabang" class="form-control" onchange="showKatalog(this)">
-                <?php foreach($cabang as $data): ?>
-                  <option value="<?= $data['id'] ?>" <?= ($id_cabang == $data['id']) ? 'selected' : '' ?>><?= $data['nama'] ?></option>
-                <?php endforeach; ?>
-              </select>
+          <div class="card">
+            <div class="card-body">
+              <form id="myForm" action="<?= base_url("katalog") ?>" method="post">
+                <div class="form-group">
+                  <select name="filter_cabang" id="filter_cabang" class="form-control" onchange="showKatalog(this)">
+                    <?php foreach($cabang as $data): ?>
+                      <option value="<?= $data['id'] ?>" <?= ($id_cabang == $data['id']) ? 'selected' : '' ?>><?= $data['nama'] ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
           <script>
             const showKatalog = () => {
               document.getElementById('myForm').submit()
             }
           </script>
-          <div class="form-group">
-            <a href="<?= base_url("katalog/add") ?>" class="btn btn-primary float-right">TAMBAH DATA</a>
-          </div>
         </div>
         <div class="col-12">
-          <table class="table table-print">
-            <thead>
-              <th>#</th>
-              <th>Nama Produk</th>
-              <th>Foto Produk</th>
-              <th>Nama Cabang</th>
-              <th>Jumlah Item</th>
-              <!-- <th>File</th> -->
-              <th>Aksi</th>
-            </thead>
-            <tbody>
-              <?php $nomor = 1; ?>
-              <?php foreach($katalog as $data): ?>
-                <tr>
-                  <td><?= $nomor++ ?></td>
-                  <td><?= $data['nama_produk'] ?></td>
-                  <td>
-                    <img src="<?= base_url("uploads/image/") . $data['foto_produk'] ?>" alt="Tidak ada gambar" width="200px">
-                  </td>
-                  <td><?= $data['nama_cabang'] ?></td>
-                  <td><?= $data['jumlah'] ?></td>
-                  <td>
-                    <a href="<?= base_url("katalog/edit/") . $data['id'] ?>" class="badge badge-info badge-sm">edit</a>
-                    <a href="#!" class="badge badge-danger badge-sm" data-id="<?= $data['id'] ?>" data-toggle="modal" data-target="#hapusModal" onclick="hapusData(this)">hapus</a>
-                  </td>
-                </tr>
-              <?php endforeach; ?>
-            </tbody>
-          </table>
+          <div class="card">
+            <div class="card-header">
+              <div class="form-group">
+                <a href="<?= base_url("katalog/add") ?>" class="btn btn-primary float-right">TAMBAH DATA</a>
+              </div>
+            </div>
+            <div class="card-body">
+              <table class="table table-print">
+                <thead>
+                  <th>#</th>
+                  <th>Nama Produk</th>
+                  <th>Foto Produk</th>
+                  <th>Nama Cabang</th>
+                  <th>Jumlah Item</th>
+                  <!-- <th>File</th> -->
+                  <th>Aksi</th>
+                </thead>
+                <tbody>
+                  <?php $nomor = 1; ?>
+                  <?php foreach($katalog as $data): ?>
+                    <tr>
+                      <td><?= $nomor++ ?></td>
+                      <td><?= $data['nama_produk'] ?></td>
+                      <td>
+                        <img src="<?= base_url("uploads/image/") . $data['foto_produk'] ?>" alt="Tidak ada gambar" width="200px">
+                      </td>
+                      <td><?= $data['nama_cabang'] ?></td>
+                      <td><?= $data['jumlah'] ?></td>
+                      <td>
+                        <a href="<?= base_url("katalog/edit/") . $data['id'] ?>" class="badge badge-info badge-sm">edit</a>
+                        <a href="#!" class="badge badge-danger badge-sm" data-id="<?= $data['id'] ?>" data-toggle="modal" data-target="#hapusModal" onclick="hapusData(this)">hapus</a>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>

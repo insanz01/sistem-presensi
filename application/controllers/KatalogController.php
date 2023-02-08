@@ -20,6 +20,7 @@ class KatalogController extends CI_Controller
   {
     $data['cabang'] = $this->cabang_m->get_all();
     $id_cabang = null;
+    $nama_cabang = "";
     $data['katalog'] = NULL;
 
     $filter_cabang = $this->input->post('filter_cabang');
@@ -34,7 +35,13 @@ class KatalogController extends CI_Controller
       $this->session->set_userdata("filter_cabang", $data["cabang"][0]['id']);
     }
 
+    if($id_cabang != null) {
+      $cabang = $this->cabang_m->get_single($id_cabang);
+      $nama_cabang = $cabang['nama'];
+    }
+
     $data['id_cabang'] = $id_cabang;
+    $data['nama_cabang'] = $nama_cabang;
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');

@@ -82,4 +82,9 @@ $route['laporan/cabang'] = "LaporanController/cabang";
 $route['laporan/katalog'] = "LaporanController/katalog";
 
 $route["transaksi/pinjam"] = "TransaksiController/pinjam";
+$route["transaksi/pinjam/check_produk"] = "TransaksiController/check_produk_pinjam";
+$route["transaksi/do_pinjam"] = "TransaksiController/do_pinjam";
+
 $route["transaksi/kembali"] = "TransaksiController/kembali";
+$route["transaksi/kembali/check_produk"] = "TransaksiController/check_produk_kembali";
+$route["transaksi/do_kembali"] = "TransaksiController/do_kembali";

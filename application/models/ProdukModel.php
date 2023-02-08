@@ -3,6 +3,8 @@
 class ProdukModel extends CI_Model {
   public function __construct() {
     parent::__construct();
+
+    $this->load->helper('string');
   }
 
   public function get_all() {
@@ -14,7 +16,10 @@ class ProdukModel extends CI_Model {
   }
 
   public function insert($data) {
-    return $this->db->insert("produk", $data);
+    $data['kode_produk'] = random_string("alnum", 7);
+    
+    $this->db->insert("produk", $data);
+    return $this->db->insert_id();
   }
 
   public function update($data, $id) {
@@ -27,5 +32,9 @@ class ProdukModel extends CI_Model {
 
   public function delete($id) {
     return $this->db->delete("produk", ["id" => $id]);
+  }
+
+  public function insert_gambar($data) {
+    return $this->db->insert("foto_produk", $data);
   }
 }

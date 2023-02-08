@@ -48,8 +48,14 @@
                 </div>
  
                 <div class="form-group">
-                  <label for="foto">Foto Produk</label>
+                  <label for="foto">Foto Produk [Thumbnail]</label>
                   <input type="file" class="form-control" id="foto" name="foto">
+                </div>
+
+                <div class="form-group">
+                  <label for="gambar">Gambar Produk [Galeri]</label>
+                  <input type="file" class="form-control" id="gambar" name="gambar[]" multiple="">
+                  <small>Pada bagian ini, anda dapat menambahkan lebih dari 1 gambar</small>
                 </div>
 
                 <div class="form-group">

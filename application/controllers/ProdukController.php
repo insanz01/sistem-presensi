@@ -41,6 +41,7 @@ class ProdukController extends CI_Controller
     // $config['max_size']             = 100;
     // $config['max_width']            = 1024;
     // $config['max_height']           = 768;
+    $count = count($_FILES['gambar']['name']);
 
     $this->load->library('upload', $config);
 
@@ -57,10 +58,45 @@ class ProdukController extends CI_Controller
       $data['foto'] = $uploadData['upload_data']['file_name'];
     }
 
-    if($this->produk_m->insert($data)) {
+    $id_produk = $this->produk_m->insert($data);
+
+    if($id_produk) {
       $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil menambahkan data</div>");
     } else {
       $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal menambahkan data</div>");
+    }
+
+    for($i=0;$i<$count;$i++){
+    
+      if(!empty($_FILES['gambar']['name'][$i])){
+  
+        $_FILES['file']['name'] = $_FILES['gambar']['name'][$i];
+        $_FILES['file']['type'] = $_FILES['gambar']['type'][$i];
+        $_FILES['file']['tmp_name'] = $_FILES['gambar']['tmp_name'][$i];
+        $_FILES['file']['error'] = $_FILES['gambar']['error'][$i];
+        $_FILES['file']['size'] = $_FILES['gambar']['size'][$i];
+
+        $config['upload_path'] = 'uploads/'; 
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['max_size'] = '5000';
+        $config['file_name'] = $_FILES['gambar']['name'][$i];
+ 
+        $this->load->library('upload',$config); 
+  
+        if($this->upload->do_upload('gambar')){
+          $uploadData = $this->upload->data();
+          $filename = $uploadData['file_name'];
+
+          $data_gambar = [
+            'url_gambar' => $filename,
+            'id_produk' => $id_produk
+          ];
+ 
+          // $data['totalFiles'][] = $filename;
+          $this->produk_m->insert_gambar($data_gambar);
+        }
+      }
+ 
     }
 
     redirect('produk');

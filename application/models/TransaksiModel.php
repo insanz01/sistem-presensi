@@ -12,7 +12,7 @@ class TransaksiModel extends CI_Model {
   }
 
   public function get_produk_kembali_by_KTP($NIP_penyewa) {
-    $query = "SELECT sewa_keluar.id as id_sewa, produk.id as id_produk, produk.nama, produk.detail, produk.merk, produk.harga, sewa_keluar.NIP_penyewa, sewa_keluar.nama_penyewa, sewa_keluar.jumlah, sewa_keluar.created_at as tanggal_sewa FROM sewa_keluar JOIN produk ON sewa_keluar.id_produk = produk.id WHERE sewa_keluar.NIP_penyewa = '$NIP_penyewa'";
+    $query = "SELECT sewa_keluar.id as id_sewa, produk.id as id_produk, produk.nama, produk.detail, produk.merk, produk.harga, sewa_keluar.NIP_penyewa, sewa_keluar.nama_penyewa, sewa_keluar.jumlah, sewa_keluar.created_at as tanggal_sewa FROM sewa_keluar JOIN produk ON sewa_keluar.id_produk = produk.id WHERE sewa_keluar.NIP_penyewa = '$NIP_penyewa' WHERE sewa_keluar.id not in (SELECT id_sewa_keluar FROM sewa_masuk)";
 
     return $this->db->query($query)->result_array();
   }
@@ -43,7 +43,7 @@ class TransaksiModel extends CI_Model {
           $data_pinjam = [
             'id_sewa_keluar' => $pinjam['id']
           ];
-          
+
           $this->db->insert("sewa_masuk", $data_pinjam);
         }
       }

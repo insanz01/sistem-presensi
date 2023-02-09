@@ -27,10 +27,11 @@
             <div class="card-body">
               <?php if($produk): ?>
                 <h3><?= $produk['nama'] ?></h3>
+                <hr>
                 <p><?= $produk['detail'] ?></p>
                 <p>Ketersediaan : <span class="font-weight-bold"><?= $produk['jumlah'] ?></span></p>
                 <?php if($produk['jumlah'] > 0): ?>
-                  <a href="#!" class="btn btn-success">Booking Produk</a>
+                  <a href="#!" class="btn btn-success" data-toggle="modal" data-target="#pinjamModal" data-id="<?= $produk['id'] ?>" onclick="pilihProduk(this)">Booking Produk</a>
                 <?php else: ?>
                   <a href="#!" class="btn btn-danger disabled">TIDAK TERSEDIA</a>
                 <?php endif; ?>
@@ -61,3 +62,46 @@
     </div>
   </section>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="pinjamModal" tabindex="-1" aria-labelledby="pinjamModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="pinjamModalLabel">Sewa Item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="<?= base_url("transaksi/do_keluar") ?>" method="post">
+        <div class="modal-body">
+          <input type="hidden" id="id_produk-sewa" name="id_produk">
+          <div class="form-group">
+            <label for="KTP_penyewa">KTP Penyewa</label>
+            <input type="text" class="form-control" name="KTP_penyewa" id="KTP_penyewa">
+          </div>
+          <div class="form-group">
+            <label for="nama_penyewa">Nama Penyewa</label>
+            <input type="text" class="form-control" name="nama_penyewa" id="nama_penyewa">
+          </div>
+          <div class="form-group">
+            <label for="jumlah">Jumlah Item</label>
+            <input type="number" min="1" class="form-control" name="jumlah" id="jumlah" value="1" max="<?= $produk['jumlah'] ?>">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Sewa Item</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const pilihProduk = (target) => {
+    const id = target.getAttribute('data-id');
+
+    document.getElementById("id_produk-sewa").value = id;
+  }
+</script>

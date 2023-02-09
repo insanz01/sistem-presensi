@@ -42,7 +42,7 @@ class TransaksiController extends CI_Controller {
   }
 
   public function kembali() {
-    $data['produk'] = null;
+    $data['produk'] = [];
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
@@ -52,9 +52,10 @@ class TransaksiController extends CI_Controller {
   }
 
   public function check_produk_kembali() {
-    $kode_produk = $this->input->post("kode_produk");
+    $KTP_penyewa = $this->input->post("KTP_penyewa");
 
-    $data['produk'] = $this->transaksi_m->get_produk_kembali_by_code($kode_produk);
+    $data['produk'] = $this->transaksi_m->get_produk_kembali_by_KTP($KTP_penyewa);
+    $data['KTP_penyewa'] = $KTP_penyewa;
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');

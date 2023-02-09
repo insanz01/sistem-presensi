@@ -36,7 +36,7 @@ class TransaksiModel extends CI_Model {
     $produk_pinjam = $this->db->query($query)->result_array();
 
     foreach($produk_pinjam as $pinjam) {
-      $kembali_exist = $this->db->get_where("sewa_masuk", ["id_sewa_keluar", $pinjam['id']])->row_array();
+      $kembali_exist = $this->db->get_where("sewa_masuk", ["id_sewa_keluar" => $pinjam['id']])->row_array();
 
       if(!$kembali_exist) {
         if($this->update_stok_kembali($pinjam['id_produk'], $pinjam['jumlah'])) {
@@ -53,7 +53,7 @@ class TransaksiModel extends CI_Model {
   }
 
   public function update_stok_keluar($id_produk, $jumlah) {
-    $produk_katalog = $this->db->get_where("katalog", ["id_produk", $id_produk])->row_array();
+    $produk_katalog = $this->db->get_where("katalog", ["id_produk" => $id_produk])->row_array();
 
     $update_stok = $produk_katalog - $jumlah;
     if($update_stok < 0) {
@@ -68,7 +68,7 @@ class TransaksiModel extends CI_Model {
   }
 
   public function update_stok_kembali($id_produk, $jumlah) {
-    $produk_katalog = $this->db->get_where("katalog", ["id_produk", $id_produk])->row_array();
+    $produk_katalog = $this->db->get_where("katalog", ["id_produk" => $id_produk])->row_array();
 
     $update_stok = $produk_katalog + $jumlah;
 

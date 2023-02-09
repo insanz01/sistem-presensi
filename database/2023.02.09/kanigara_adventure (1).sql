@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Feb 2023 pada 18.09
+-- Waktu pembuatan: 09 Feb 2023 pada 01.54
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -147,7 +147,7 @@ CREATE TABLE `sewa_keluar` (
   `id` int(11) NOT NULL,
   `id_produk` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL,
-  `NIP_penyewa` varchar(20) NOT NULL,
+  `KTP_penyewa` varchar(20) NOT NULL,
   `nama_penyewa` varchar(60) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()

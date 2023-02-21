@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Feb 2023 pada 03.09
+-- Waktu pembuatan: 21 Feb 2023 pada 16.08
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -18,19 +18,22 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `kanigara_adventure`
+-- Database: `presensi_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cabang`
+-- Struktur dari tabel `karyawan`
 --
 
-CREATE TABLE `cabang` (
+CREATE TABLE `karyawan` (
   `id` int(11) NOT NULL,
+  `NIK` varchar(30) NOT NULL,
   `nama` varchar(100) NOT NULL,
-  `lokasi` text NOT NULL,
+  `tipe_karyawan` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `nomor_hp` varchar(20) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -38,14 +41,17 @@ CREATE TABLE `cabang` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `katalog`
+-- Struktur dari tabel `lembur`
 --
 
-CREATE TABLE `katalog` (
+CREATE TABLE `lembur` (
   `id` int(11) NOT NULL,
-  `id_produk` int(11) NOT NULL,
-  `id_cabang` int(11) NOT NULL,
-  `jumlah` int(11) NOT NULL,
+  `id_karyawan` int(11) NOT NULL,
+  `tanggal_lembur` date NOT NULL,
+  `durasi` int(11) NOT NULL,
+  `jam_mulai` time NOT NULL,
+  `jam_selesai` time NOT NULL,
+  `status` int(11) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -53,75 +59,65 @@ CREATE TABLE `katalog` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Struktur dari tabel `presensi`
 --
 
-CREATE TABLE `produk` (
+CREATE TABLE `presensi` (
   `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `harga` int(11) NOT NULL,
+  `id_karyawan` int(11) NOT NULL,
+  `terlambat` tinyint(1) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime NOT NULL DEFAULT current_timestamp()
+  `deleted_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role_user`
+-- Struktur dari tabel `tipe_karyawan`
 --
 
-CREATE TABLE `role_user` (
+CREATE TABLE `tipe_karyawan` (
   `id` int(11) NOT NULL,
-  `nama` varchar(30) NOT NULL,
+  `nama` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Struktur dari tabel `users`
+-- Dumping data untuk tabel `tipe_karyawan`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `role_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `tipe_karyawan` (`id`, `nama`, `created_at`, `updated_at`) VALUES
+(1, 'Pegawai Negeri Sipil', '2023-02-20 19:16:25', '2023-02-20 19:16:25'),
+(2, 'Honorer', '2023-02-20 19:16:25', '2023-02-20 19:16:25'),
+(3, 'Magang', '2023-02-20 19:16:25', '2023-02-20 19:16:25');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `cabang`
+-- Indeks untuk tabel `karyawan`
 --
-ALTER TABLE `cabang`
+ALTER TABLE `karyawan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `katalog`
+-- Indeks untuk tabel `lembur`
 --
-ALTER TABLE `katalog`
+ALTER TABLE `lembur`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `produk`
+-- Indeks untuk tabel `presensi`
 --
-ALTER TABLE `produk`
+ALTER TABLE `presensi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `role_user`
+-- Indeks untuk tabel `tipe_karyawan`
 --
-ALTER TABLE `role_user`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `users`
---
-ALTER TABLE `users`
+ALTER TABLE `tipe_karyawan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -129,34 +125,28 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `cabang`
+-- AUTO_INCREMENT untuk tabel `karyawan`
 --
-ALTER TABLE `cabang`
+ALTER TABLE `karyawan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `katalog`
+-- AUTO_INCREMENT untuk tabel `lembur`
 --
-ALTER TABLE `katalog`
+ALTER TABLE `lembur`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `produk`
+-- AUTO_INCREMENT untuk tabel `presensi`
 --
-ALTER TABLE `produk`
+ALTER TABLE `presensi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `role_user`
+-- AUTO_INCREMENT untuk tabel `tipe_karyawan`
 --
-ALTER TABLE `role_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tipe_karyawan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

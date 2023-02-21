@@ -53,38 +53,26 @@ $route['default_controller'] = 'AppController/index';
 $route['404_override'] = 'ErrorController/not_found';
 $route['translate_uri_dashes'] = FALSE;
 
-// CABANG
-$route['cabang'] = "CabangController/index";
-$route['cabang/add'] = "CabangController/add";
-$route['cabang/do_add'] = "CabangController/do_add";
-$route['cabang/edit/(:any)'] = "CabangController/edit/$1";
-$route['cabang/do_edit/(:any)'] = "CabangController/do_edit/$1";
-$route['cabang/delete'] = "CabangController/delete";
+// KARYAWAN
+$route['karyawan'] = "KaryawanController/index";
+$route['karyawan/add'] = "KaryawanController/add";
+$route['karyawan/do_add'] = "KaryawanController/do_add";
+$route['karyawan/edit/(:any)'] = "KaryawanController/edit/$1";
+$route['karyawan/do_edit/(:any)'] = "KaryawanController/do_edit/$1";
+$route['karyawan/delete'] = "KaryawanController/delete";
 
-// PRODUK
-$route['produk'] = "ProdukController/index";
-$route['produk/add'] = "ProdukController/add";
-$route['produk/do_add'] = "ProdukController/do_add";
-$route['produk/edit/(:any)'] = "ProdukController/edit/$1";
-$route['produk/do_edit/(:any)'] = "ProdukController/do_edit/$1";
-$route['produk/delete'] = "ProdukController/delete";
+// PRESENSI
+$route['presensi'] = "PresensiController/index";
+$route['presensi/add'] = "PresensiController/add";
+$route['presensi/do_add'] = "PresensiController/do_add";
+$route['presensi/edit/(:any)'] = "PresensiController/edit/$1";
+$route['presensi/do_edit/(:any)'] = "PresensiController/do_edit/$1";
+$route['presensi/delete'] = "PresensiController/delete";
 
-// KATALOG
-$route['katalog'] = "KatalogController/index";
-$route['katalog/add'] = "KatalogController/add";
-$route['katalog/do_add'] = "KatalogController/do_add";
-$route['katalog/edit/(:any)'] = "KatalogController/edit/$1";
-$route['katalog/do_edit/(:any)'] = "KatalogController/do_edit/$1";
-$route['katalog/delete'] = "KatalogController/delete";
-
-$route['laporan/produk'] = "LaporanController/produk";
-$route['laporan/cabang'] = "LaporanController/cabang";
-$route['laporan/katalog'] = "LaporanController/katalog";
-
-$route["transaksi/pinjam"] = "TransaksiController/pinjam";
-$route["transaksi/pinjam/check_produk"] = "TransaksiController/check_produk_pinjam";
-$route["transaksi/do_pinjam"] = "TransaksiController/do_pinjam";
-
-$route["transaksi/kembali"] = "TransaksiController/kembali";
-$route["transaksi/kembali/check_produk"] = "TransaksiController/check_produk_kembali";
-$route["transaksi/do_kembali"] = "TransaksiController/do_kembali";
+// LEMBUR
+$route['lembur'] = "LemburController/index";
+$route['lembur/add'] = "LemburController/add";
+$route['lembur/do_add'] = "LemburController/do_add";
+$route['lembur/edit/(:any)'] = "LemburController/edit/$1";
+$route['lembur/do_edit/(:any)'] = "LemburController/do_edit/$1";
+$route['lembur/delete'] = "LemburController/delete";

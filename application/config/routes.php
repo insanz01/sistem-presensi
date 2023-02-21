@@ -62,17 +62,45 @@ $route['karyawan/do_edit/(:any)'] = "KaryawanController/do_edit/$1";
 $route['karyawan/delete'] = "KaryawanController/delete";
 
 // PRESENSI
-$route['presensi'] = "PresensiController/index";
-$route['presensi/add'] = "PresensiController/add";
-$route['presensi/do_add'] = "PresensiController/do_add";
-$route['presensi/edit/(:any)'] = "PresensiController/edit/$1";
-$route['presensi/do_edit/(:any)'] = "PresensiController/do_edit/$1";
-$route['presensi/delete'] = "PresensiController/delete";
+$route['presensi/pns'] = "PresensiController/index";
+$route['presensi/pns/add'] = "PresensiController/add";
+$route['presensi/pns/do_add'] = "PresensiController/do_add";
+$route['presensi/pns/edit/(:any)'] = "PresensiController/edit/$1";
+$route['presensi/pns/do_edit/(:any)'] = "PresensiController/do_edit/$1";
+$route['presensi/pns/delete'] = "PresensiController/delete";
+
+$route['presensi/honorer'] = "PresensiController/index_honorer";
+$route['presensi/honorer/add'] = "PresensiController/add_honorer";
+$route['presensi/honorer/do_add'] = "PresensiController/do_add_honorer";
+$route['presensi/honorer/edit/(:any)'] = "PresensiController/edit_honorer/$1";
+$route['presensi/honorer/do_edit/(:any)'] = "PresensiController/do_edit_honorer/$1";
+$route['presensi/honorer/delete/(:any)'] = "PresensiController/delete_honorer/$1";
+
+$route['presensi/magang'] = "PresensiController/index_magang";
+$route['presensi/magang/add'] = "PresensiController/add_magang";
+$route['presensi/magang/do_add'] = "PresensiController/do_add_magang";
+$route['presensi/magang/edit/(:any)'] = "PresensiController/edit_magang/$1";
+$route['presensi/magang/do_edit/(:any)'] = "PresensiController/do_edit_magang/$1";
+$route['presensi/magang/delete/(:any)'] = "PresensiController/delete_magang/$1";
 
 // LEMBUR
-$route['lembur'] = "LemburController/index";
-$route['lembur/add'] = "LemburController/add";
-$route['lembur/do_add'] = "LemburController/do_add";
-$route['lembur/edit/(:any)'] = "LemburController/edit/$1";
-$route['lembur/do_edit/(:any)'] = "LemburController/do_edit/$1";
-$route['lembur/delete'] = "LemburController/delete";
+$route['lembur/pns'] = "LemburController/index";
+$route['lembur/pns/add'] = "LemburController/add";
+$route['lembur/pns/do_add'] = "LemburController/do_add";
+$route['lembur/pns/edit/(:any)'] = "LemburController/edit/$1";
+$route['lembur/pns/do_edit/(:any)'] = "LemburController/do_edit/$1";
+$route['lembur/pns/delete'] = "LemburController/delete";
+
+$route['lembur/honorer'] = "LemburController/index_honorer";
+$route['lembur/honorer/add'] = "LemburController/add_honorer";
+$route['lembur/honorer/do_add'] = "LemburController/do_add_honorer";
+$route['lembur/honorer/edit/(:any)'] = "LemburController/edit_honorer/$1";
+$route['lembur/honorer/do_edit_honorer/(:any)'] = "LemburController/do_edit/$1";
+$route['lembur/honorer/delete'] = "LemburController/delete_honorer";
+
+$route['lembur/magang'] = "LemburController/index_magang";
+$route['lembur/magang/add'] = "LemburController/add_magang";
+$route['lembur/magang/do_add'] = "LemburController/do_add_magang";
+$route['lembur/magang/edit/(:any)'] = "LemburController/edit_magang/$1";
+$route['lembur/magang/do_edit_magang/(:any)'] = "LemburController/do_edit/$1";
+$route['lembur/magang/delete'] = "LemburController/delete_magang";

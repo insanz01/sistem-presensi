@@ -31,7 +31,7 @@
                     <th>#</th>
                     <th>NIK</th>
                     <th>Nama Karyawan</th>
-                    <th>Telat</th>
+                    <th>Terlambat</th>
                     <th>Jam Masuk</th>
                   </tr>
                 </thead>
@@ -42,7 +42,7 @@
                     <td><?= $nomor++ ?></td>
                     <td><?= $data['NIK'] ?></td>
                     <td><?= $data['nama'] ?></td>
-                    <td><?= $data['telat'] ?></td>
+                    <td><?= $data['terlambat'] ?></td>
                     <td><?= $data['created_at'] ?></td>
                   </tr>
                   <?php endforeach; ?>

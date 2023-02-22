@@ -8,10 +8,12 @@ class KaryawanController extends CI_Controller {
   }
 
   public function index() {
+    $data['karyawan'] = $this->karyawan_m->get_all();
+
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');
-    $this->load->view('app/karyawan/index');
+    $this->load->view('app/karyawan/index', $data);
     $this->load->view('templates/panel/footer');
   }
 

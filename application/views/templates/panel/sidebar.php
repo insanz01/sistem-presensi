@@ -107,12 +107,6 @@
                   <p>Lembur Honorer</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="<?= base_url('lembur/magang') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon ml-3"></i>
-                  <p>Lembur Magang</p>
-                </a>
-              </li>
             </ul>
           </li>
 

@@ -111,3 +111,5 @@ $route['lembur/magang/do_add'] = "LemburController/do_add_magang";
 $route['lembur/magang/edit/(:any)'] = "LemburController/edit_magang/$1";
 $route['lembur/magang/do_edit_magang/(:any)'] = "LemburController/do_edit/$1";
 $route['lembur/magang/delete'] = "LemburController/delete_magang";
+
+$route['lembur/status/(:any)/(:any)'] = "LemburController/status/$1/$2";

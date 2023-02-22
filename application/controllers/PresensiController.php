@@ -9,7 +9,7 @@ class PresensiController extends CI_Controller {
 
   // PNS
   public function index() {
-    $data['presensi'] = $this->presensi_m->get_all();
+    $data['presensi'] = $this->presensi_m->get_all('pns');
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
@@ -72,10 +72,12 @@ class PresensiController extends CI_Controller {
 
   // Honorer
   public function index_honorer() {
+    $data['presensi'] = $this->presensi_m->get_all('honorer');
+
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');
-    $this->load->view('app/presensi/honorer/index');
+    $this->load->view('app/presensi/honorer/index', $data);
     $this->load->view('templates/panel/footer');
   }
 
@@ -133,10 +135,12 @@ class PresensiController extends CI_Controller {
 
   // Magang
   public function index_magang() {
+    $data['presensi'] = $this->presensi_m->get_all('magang');
+
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');
-    $this->load->view('app/presensi/magang/index');
+    $this->load->view('app/presensi/magang/index', $data);
     $this->load->view('templates/panel/footer');
   }
 

@@ -11,7 +11,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Presensi</h1>
+          <h1 class="m-0 text-dark">Ajukan Presensi</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <!-- <ol class="breadcrumb float-sm-right">
@@ -31,15 +31,26 @@
         <div class="col-7 mx-auto">
           <div class="card">
             <div class="card-body">
-              <form action="<?= base_url("na/do_presensi") ?>" method="post">
-                <h3>Presensi</h3>
+              <form action="<?= base_url("na/do_ajukan_presensi") ?>" method="post">
                 <div class="form-group">
-                  <label for="presensi">Masukan NIP Anda</label>
-                  <input type="text" class="form-control" name="NIP">
+                  <label for="tanggal_lembur">Tanggal Lembur</label>
+                  <input type="date" class="form-control" name="tanggal_lembur">
+                </div>
+                <div class="form-group">
+                  <label for="durasi">Durasi</label>
+                  <input type="number" class="form-control" min="0" name="durasi">
+                </div>
+                <div class="form-group">
+                  <label for="jam_mulai">Jam Mulai</label>
+                  <input type="time" class="form-control" name="jam_mulai">
+                </div>
+                <div class="form-group">
+                  <label for="jam_selesai">Jam Selesai</label>
+                  <input type="time" class="form-control" name="jam_selesai">
                 </div>
 
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-block">PRESENSI</button>
+                  <button type="submit" class="btn btn-primary btn-block">AJUKAN LEMBUR</button>
                 </div>
               </form>
             </div>

@@ -31,7 +31,7 @@
         <div class="col-7 mx-auto">
           <div class="card">
             <div class="card-body">
-              <form action="<?= base_url("na/do_ajukan_presensi") ?>" method="post">
+              <form action="<?= base_url("na/do_ajukan_lembur") ?>" method="post">
                 <div class="form-group">
                   <label for="tanggal_lembur">Tanggal Lembur</label>
                   <input type="date" class="form-control" name="tanggal_lembur">

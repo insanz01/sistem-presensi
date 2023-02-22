@@ -23,7 +23,7 @@ class NonAdminController extends CI_Controller {
     $terlambat = $this->non_admin_m->check_keterlambatan();
 
     $data = [
-      'id_karyawan' => $karyawan['id_karyawan'],
+      'id_karyawan' => $karyawan['id'],
       'terlambat' => $terlambat
     ];
 

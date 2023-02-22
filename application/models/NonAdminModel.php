@@ -12,7 +12,7 @@ class NonAdminModel extends CI_Model {
   public function check_keterlambatan() {
     $current_time = date("H:i:s", time());
     
-    $query = `SELECT "$current_time" < "08:00:00" AND "$current_time" > "07:00:00" as on_time;`;
+    $query = "SELECT '$current_time' < '08:00:00' AND '$current_time' > '07:00:00' as on_time";
     $waktu = $this->db->query($query)->row_array();
 
     return !$waktu['on_time'];

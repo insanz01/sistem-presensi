@@ -51,9 +51,9 @@ class NonAdminController extends CI_Controller {
     $data['id_karyawan'] = $karyawan['id'];
 
     if($this->non_admin_m->ajukan_lembur($data)) {
-      $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil Presensi</div>");
+      $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil Mengajukan Lembur</div>");
     } else {
-      $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal Presensi</div>");
+      $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal Mengajukan Lembur</div>");
     }
 
     redirect('na/ajukan_lembur');

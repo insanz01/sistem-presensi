@@ -39,7 +39,7 @@
                 </thead>
                 <tbody>
                   <?php $nomor = 1; ?>
-                  <?php foreach($presensi as $data): ?>
+                  <?php foreach($lembur as $data): ?>
                   <tr>
                     <td><?= $nomor++ ?></td>
                     <td><?= $data['NIK'] ?></td>

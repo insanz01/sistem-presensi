@@ -5,8 +5,18 @@ class LemburModel extends CI_Model {
     parent::__construct();
   }
 
-  public function get_all() {
-    return $this->db->get("lembur")->result_array();
+  private $map_karyawan = [
+    "pns" => 1,
+    "honorer" => 2,
+    "magang" => 3
+  ];
+
+  public function get_all($tipe_karyawan) {
+    $id_tipe_karyawan = $this->map_karyawan[$tipe_karyawan];
+
+    $query = "SELECT l.id, l.id_karyawan, k.NIP, k.nama, l.tanggal_lembur, l.durasi, l.jam_mulai, l.jam_selesai, l.status FROM lembur l JOIN karyawan k ON l.id_karyawan = k.id WHERE k.tipe_karyawan = $id_tipe_karyawan";
+    
+    return $this->db->query($query)->result_array();
   }
 
   public function get_all_single($id) {

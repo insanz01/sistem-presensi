@@ -5,8 +5,18 @@ class PresensiModel extends CI_Model {
     parent::__construct();
   }
 
-  public function get_all() {
-    return $this->db->get("presensi")->result_array();
+  private $map_karyawan = [
+    "pns" => 1,
+    "honorer" => 2,
+    "magang" => 3
+  ];
+
+  public function get_all($tipe_karyawan) {
+    $id_tipe_karyawan = $this->map_karyawan[$tipe_karyawan];
+
+    $query = "SELECT p.id, p.id_karyawan, k.NIP, k.nama, p.terlambat, p.created_at FROM presensi p JOIN karyawan k ON p.id_karyawan = k.id WHERE k.tipe_karyawan = $id_tipe_karyawan";
+    
+    return $this->db->query($query)->result_array();
   }
 
   public function get_all_single($id) {

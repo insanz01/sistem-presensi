@@ -3,10 +3,14 @@
 class PresensiController extends CI_Controller {
   public function __construct() {
     parent::__construct();
+    
+    $this->load->model("PresensiModel", "presensi_m");
   }
 
   // PNS
   public function index() {
+    $data['presensi'] = $this->presensi_m->get_all();
+
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');

@@ -3,13 +3,17 @@
 class LemburController extends CI_Controller {
   public function __construct() {
     parent::__construct();
+
+    $this->load->model("LemburModel", "lembur_m");
   }
 
   public function index() {
+    $data['lembur'] = $this->lembur_m->get_all('pns');
+
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');
-    $this->load->view('app/lembur/index');
+    $this->load->view('app/lembur/pns/index', $data);
     $this->load->view('templates/panel/footer');
   }
 
@@ -17,7 +21,7 @@ class LemburController extends CI_Controller {
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');
-    $this->load->view('app/lembur/add');
+    $this->load->view('app/lembur/pns/add');
     $this->load->view('templates/panel/footer');
   }
 
@@ -39,7 +43,7 @@ class LemburController extends CI_Controller {
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');
-    $this->load->view('app/lembur/edit', $data);
+    $this->load->view('app/lembur/pns/edit', $data);
     $this->load->view('templates/panel/footer');
   }
 
@@ -67,10 +71,12 @@ class LemburController extends CI_Controller {
 
   // Honorer
   public function index_honorer() {
+    $data['lembur'] = $this->lembur_m->get_all('honorer');
+
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');
-    $this->load->view('app/lembur/honorer/index');
+    $this->load->view('app/lembur/honorer/index', $data);
     $this->load->view('templates/panel/footer');
   }
 
@@ -128,10 +134,12 @@ class LemburController extends CI_Controller {
 
   // Magang
   public function index_magang() {
+    $data['lembur'] = $this->lembur_m->get_all('magang');
+
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');
-    $this->load->view('app/lembur/magang/index');
+    $this->load->view('app/lembur/magang/index', $data);
     $this->load->view('templates/panel/footer');
   }
 

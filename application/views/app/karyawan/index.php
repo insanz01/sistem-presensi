@@ -22,6 +22,9 @@
   <section class="content">
     <div class="container">
       <div class="row">
+        <div class="col-10 mx-auto mb-2">
+          <a href="<?= base_url("karyawan/add") ?>" class="btn btn-primary float-right" role="button">TAMBAH KARYAWAN</a>
+        </div>
         <div class="col-10 mx-auto">
           <div class="card">
             <div class="card-body">
@@ -29,7 +32,7 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>NIK</th>
+                    <th>NIP</th>
                     <th>Nama Karyawan</th>
                     <th>Tipe</th>
                     <th>Email</th>
@@ -41,7 +44,7 @@
                   <?php foreach($karyawan as $data): ?>
                   <tr>
                     <td><?= $nomor++ ?></td>
-                    <td><?= $data['NIK'] ?></td>
+                    <td><?= $data['NIP'] ?></td>
                     <td><?= $data['nama'] ?></td>
                     <td><?= $data['tipe'] ?></td>
                     <td><?= $data['email'] ?></td>

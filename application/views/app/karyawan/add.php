@@ -27,8 +27,8 @@
             <div class="card-body">
               <form action="<?= base_url("karyawan/do_add") ?>" method="post">
                 <div class="form-group">
-                  <label for="NIK">NIK</label>
-                  <input type="text" name="NIK" id="NIK" class="form-control" required>
+                  <label for="NIP">NIP</label>
+                  <input type="text" name="NIP" id="NIP" class="form-control" required>
                 </div>
 
                 <div class="form-group">

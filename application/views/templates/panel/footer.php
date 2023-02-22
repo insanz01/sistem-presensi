@@ -1,6 +1,6 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; <?= date('Y', time()) ?> <a href="https://primbon.com/">Raihan</a>.</strong>
+    <strong>Copyright &copy; <?= date('Y', time()) ?> <a href="https://primbon.com/">Disnakertrans</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> development

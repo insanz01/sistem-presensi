@@ -46,7 +46,9 @@ class NonAdminController extends CI_Controller {
 
   public function do_ajukan_lembur() {
     $data = $this->input->post();
-    $data['id_karyawan'] = $this->session->userdata("SESS_PRESENSI_ROLEID");
+    
+    $karyawan = $this->non_admin_m->get_karyawan_by_NIP($this->session->userdata("SESS_PRESENSI_NIP"));
+    $data['id_karyawan'] = $karyawan['id'];
 
     if($this->non_admin_m->ajukan_lembur($data)) {
       $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil Presensi</div>");

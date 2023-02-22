@@ -13,6 +13,12 @@ class AuthModel extends CI_Model {
 				$this->session->set_flashdata('is_active', false);
 				return false;
 			}
+
+			$karyawan = $this->db->get_where('karyawan', ['id_user' => $user['id']])->row_array();
+
+			if($karyawan) {
+				$this->session->set_userdata("SESS_PRESENSI_NIP", $karyawan['NIP']);
+			}
 			
 			$this->session->set_userdata('SESS_PRESENSI_USERID', $user['id']);
 			$this->session->set_userdata('SESS_PRESENSI_USERNAME', $user['username']);

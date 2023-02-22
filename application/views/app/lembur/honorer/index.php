@@ -50,8 +50,8 @@
                     <td><?= $data['jam_selesai'] ?></td>
                     <td><?= $data['tanggal_lembur'] ?></td>
                     <td>
-                      <a href="<?= base_url("lembur/status/pns/setuju") ?>" class="badge badge-sm badge-success" role="button">Setuju</a>
-                      <a href="<?= base_url("lembur/status/pns/tolak") ?>" class="badge badge-sm badge-danger" role="button">Tolak</a>
+                      <a href="<?= base_url("lembur/status/") . $data['id'] . '/setuju' ?>" class="badge badge-sm badge-success" role="button">Setuju</a>
+                      <a href="<?= base_url("lembur/status/pns/")  . $data['id'] . '/tolak' ?>" class="badge badge-sm badge-danger" role="button">Tolak</a>
                     </td>
                   </tr>
                   <?php endforeach; ?>

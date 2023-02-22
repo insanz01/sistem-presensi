@@ -14,7 +14,7 @@ class PresensiController extends CI_Controller {
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');
-    $this->load->view('app/presensi/pns/index');
+    $this->load->view('app/presensi/pns/index', $data);
     $this->load->view('templates/panel/footer');
   }
 

@@ -39,7 +39,8 @@
           </a>
         </li>
 
-        <li class="nav-item has-treeview">
+        <?php if($this->session->userdata("SESS_PRESENSI_ROLEID") == 1): ?>
+          <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
@@ -109,6 +110,24 @@
               </li>
             </ul>
           </li>
+        <?php else: ?>
+          <li class="nav-item">
+            <a href="<?= base_url("na/presensi") ?>" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                PRESENSI
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url("na/ajukan_lembur") ?>" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                AJUKAN LEMBUR
+              </p>
+            </a>
+          </li>
+        <?php endif; ?>
 
         <!-- <li class="nav-item">
           <a href="<?= base_url('admin/laporan') ?>" target="_blank" class="nav-link">

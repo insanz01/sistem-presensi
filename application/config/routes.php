@@ -115,4 +115,5 @@ $route['lembur/magang/delete'] = "LemburController/delete_magang";
 $route['lembur/status/(:any)/(:any)'] = "LemburController/status/$1/$2";
 
 $route['na/presensi'] = "NonAdminController/presensi";
+$route['na/do_presensi'] = "NonAdminController/do_presensi";
 $route['na/ajukan_lembur'] = "NonAdminController/ajukan_lembur";

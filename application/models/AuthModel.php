@@ -16,6 +16,7 @@ class AuthModel extends CI_Model {
 			
 			$this->session->set_userdata('SESS_PRESENSI_USERID', $user['id']);
 			$this->session->set_userdata('SESS_PRESENSI_USERNAME', $user['username']);
+			$this->session->set_userdata('SESS_PRESENSI_ROLEID', $user['role_id']);
 
 			return true;
 		}

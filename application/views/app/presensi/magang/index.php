@@ -42,7 +42,9 @@
                     <td><?= $nomor++ ?></td>
                     <td><?= $data['NIP'] ?></td>
                     <td><?= $data['nama'] ?></td>
-                    <td><?= $data['terlambat'] ?></td>
+                    <td>
+                      <?= ($data['terlambat']) ? 'Ya' : 'Tidak' ?>
+                    </td>
                     <td><?= $data['created_at'] ?></td>
                   </tr>
                   <?php endforeach; ?>

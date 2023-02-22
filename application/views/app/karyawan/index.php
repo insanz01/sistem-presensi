@@ -49,8 +49,8 @@
                     <td><?= $data['tipe'] ?></td>
                     <td><?= $data['email'] ?></td>
                     <td>
-                      <a href="#!" class="badge badge-info badge-sm badge-pill">edit</a>
-                      <a href="#!" class="badge badge-danger badge-sm badge-pill">hapus</a>
+                      <a href="<?= base_url("karyawan/edit/") . $data['id'] ?>" class="badge badge-info badge-sm badge-pill">edit</a>
+                      <a href="<?= base_url("karyawan/delete/") . $data['id'] ?>" class="badge badge-danger badge-sm badge-pill">hapus</a>
                     </td>
                   </tr>
                   <?php endforeach; ?>

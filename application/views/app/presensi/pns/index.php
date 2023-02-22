@@ -29,7 +29,7 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>NIK</th>
+                    <th>NIP</th>
                     <th>Nama Karyawan</th>
                     <th>Terlambat</th>
                     <th>Jam Masuk</th>
@@ -40,7 +40,7 @@
                   <?php foreach($presensi as $data): ?>
                   <tr>
                     <td><?= $nomor++ ?></td>
-                    <td><?= $data['NIK'] ?></td>
+                    <td><?= $data['NIP'] ?></td>
                     <td><?= $data['nama'] ?></td>
                     <td><?= $data['terlambat'] ?></td>
                     <td><?= $data['created_at'] ?></td>

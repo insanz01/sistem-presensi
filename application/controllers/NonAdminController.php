@@ -56,6 +56,6 @@ class NonAdminController extends CI_Controller {
       $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal Presensi</div>");
     }
 
-    redirect('na/presensi');
+    redirect('na/ajukan_lembur');
   }
 }

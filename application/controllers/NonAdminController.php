@@ -21,7 +21,7 @@ class NonAdminController extends CI_Controller {
 
   public function do_presensi() {
     $NIP = $this->input->post('NIP');
-    
+
     if($NIP != $this->session->userdata("SESS_PRESENSI_NIP")) {
       $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>NIP tidak valid</div>");
 
@@ -59,7 +59,7 @@ class NonAdminController extends CI_Controller {
 
     if($this->non_admin_m->presensi($data)) {
       if($terlambat) {
-        $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil melakukan presensi, anda terlambat !</div>");
+        $this->session->set_flashdata("pesan", "<div class='alert alert-warning' role='alert'>Berhasil melakukan presensi, tapi anda terlambat !</div>");
       } else {
         $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil Presensi</div>");
       }

@@ -21,8 +21,8 @@ class NonAdminController extends CI_Controller {
 
   public function do_presensi() {
     $NIP = $this->input->post('NIP');
-
-    if($NIP == $this->session->userdata("SESS_PRESENSI_NIP")) {
+    
+    if($NIP != $this->session->userdata("SESS_PRESENSI_NIP")) {
       $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>NIP tidak valid</div>");
 
       redirect("na/presensi");

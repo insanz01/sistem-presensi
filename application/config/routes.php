@@ -69,6 +69,8 @@ $route['karyawan/do_edit/(:any)'] = "KaryawanController/do_edit/$1";
 $route['karyawan/delete'] = "KaryawanController/delete";
 
 // PRESENSI
+$route['presensi'] = "AppController/presensi";
+
 $route['presensi/pns'] = "PresensiController/index";
 $route['presensi/pns/add'] = "PresensiController/add";
 $route['presensi/pns/do_add'] = "PresensiController/do_add";

@@ -229,10 +229,10 @@
         ]
       });
 
-      $('#tabel2').DataTable({
+      $('.tabel2').DataTable({
         "paging": true,
         "lengthChange": false,
-        "searching": false,
+        "searching": true,
         "ordering": true,
         "info": true,
         "autoWidth": false,

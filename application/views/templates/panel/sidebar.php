@@ -67,17 +67,12 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?= base_url('presensi/pns') ?>" class="nav-link">
+                <a href="<?= base_url('presensi') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon ml-3"></i>
-                  <p>Presensi PNS</p>
+                  <p>Presensi Karyawan</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="<?= base_url('presensi/honorer') ?>" class="nav-link">
-                  <i class="far fa-circle nav-icon ml-3"></i>
-                  <p>Presensi Honorer</p>
-                </a>
-              </li>
+              
               <li class="nav-item">
                 <a href="<?= base_url('presensi/magang') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon ml-3"></i>

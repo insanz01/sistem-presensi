@@ -6,6 +6,7 @@ class NonAdminController extends CI_Controller {
 
     $this->load->model("NonAdminModel", "non_admin_m");
     $this->load->model("KategoriModel", "kategori_m");
+    $this->load->model("SettingModel", "setting_m");
   }
 
   public function presensi() {
@@ -26,8 +27,27 @@ class NonAdminController extends CI_Controller {
 
       redirect("na/presensi");
     }
+
+    $jadwal_pns = $this->setting_m->get_jadwal_pns();
+    $jadwal_honorer = $this->setting_m->get_jadwal_honorer();
     
     $karyawan = $this->non_admin_m->get_karyawan_by_NIP($NIP);
+
+    if($karyawan['tipe_karyawan'] == 1) {
+      $current_time = date("H:i:s", time());
+      if($current_time < $jadwal_pns['waktu_mulai_kerja']) {
+        $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Jadwal presensi belum dibuka</div>");
+
+        redirect("na/presensi");
+      }
+    } else {
+      $current_time = date("H:i:s", time());
+      if($current_time < $jadwal_honorer['waktu_mulai_kerja']) {
+        $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Jadwal presensi belum dibuka</div>");
+
+        redirect("na/presensi");
+      }
+    }
 
     $terlambat = $this->non_admin_m->check_keterlambatan();
 

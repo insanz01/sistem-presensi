@@ -32,6 +32,11 @@
                 </div>
 
                 <div class="form-group">
+                  <label for="NIP_PNS">NIP PNS (Optional)</label>
+                  <input type="text" name="NIP_PNS" id="NIP_PNS" class="form-control" value="<?= $karyawan['NIP_PNS'] ?>" placeholder="isi jika seorang PNS">
+                </div>
+
+                <div class="form-group">
                   <label for="nama">Nama Karyawan</label>
                   <input type="text" name="nama" id="nama" class="form-control" value="<?= $karyawan['nama'] ?>" required>
                 </div>

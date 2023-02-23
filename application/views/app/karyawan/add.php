@@ -33,7 +33,7 @@
 
                 <div class="form-group">
                   <label for="NIP_PNS">NIP PNS (Optional)</label>
-                  <input type="text" name="NIP_PNS" id="NIP_PNS" class="form-control" required placeholder="isi jika seorang PNS">
+                  <input type="text" name="NIP_PNS" id="NIP_PNS" class="form-control" placeholder="isi jika seorang PNS">
                 </div>
 
                 <div class="form-group">

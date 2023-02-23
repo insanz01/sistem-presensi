@@ -12,10 +12,16 @@ class NonAdminModel extends CI_Model {
   public function check_keterlambatan() {
     $current_time = date("H:i:s", time());
     
-    $query = "SELECT '$current_time' < '08:00:00' AND '$current_time' > '07:00:00' as on_time";
+    $query = "SELECT '$current_time' < '08:05:00' AND '$current_time' > '07:00:00' as on_time";
     $waktu = $this->db->query($query)->row_array();
 
     return !$waktu['on_time'];
+  }
+
+  public function exists_presensi($data) {
+    $query = "SELECT * FROM presensi WHERE id_karyawan = $data[id_karyawan] AND kategori_presensi = $data[kategori_presensi] AND DATE(created_at) = DATE(now())";
+
+    return $this->db->query($query)->row_array();
   }
 
   public function presensi($data) {

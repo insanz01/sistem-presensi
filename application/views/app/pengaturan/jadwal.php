@@ -41,12 +41,38 @@
                 <div class="form-group">
                   <div class="row">
                     <div class="col-6">
-                      <label for="waktu_mulai_kerja">Jam Presensi Mulai Kerja</label>
-                      <input type="time" class="form-control" name="waktu_mulai_kerja" id="waktu_mulai_kerja" value="<?= date('H:i:s', strtotime($jadwal_pns['waktu_mulai_kerja'])) ?>">
+                      <label for="waktu_awal_mulai_kerja">Jam Awal Presensi Mulai Kerja</label>
+                      <input type="time" class="form-control" name="waktu_awal_mulai_kerja" id="waktu_awal_mulai_kerja" value="<?= date('H:i:s', strtotime($jadwal_pns['waktu_awal_mulai_kerja'])) ?>">
                     </div>
                     <div class="col-6">
-                      <label for="waktu_akhir_kerja">Jam Presensi Pulang Kerja</label>
-                      <input type="time" class="form-control" name="waktu_akhir_kerja" id="waktu_akhir_kerja" value="<?= date('H:i:s', strtotime($jadwal_pns['waktu_akhir_kerja'])) ?>">
+                      <label for="waktu_akhir_mulai_kerja">Jam Akhir Presensi Mulai Kerja</label>
+                      <input type="time" class="form-control" name="waktu_akhir_mulai_kerja" id="waktu_akhir_mulai_kerja" value="<?= date('H:i:s', strtotime($jadwal_pns['waktu_akhir_mulai_kerja'])) ?>">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <label for="waktu_awal_istirahat">Jam Awal Istirahat Kerja</label>
+                      <input type="time" class="form-control" name="waktu_awal_istirahat" id="waktu_awal_istirahat" value="<?= date('H:i:s', strtotime($jadwal_pns['waktu_awal_istirahat'])) ?>">
+                    </div>
+                    <div class="col-6">
+                      <label for="waktu_akhir_istirahat">Jam Akhir Istirahat Kerja</label>
+                      <input type="time" class="form-control" name="waktu_akhir_istirahat" id="waktu_akhir_istirahat" value="<?= date('H:i:s', strtotime($jadwal_pns['waktu_akhir_istirahat'])) ?>">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <label for="waktu_awal_pulang_kerja">Jam Awal Pulang Kerja</label>
+                      <input type="time" class="form-control" name="waktu_awal_pulang_kerja" id="waktu_awal_pulang_kerja" value="<?= date('H:i:s', strtotime($jadwal_pns['waktu_awal_pulang_kerja'])) ?>">
+                    </div>
+                    <div class="col-6">
+                      <label for="waktu_akhir_pulang_kerja">Jam Akhir Pulang Kerja</label>
+                      <input type="time" class="form-control" name="waktu_akhir_pulang_kerja" id="waktu_akhir_pulang_kerja" value="<?= date('H:i:s', strtotime($jadwal_pns['waktu_akhir_pulang_kerja'])) ?>">
                     </div>
                   </div>
                 </div>
@@ -63,19 +89,45 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card mb-4">
             <div class="card-body">
               <form action="<?= base_url("setting/jadwal/honorer") ?>" method="post">
                 <h3>Pengaturan Honorer</h3>
                 <div class="form-group">
                   <div class="row">
                     <div class="col-6">
-                      <label for="waktu_mulai_kerja">Jam Presensi Mulai Kerja</label>
-                      <input type="time" class="form-control" name="waktu_mulai_kerja" id="waktu_mulai_kerja" value="<?= $jadwal_honorer['waktu_mulai_kerja'] ?>">
+                      <label for="waktu_awal_mulai_kerja">Jam Awal Presensi Mulai Kerja</label>
+                      <input type="time" class="form-control" name="waktu_awal_mulai_kerja" id="waktu_awal_mulai_kerja" value="<?= date('H:i:s', strtotime($jadwal_honorer['waktu_awal_mulai_kerja'])) ?>">
                     </div>
                     <div class="col-6">
-                      <label for="waktu_akhir_kerja">Jam Presensi Pulang Kerja</label>
-                      <input type="time" class="form-control" name="waktu_akhir_kerja" id="waktu_akhir_kerja" value="<?= $jadwal_honorer['waktu_akhir_kerja'] ?>">
+                      <label for="waktu_akhir_mulai_kerja">Jam Akhir Presensi Mulai Kerja</label>
+                      <input type="time" class="form-control" name="waktu_akhir_mulai_kerja" id="waktu_akhir_mulai_kerja" value="<?= date('H:i:s', strtotime($jadwal_honorer['waktu_akhir_mulai_kerja'])) ?>">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <label for="waktu_awal_istirahat">Jam Awal Istirahat Kerja</label>
+                      <input type="time" class="form-control" name="waktu_awal_istirahat" id="waktu_awal_istirahat" value="<?= date('H:i:s', strtotime($jadwal_honorer['waktu_awal_istirahat'])) ?>">
+                    </div>
+                    <div class="col-6">
+                      <label for="waktu_akhir_istirahat">Jam Akhir Istirahat Kerja</label>
+                      <input type="time" class="form-control" name="waktu_akhir_istirahat" id="waktu_akhir_istirahat" value="<?= date('H:i:s', strtotime($jadwal_honorer['waktu_akhir_istirahat'])) ?>">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <label for="waktu_awal_pulang_kerja">Jam Awal Pulang Kerja</label>
+                      <input type="time" class="form-control" name="waktu_awal_pulang_kerja" id="waktu_awal_pulang_kerja" value="<?= date('H:i:s', strtotime($jadwal_honorer['waktu_awal_pulang_kerja'])) ?>">
+                    </div>
+                    <div class="col-6">
+                      <label for="waktu_akhir_pulang_kerja">Jam Akhir Pulang Kerja</label>
+                      <input type="time" class="form-control" name="waktu_akhir_pulang_kerja" id="waktu_akhir_pulang_kerja" value="<?= date('H:i:s', strtotime($jadwal_honorer['waktu_akhir_pulang_kerja'])) ?>">
                     </div>
                   </div>
                 </div>

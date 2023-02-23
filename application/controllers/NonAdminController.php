@@ -33,29 +33,62 @@ class NonAdminController extends CI_Controller {
     
     $karyawan = $this->non_admin_m->get_karyawan_by_NIP($NIP);
 
-    if($karyawan['tipe_karyawan'] == 1) {
-      $current_time = date("H:i:s", time());
-      if($current_time < $jadwal_pns['waktu_mulai_kerja']) {
-        $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Jadwal presensi belum dibuka</div>");
+    $kategori_presensi = $this->input->post("kategori_presensi");
 
-        redirect("na/presensi");
+    $terlambat = 0;
+    $current_time = date("H:i:s", time());
+
+    if($karyawan['tipe_karyawan'] == 1) {
+      if($kategori_presensi == 1) {
+        if($current_time < $jadwal_pns['waktu_awal_mulai_kerja']) {
+          $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Jadwal presensi belum dibuka</div>");
+  
+          redirect("na/presensi");
+        }
+  
+        if($current_time > $jadwal_pns['waktu_akhir_mulai_kerja']) {
+          $terlambat = 1;
+        }
+      } else if($kategori_presensi == 2) {
+        if($current_time < $jadwal_pns['waktu_awal_pulang_kerja']) {
+          $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Jadwal presensi pulang belum dibuka</div>");
+  
+          redirect("na/presensi");
+        }
       }
     } else {
-      $current_time = date("H:i:s", time());
-      if($current_time < $jadwal_honorer['waktu_mulai_kerja']) {
-        $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Jadwal presensi belum dibuka</div>");
-
-        redirect("na/presensi");
+      if($kategori_presensi == 1) {
+        if($current_time < $jadwal_honorer['waktu_awal_mulai_kerja']) {
+          $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Jadwal presensi belum dibuka</div>");
+  
+          redirect("na/presensi");
+        }
+  
+        if($current_time > $jadwal_honorer['waktu_akhir_mulai_kerja']) {
+          $terlambat = 1;
+        }
+      } else if($kategori_presensi == 2) {
+        if($current_time < $jadwal_honorer['waktu_awal_pulang_kerja']) {
+          $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Jadwal presensi pulang belum dibuka</div>");
+  
+          redirect("na/presensi");
+        }
       }
     }
 
-    $terlambat = $this->non_admin_m->check_keterlambatan();
+    // $terlambat = $this->non_admin_m->check_keterlambatan();
 
     $data = [
       'id_karyawan' => $karyawan['id'],
       'terlambat' => $terlambat,
-      'kategori_presensi' => $this->input->post("kategori_presensi")
+      'kategori_presensi' => $kategori_presensi
     ];
+
+    if($this->non_admin_m->exists_presensi($data)) {
+      $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Anda sudah melakukan presensi ini</div>");
+
+      redirect('na/presensi');
+    }
 
     if($this->non_admin_m->presensi($data)) {
       if($terlambat) {

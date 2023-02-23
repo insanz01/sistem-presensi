@@ -55,6 +55,26 @@
                   <label for="nomor_hp">Nomor HP</label>
                   <input type="text" name="nomor_hp" id="nomor_hp" class="form-control" value="<?= $karyawan['nomor_hp'] ?>" required>
                 </div>
+
+                <div class="form-group">
+                  <label for="alamat">Alamat</label>
+                  <textarea name="alamat" id="alamat" class="form-control" required cols="30" rows="10"><?= $karyawan["alamat"] ?></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="jabatan">Jabatan</label>
+                  <input type="text" name="jabatan" id="jabatan" class="form-control" value="<?= $karyawan['jabatan'] ?>" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="tempat_lahir">Tempat Lahir</label>
+                  <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control" value="<?= $karyawan['tempat_lahir'] ?>" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="tanggal_lahir">Tanggal Lahir</label>
+                  <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" value="<?= $karyawan['tanggal_lahir'] ?>" required>
+                </div>
                 
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary btn-block">SUBMIT</button>

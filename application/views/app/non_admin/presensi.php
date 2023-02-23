@@ -39,6 +39,18 @@
               <form action="<?= base_url("na/do_presensi") ?>" method="post">
                 <h3>Presensi</h3>
                 <div class="form-group">
+                  <label for="kategori_presensi">Kategori Presensi</label>
+                  <select name="kategori_presensi" id="kategori_presensi" class="form-control">
+                    <option value="">- PILIH -</option>
+                    <?php foreach($kategori_presensi as $kategori): ?>
+                      <option value="<?= $kategori['id'] ?>">
+                        <?= $kategori['nama'] ?>
+                      </option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+
+                <div class="form-group">
                   <label for="presensi">Masukan NIP Anda</label>
                   <input type="text" class="form-control" name="NIP">
                 </div>

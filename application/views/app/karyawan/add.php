@@ -32,6 +32,11 @@
                 </div>
 
                 <div class="form-group">
+                  <label for="NIP_PNS">NIP PNS (Optional)</label>
+                  <input type="text" name="NIP_PNS" id="NIP_PNS" class="form-control" required placeholder="isi jika seorang PNS">
+                </div>
+
+                <div class="form-group">
                   <label for="nama">Nama Karyawan</label>
                   <input type="text" name="nama" id="nama" class="form-control" required>
                 </div>
@@ -54,6 +59,26 @@
                 <div class="form-group">
                   <label for="nomor_hp">Nomor HP</label>
                   <input type="text" name="nomor_hp" id="nomor_hp" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="alamat">Alamat</label>
+                  <textarea name="alamat" id="alamat" class="form-control" required cols="30" rows="10"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="jabatan">Jabatan</label>
+                  <input type="text" name="jabatan" id="jabatan" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="tempat_lahir">Tempat Lahir</label>
+                  <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="tanggal_lahir">Tanggal Lahir</label>
+                  <input type="text" name="tanggal_lahir" id="tanggal_lahir" class="form-control" required>
                 </div>
                 
                 <div class="form-group">

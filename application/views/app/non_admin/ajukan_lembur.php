@@ -42,7 +42,7 @@
                   <input type="date" class="form-control" name="tanggal_lembur">
                 </div>
                 <div class="form-group">
-                  <label for="durasi">Durasi</label>
+                  <label for="durasi">Durasi (jam)</label>
                   <input type="number" class="form-control" min="0" name="durasi">
                 </div>
                 <div class="form-group">

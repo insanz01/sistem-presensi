@@ -5,18 +5,27 @@ class NonAdminController extends CI_Controller {
     parent::__construct();
 
     $this->load->model("NonAdminModel", "non_admin_m");
+    $this->load->model("KategoriModel", "kategori_m");
   }
 
   public function presensi() {
+    $data['kategori_presensi'] = $this->kategori_m->get_all();
+
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');
-    $this->load->view('app/non_admin/presensi');
+    $this->load->view('app/non_admin/presensi', $data);
     $this->load->view('templates/panel/footer');
   }
 
   public function do_presensi() {
     $NIP = $this->input->post('NIP');
+
+    if($NIP == $this->session->userdata("SESS_PRESENSI_NIP")) {
+      $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>NIP tidak valid</div>");
+
+      redirect("na/presensi");
+    }
     
     $karyawan = $this->non_admin_m->get_karyawan_by_NIP($NIP);
 
@@ -24,11 +33,17 @@ class NonAdminController extends CI_Controller {
 
     $data = [
       'id_karyawan' => $karyawan['id'],
-      'terlambat' => $terlambat
+      'terlambat' => $terlambat,
+      'kategori_presensi' => $this->input->post("kategori_presensi")
     ];
 
     if($this->non_admin_m->presensi($data)) {
-      $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil Presensi</div>");
+      if($terlambat) {
+        $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil melakukan presensi, anda terlambat !</div>");
+      } else {
+        $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil Presensi</div>");
+      }
+
     } else {
       $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal Presensi</div>");
     }

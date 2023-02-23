@@ -118,3 +118,7 @@ $route['na/presensi'] = "NonAdminController/presensi";
 $route['na/do_presensi'] = "NonAdminController/do_presensi";
 $route['na/ajukan_lembur'] = "NonAdminController/ajukan_lembur";
 $route['na/do_ajukan_lembur'] = "NonAdminController/do_ajukan_lembur";
+
+$route['setting/jadwal'] = "SettingController/jadwal";
+$route['setting/jadwal/pns'] = "SettingController/jadwal_pns";
+$route['setting/jadwal/honorer'] = "SettingController/jadwal_honorer";

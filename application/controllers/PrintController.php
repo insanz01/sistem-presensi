@@ -35,7 +35,19 @@ class PrintController extends CI_Controller {
     $this->load->view("app/print/presensi", $data);
   }
 
-  public function lembur() {
+  public function lembur_pns() {
+    $lembur = $this->app_m->get_all_lembur_pns();
 
+    $data["all_laporan"] = $lembur;
+    
+    $this->load->view("app/print/lembur", $data);
+  }
+
+  public function lembur_honorer() {
+    $lembur = $this->app_m->get_all_lembur_honorer();
+
+    $data["all_laporan"] = $lembur;
+    
+    $this->load->view("app/print/lembur", $data);
   }
 }

@@ -128,4 +128,5 @@ $route['setting/jadwal/honorer'] = "SettingController/jadwal_honorer";
 $route["print/presensi"] = "PrintController/presensi";
 $route["print/presensi/magang"] = "PrintController/presensi_magang";
 
-$route["print/lembur"] = "PrintController/lembur";
+$route["print/lembur/pns"] = "PrintController/lembur_pns";
+$route["print/lembur/honorer"] = "PrintController/lembur_honorer";

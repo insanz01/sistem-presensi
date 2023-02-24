@@ -21,6 +21,15 @@
   <!-- Main content -->
   <section class="content">
     <div class="container">
+      <form id="lemburForm" action="<?= base_url("lembur/honorer") ?>" method="post">
+        <div class="row mb-2">
+          <div class="col-4"></div>
+          <div class="col-4"></div>
+          <div class="col-4">
+            <a href="<?= base_url("print/lembur/honorer") ?>" class="btn btn-primary float-right" target="_blank">PRINT LAPORAN</a>
+          </div>
+        </div>
+      </form>
       <div class="row">
         <div class="col-12 mx-auto">
           <div class="card">

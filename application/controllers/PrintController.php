@@ -27,7 +27,7 @@ class PrintController extends CI_Controller {
     $presensi = $this->app_m->get_all_presensi_magang();
 
     if($filter) {      
-      $presensi = $this->app_m->get_all_presensi_filter_magang($filter);
+      $presensi = $this->app_m->get_all_presensi_magang_filter($filter);
     }
 
     $data["all_laporan"] = $presensi;

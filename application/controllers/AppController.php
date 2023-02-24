@@ -7,9 +7,9 @@ class AppController extends CI_Controller
   {
     parent::__construct();
 
-    // if(!$this->session->userdata('SESS_SPPD_USERID')) {
-    //   redirect('auth');
-    // }
+    if(!$this->session->userdata('SESS_PRESENSI_USERID')) {
+      redirect('auth');
+    }
 
     $this->load->model('AppModel', 'app_m');
   }

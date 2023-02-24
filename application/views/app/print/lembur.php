@@ -24,7 +24,7 @@
               <div class="col-9">
                 <h3 class="text-center">PEMERINTAH KOTA BANJARMASIN</h3>
                 <h4 class="text-center">DINAS TENAGA KERJA DAN TRANSMIRGRASI</h4>
-                <p class="text-center">Km. 6 No. 23, Tim.,, Jl. A. Yani Km. 6 No. 23, Pemurus Luar Telp 0511-3253680 Kec. Banjarmasin Tim., Kota Banjarmasin, Kalimantan Selatan 70238  Email: disnakertran@kalselprov</p>
+                <p class="text-center">Jl. A. Yani Km. 6 No. 23, Pemurus Luar Telp 0511-3253680 Kec. Banjarmasin Tim., Kota Banjarmasin, Kalimantan Selatan 70238  Email: disnakertran@kalselprov</p>
               </div>
             </div>
             <div class="row">

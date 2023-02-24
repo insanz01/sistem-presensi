@@ -67,7 +67,7 @@
         <div class="col-4"></div>
         <div class="col-4"></div>
         <div class="col-4 text-center">
-            <h6>"YANG BERTANDA TANGAN"</h6>
+            <h6>YANG BERTANDA TANGAN</h6>
             <br><br><br>
             <hr>
         </div>

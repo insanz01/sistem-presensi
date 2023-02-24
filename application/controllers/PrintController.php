@@ -12,7 +12,7 @@ class PrintController extends CI_Controller {
 
     $presensi = $this->app_m->get_all_presensi();
 
-    if($filter) {      
+    if($filter) {
       $presensi = $this->app_m->get_all_presensi_filter($filter);
     }
 
@@ -36,6 +36,6 @@ class PrintController extends CI_Controller {
   }
 
   public function lembur() {
-    
+
   }
 }

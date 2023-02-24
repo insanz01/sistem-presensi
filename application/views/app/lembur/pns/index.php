@@ -22,7 +22,7 @@
   <section class="content">
     <div class="container">
       <div class="row">
-        <div class="col-10 mx-auto">
+        <div class="col-12 mx-auto">
           <div class="card">
             <div class="card-body">
               <table class="table table-hovered table-striped">
@@ -35,7 +35,8 @@
                     <th>Jam Mulai</th>
                     <th>Jam Selesai</th>
                     <th>Tanggal Lembur</th>
-                    <!-- <th>Aksi</th> -->
+                    <th>Status</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -49,10 +50,21 @@
                     <td><?= $data['jam_mulai'] ?></td>
                     <td><?= $data['jam_selesai'] ?></td>
                     <td><?= $data['tanggal_lembur'] ?></td>
-                    <!-- <td>
-                      <a href="<?= base_url("lembur/status/") . $data['id'] . '/setuju/pns' ?>" class="badge badge-sm badge-success" role="button">Setuju</a>
-                      <a href="<?= base_url("lembur/status/")  . $data['id'] . '/tolak/pns' ?>" class="badge badge-sm badge-danger" role="button">Tolak</a>
-                    </td> -->
+                    <td>
+                      <?php if($data['status'] == 1): ?>
+                        diterima
+                      <?php elseif($data['status'] == -1): ?>
+                        ditolak
+                      <?php else: ?>
+                        menunggu
+                      <?php endif; ?>
+                    </td>
+                    <td>
+                      <?php if($data['status'] == 0): ?>
+                        <a href="<?= base_url("lembur/status/") . $data['id'] . '/setuju/pns' ?>" class="badge badge-sm badge-success" role="button">Setuju</a>
+                        <a href="<?= base_url("lembur/status/")  . $data['id'] . '/tolak/pns' ?>" class="badge badge-sm badge-danger" role="button">Tolak</a>
+                      <?php endif; ?>
+                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>

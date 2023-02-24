@@ -37,12 +37,12 @@ class LemburModel extends CI_Model {
   }
 
   private $status_map = [
-    "terima" => 1,
+    "setuju" => 1,
     "tolak" => -1
   ];
 
-  public function update_status($id_lembur, $status) {
-    $this->db->set("status", $status_map[$status]);
+  public function update_status($id_lembur, $status) {    
+    $this->db->set("status", $this->status_map[$status]);
     $this->db->where("id", $id_lembur);
     $this->db->update("lembur");
 

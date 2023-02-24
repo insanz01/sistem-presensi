@@ -195,13 +195,13 @@ class LemburController extends CI_Controller {
     redirect("lembur");
   }
 
-  public function status($id_lembur, $status) {
+  public function status($id_lembur, $status, $path) {
     if($this->lembur_m->update_status($id_lembur, $status)) {
       $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil mengubah status data</div>");
     } else {
       $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal mengubah status data</div>");
     }
 
-    redirect("lembur");
+    redirect("lembur/" . $path);
   }
 }

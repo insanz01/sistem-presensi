@@ -42,7 +42,9 @@
               </select>
             </div>
           </div>
-          <div class="col-4"></div>
+          <div class="col-4">
+            <a href="<?= base_url("print/presensi") ?>" class="btn btn-primary float-right" target="_blank">PRINT LAPORAN</a>
+          </div>
         </div>
       </form>
       <div class="row">

@@ -39,6 +39,8 @@ class AppController extends CI_Controller
         'filter_karyawan' => $filter_karyawan,
         'filter_absen' => $filter_absen
       ];
+
+      $this->session->set_userdata("SESS_PRESENSI_FILTER", $filter);
       
       $presensi = $this->app_m->get_all_presensi_filter($filter);
     }

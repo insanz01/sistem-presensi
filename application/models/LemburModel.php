@@ -36,6 +36,19 @@ class LemburModel extends CI_Model {
     return $this->db->affected_rows();
   }
 
+  private $status_map = [
+    "terima" => 1,
+    "tolak" => -1
+  ];
+
+  public function update_status($id_lembur, $status) {
+    $this->db->set("status", $status_map[$status]);
+    $this->db->where("id", $id_lembur);
+    $this->db->update("lembur");
+
+    return $this->db->affected_rows();
+  }
+
   public function delete($id) {
     return $this->db->delete("lembur", ["id" => $id]);
   }

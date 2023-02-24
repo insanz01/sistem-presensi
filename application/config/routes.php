@@ -114,7 +114,7 @@ $route['lembur/magang/edit/(:any)'] = "LemburController/edit_magang/$1";
 $route['lembur/magang/do_edit_magang/(:any)'] = "LemburController/do_edit/$1";
 $route['lembur/magang/delete'] = "LemburController/delete_magang";
 
-$route['lembur/status/(:any)/(:any)'] = "LemburController/status/$1/$2";
+$route['lembur/status/(:any)/(:any)/(:any)'] = "LemburController/status/$1/$2/$3";
 
 $route['na/presensi'] = "NonAdminController/presensi";
 $route['na/do_presensi'] = "NonAdminController/do_presensi";
@@ -124,3 +124,6 @@ $route['na/do_ajukan_lembur'] = "NonAdminController/do_ajukan_lembur";
 $route['setting/jadwal'] = "SettingController/jadwal";
 $route['setting/jadwal/pns'] = "SettingController/jadwal_pns";
 $route['setting/jadwal/honorer'] = "SettingController/jadwal_honorer";
+
+$route["print/presensi"] = "PrintController/presensi";
+$route["print/lembur"] = "PrintController/lembur";

@@ -78,7 +78,7 @@
 
                 <div class="form-group">
                   <label for="tanggal_lahir">Tanggal Lahir</label>
-                  <input type="text" name="tanggal_lahir" id="tanggal_lahir" class="form-control" required>
+                  <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" required>
                 </div>
                 
                 <div class="form-group">

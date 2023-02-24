@@ -56,8 +56,10 @@
               <td>
                 <?php if($laporan['tipe_karyawan'] == 1): ?>
                   Pegawai Negeri Sipil
-                <?php else: ?>
+                <?php elseif($laporan['tipe_karyawan'] == 2): ?>
                   Honorer
+                <?php else: ?>
+                  Magang
                 <?php endif; ?>
               </td>
               <td>

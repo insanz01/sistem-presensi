@@ -11,10 +11,24 @@ class PresensiModel extends CI_Model {
     "magang" => 3
   ];
 
+  private $map_presensi = [
+    "ontime" => 0,
+    "terlambat" => 1
+  ];
+
   public function get_all($tipe_karyawan) {
     $id_tipe_karyawan = $this->map_karyawan[$tipe_karyawan];
 
     $query = "SELECT p.id, p.id_karyawan, k.NIP, k.nama, p.terlambat, p.created_at FROM presensi p JOIN karyawan k ON p.id_karyawan = k.id WHERE k.tipe_karyawan = $id_tipe_karyawan";
+    
+    return $this->db->query($query)->result_array();
+  }
+
+  public function get_all_filter($tipe_karyawan, $filter) {
+    $id_tipe_karyawan = $this->map_karyawan[$tipe_karyawan];
+    $tipe_presensi = $this->map_presensi[$filter['filter_absen']];
+
+    $query = "SELECT p.id, p.id_karyawan, k.NIP, k.nama, p.terlambat, p.created_at FROM presensi p JOIN karyawan k ON p.id_karyawan = k.id WHERE k.tipe_karyawan = $id_tipe_karyawan AND p.terlambat = $tipe_presensi";
     
     return $this->db->query($query)->result_array();
   }

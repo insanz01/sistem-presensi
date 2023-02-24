@@ -20,6 +20,8 @@ class NonAdminController extends CI_Controller {
   }
 
   public function do_presensi() {
+    date_default_timezone_set('Asia/Jakarta');
+
     $NIP = $this->input->post('NIP');
 
     if($NIP != $this->session->userdata("SESS_PRESENSI_NIP")) {

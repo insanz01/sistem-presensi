@@ -15,7 +15,23 @@ class KaryawanModel extends CI_Model {
     return $this->db->get_where("karyawan", ["id" => $id])->row_array();
   }
 
+  public function register_user($userData) {
+    $this->db->insert("users", $userData);
+    return $this->db->insert_id();
+  }
+
   public function insert($data) {
+    $userData = [
+      "username" => $data['NIP'],
+      "password" => password_hash($data['nomor_hp'], PASSWORD_DEFAULT),
+      "role_id" => $data['tipe_karyawan'] + 1,
+      "is_active" => 1
+    ];
+
+    $user_id = $this->register_user($userData);
+
+    $data['id_user'] = $user_id;
+
     $this->db->insert("karyawan", $data);
     return $this->db->insert_id();
   }

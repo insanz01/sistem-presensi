@@ -66,7 +66,7 @@ $route['karyawan/add'] = "KaryawanController/add";
 $route['karyawan/do_add'] = "KaryawanController/do_add";
 $route['karyawan/edit/(:any)'] = "KaryawanController/edit/$1";
 $route['karyawan/do_edit/(:any)'] = "KaryawanController/do_edit/$1";
-$route['karyawan/delete'] = "KaryawanController/delete";
+$route['karyawan/delete/(:any)'] = "KaryawanController/delete/$1";
 
 // PRESENSI
 $route['presensi'] = "AppController/presensi";

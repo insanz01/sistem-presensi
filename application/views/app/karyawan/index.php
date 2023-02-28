@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Karyawan</h1>
+          <h1 class="m-0 text-dark">Pegawai</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <!-- <ol class="breadcrumb float-sm-right">
@@ -23,7 +23,7 @@
     <div class="container">
       <div class="row">
         <div class="col-10 mx-auto mb-2">
-          <a href="<?= base_url("karyawan/add") ?>" class="btn btn-primary float-right" role="button">TAMBAH KARYAWAN</a>
+          <a href="<?= base_url("karyawan/add") ?>" class="btn btn-primary float-right" role="button">TAMBAH PEGAWAI</a>
         </div>
         <div class="col-10 mx-auto">
           <div class="card">
@@ -33,7 +33,7 @@
                   <tr>
                     <th>#</th>
                     <th>NIP</th>
-                    <th>Nama Karyawan</th>
+                    <th>Nama Pegawai</th>
                     <th>Tipe</th>
                     <th>Email</th>
                     <th>Aksi</th>

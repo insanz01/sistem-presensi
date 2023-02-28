@@ -52,7 +52,7 @@
               <li class="nav-item">
                 <a href="<?= base_url('karyawan') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon ml-3"></i>
-                  <p>Karyawan</p>
+                  <p>Pegawai</p>
                 </a>
               </li>
             </ul>
@@ -67,9 +67,16 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="<?= base_url('gaji') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon ml-3"></i>
+                  <p>Gaji Pegawai</p>
+                </a>
+              </li>  
+
+              <li class="nav-item">
                 <a href="<?= base_url('presensi') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon ml-3"></i>
-                  <p>Presensi Karyawan</p>
+                  <p>Presensi Pegawai</p>
                 </a>
               </li>
               

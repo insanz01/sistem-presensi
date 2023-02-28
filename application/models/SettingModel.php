@@ -28,4 +28,12 @@ class SettingModel extends CI_Model {
 
     return $this->db->affected_rows();
   }
+
+  public function set_gaji($data) {
+    $this->db->set("gaji", $data['nominal']);
+    $this->db->where("id", $data['id']);
+    $this->db->update("pengaturan_gaji");
+    
+    return $this->db->affected_rows();
+  }
 }

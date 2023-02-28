@@ -40,7 +40,7 @@ class NonAdminController extends CI_Controller {
     $terlambat = 0;
     $current_time = date("H:i:s", time());
 
-    if($karyawan['tipe_karyawan'] == 1) {
+    if($karyawan['tipe_karyawan'] == 1 || $karyawan['tipe_karyawan'] == 2) {
       if($kategori_presensi == 1) {
         if($current_time < $jadwal_pns['waktu_awal_mulai_kerja']) {
           $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Jadwal presensi belum dibuka</div>");

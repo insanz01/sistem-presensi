@@ -116,6 +116,9 @@ $route['lembur/magang/delete'] = "LemburController/delete_magang";
 
 $route['lembur/status/(:any)/(:any)/(:any)'] = "LemburController/status/$1/$2/$3";
 
+// GAJI
+$route['gaji'] = "GajiController/index";
+
 $route['na/presensi'] = "NonAdminController/presensi";
 $route['na/do_presensi'] = "NonAdminController/do_presensi";
 $route['na/ajukan_lembur'] = "NonAdminController/ajukan_lembur";
@@ -124,9 +127,12 @@ $route['na/do_ajukan_lembur'] = "NonAdminController/do_ajukan_lembur";
 $route['setting/jadwal'] = "SettingController/jadwal";
 $route['setting/jadwal/pns'] = "SettingController/jadwal_pns";
 $route['setting/jadwal/honorer'] = "SettingController/jadwal_honorer";
+$route['setting/jadwal/gaji'] = "SettingController/gaji";
 
 $route["print/presensi"] = "PrintController/presensi";
 $route["print/presensi/magang"] = "PrintController/presensi_magang";
 
 $route["print/lembur/pns"] = "PrintController/lembur_pns";
 $route["print/lembur/honorer"] = "PrintController/lembur_honorer";
+
+$route["api/gaji/(:any)"] = "APIController/golongan_gaji/$1";

@@ -73,7 +73,7 @@
 
                 <div class="form-group">
                   <label for="golongan">Golongan</label>
-                  <select name="golongan" id="golongan" class="form-control">
+                  <select name="id_golongan" id="golongan" class="form-control">
                     <?php foreach($golongan as $gol): ?>
                       <option value="<?= $gol['id'] ?>"><?= $gol['nama'] ?> (<?= $gol['detail'] ?>)</option>
                     <?php endforeach; ?>

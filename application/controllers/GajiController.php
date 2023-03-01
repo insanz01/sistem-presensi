@@ -9,7 +9,21 @@ class GajiController extends CI_Controller {
   }
 
   public function index() {
-    $data['gaji'] = $this->gaji_m->get_all();
+    $filter_bulan = $this->input->post("filter_bulan");
+    $filter_golongan = $this->input->post("filter_golongan");
+
+    $gaji = $this->gaji_m->get_all();
+
+    if($filter_bulan || $filter_golongan) {
+      $filter = [
+        'filter_bulan' => $filter_bulan,
+        'filter_golongan' => $filter_golongan
+      ];
+
+      $gaji = $this->gaji_m->get_all_filter($filter);
+    }
+
+    $data['gaji'] = $gaji;
     $data['golongan'] = $this->golongan_m->get_all();
 
     $this->load->view('templates/panel/header');

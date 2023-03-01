@@ -26,37 +26,39 @@
           <a href="<?= base_url("gaji/add") ?>" class="btn btn-primary float-right" role="button">TAMBAH GAJI</a>
         </div> -->
         <div class="col-12">
-          <div class="row">
-            <div class="col-4">
-              <div class="form-group">
-                <select name="filter_bulan" id="filter_bulan" class="form-control">
-                  <option value="1">JANUARI</option>
-                  <option value="2">FEBRUARI</option>
-                  <option value="3">MARET</option>
-                  <option value="4">APRIL</option>
-                  <option value="5">MEI</option>
-                  <option value="6">JUNI</option>
-                  <option value="7">JULI</option>
-                  <option value="8">AGUSTUS</option>
-                  <option value="9">SEPTEMBER</option>
-                  <option value="10">OKTOBER</option>
-                  <option value="11">NOPEMBER</option>
-                  <option value="12">DESEMBER</option>
-                </select>
+          <form id="form_gaji" action="<?= base_url("gaji") ?>" method="post">
+            <div class="row">
+              <div class="col-4">
+                <div class="form-group">
+                  <select name="filter_bulan" id="filter_bulan" class="form-control" onchange="submitFilter(this)">
+                    <option value="1">JANUARI</option>
+                    <option value="2">FEBRUARI</option>
+                    <option value="3">MARET</option>
+                    <option value="4">APRIL</option>
+                    <option value="5">MEI</option>
+                    <option value="6">JUNI</option>
+                    <option value="7">JULI</option>
+                    <option value="8">AGUSTUS</option>
+                    <option value="9">SEPTEMBER</option>
+                    <option value="10">OKTOBER</option>
+                    <option value="11">NOPEMBER</option>
+                    <option value="12">DESEMBER</option>
+                  </select>
+                </div>
               </div>
-            </div>
-            <div class="col-4">
-              <div class="form-group">
-                <select name="filter_golongan" id="filter_golongan" class="form-control">
-                  <option value="">SEMUA</option>
-                  <?php foreach($golongan as $gol): ?>
-                    <option value="<?= $gol['id'] ?>"><?= $gol['nama'] ?> (<?= $gol['detail'] ?>)</option>
-                  <?php endforeach; ?>
-                </select>
+              <div class="col-4">
+                <div class="form-group">
+                  <select name="filter_golongan" id="filter_golongan" class="form-control" onchange="submitFilter(this)">
+                    <option value="">SEMUA</option>
+                    <?php foreach($golongan as $gol): ?>
+                      <option value="<?= $gol['id'] ?>"><?= $gol['nama'] ?> (<?= $gol['detail'] ?>)</option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
               </div>
+              <div class="col-4"></div>
             </div>
-            <div class="col-4"></div>
-          </div>
+          </form>
         </div>
         <div class="col-12 mx-auto">
           <div class="card">
@@ -93,3 +95,9 @@
     </div>
   </section>
 </div>
+
+<script>
+  const submitFilter = (target) => {
+    document.getElementById("form_gaji").submit();
+  }
+</script>

@@ -25,7 +25,7 @@
         <div class="col-10 mx-auto">
           <div class="card">
             <div class="card-body">
-              <form action="<?= base_url("karyawan/do_edit") . $id ?>" method="post">
+              <form action="<?= base_url("karyawan/do_edit/") . $id ?>" method="post">
                 <div class="form-group">
                   <label for="NIP">NIP</label>
                   <input type="text" name="NIP" id="NIP" class="form-control" value="<?= $karyawan['NIP'] ?>">
@@ -73,7 +73,7 @@
 
                 <div class="form-group">
                   <label for="golongan">Golongan</label>
-                  <select name="golongan" id="golongan" class="form-control">
+                  <select name="id_golongan" id="golongan" class="form-control">
                     <?php foreach($golongan as $gol): ?>
                       <option value="<?= $gol['id'] ?>"><?= $gol['nama'] ?> (<?= $gol['detail'] ?>)</option>
                     <?php endforeach; ?>

@@ -44,7 +44,7 @@ class KaryawanModel extends CI_Model {
     return $this->db->affected_rows();
   }
 
-  public function delete($id) {
+  public function remove($id) {
     return $this->db->delete("karyawan", ["id" => $id]);
   }
 

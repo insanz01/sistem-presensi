@@ -68,7 +68,16 @@
 
                 <div class="form-group">
                   <label for="jabatan">Jabatan</label>
-                  <input type="text" name="jabatan" id="jabatan" class="form-control" required>
+                  <!-- <input type="text" name="jabatan" id="jabatan" class="form-control" required> -->
+                  <select name="jabatan" id="jabatan" class="form-control">
+                    <option value="pengelola program dan kegiatan">Pengelola Program dan Kegiatan</option>
+                    <option value="sekertaris">Sekretaris</option>
+                    <option value="pengelola program anggaran dan pelaporan">Pengelola Program Anggaran dan Pelaporan</option>
+                    <option value="analisis sumber daya manusia aparatur">Analisis Sumber Daya Manusia Aparatur</option>
+                    <option value="pengelola kepegawaian">Pengelola Kepegawaian</option>
+                    <option value="instruktur pelaksana">Infrastuktur Pelaksana</option>
+                    <option value="staff umum">Staff Umum</option>
+                  </select>
                 </div>
 
                 <div class="form-group">

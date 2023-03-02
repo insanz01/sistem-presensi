@@ -68,7 +68,16 @@
 
                 <div class="form-group">
                   <label for="jabatan">Jabatan</label>
-                  <input type="text" name="jabatan" id="jabatan" class="form-control" value="<?= $karyawan['jabatan'] ?>" required>
+                  <!-- <input type="text" name="jabatan" id="jabatan" class="form-control" value="<?= $karyawan['jabatan'] ?>" required> -->
+                  <select name="jabatan" id="jabatan" class="form-control">
+                    <option value="pengelola program dan kegiatan" <?= $karyawan['jabatan'] == "pengelola program dan kegiatan" ?>>Pengelola Program dan Kegiatan</option>
+                    <option value="sekertaris" <?= $karyawan['jabatan'] == "sekertaris" ?>>Sekretaris</option>
+                    <option value="pengelola program anggaran dan pelaporan" <?= $karyawan['jabatan'] == "pengelola program anggaran dan pelaporan" ?>>Pengelola Program Anggaran dan Pelaporan</option>
+                    <option value="analisis sumber daya manusia aparatur" <?= $karyawan['jabatan'] == "analisis sumber daya manusia aparatur" ?>>Analisis Sumber Daya Manusia Aparatur</option>
+                    <option value="pengelola kepegawaian" <?= $karyawan['jabatan'] == "pengelola kepegawaian" ?>>Pengelola Kepegawaian</option>
+                    <option value="instruktur pelaksana" <?= $karyawan['jabatan'] == "instruktur pelaksana" ?>>Infrastuktur Pelaksana</option>
+                    <option value="staff umum" <?= $karyawan['jabatan'] == "staff umum" ?>>Staff Umum</option>
+                  </select>
                 </div>
 
                 <div class="form-group">

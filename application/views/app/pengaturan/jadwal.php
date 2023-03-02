@@ -78,6 +78,19 @@
                 </div>
 
                 <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <label for="waktu_awal_lembur">Jam Awal Lembur</label>
+                      <input type="time" class="form-control" name="waktu_awal_lembur" id="waktu_awal_lembur" value="<?= date('H:i:s', strtotime($jadwal_pns['waktu_awal_lembur'])) ?>">
+                    </div>
+                    <div class="col-6">
+                      <label for="waktu_akhir_lembur">Jam Akhir Lembur</label>
+                      <input type="time" class="form-control" name="waktu_akhir_lembur" id="waktu_akhir_lembur" value="<?= date('H:i:s', strtotime($jadwal_pns['waktu_akhir_lembur'])) ?>">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
                   <label for="potongan_gaji">Potongan Gaji (Jika terlambat)</label>
                   <input type="number" min="0" value="<?= $jadwal_pns['potongan_gaji'] ?>" class="form-control" id="potongan_gaji" name="potongan_gaji">
                 </div>

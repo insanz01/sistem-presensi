@@ -11,6 +11,7 @@ class NonAdminController extends CI_Controller {
 
   public function presensi() {
     $data['kategori_presensi'] = $this->kategori_m->get_all();
+    $data['presensi'] = $this->non_admin_m->current_month_presensi();
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');

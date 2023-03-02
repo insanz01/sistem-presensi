@@ -39,6 +39,6 @@ class NonAdminModel extends CI_Model {
 
     $query = "SELECT created_at FROM presensi WHERE MONTH(created_at) = MONTH(NOW()) AND id_karyawan = $id_karyawan";
 
-    return $this->db->query()->result_array();
+    return $this->db->query($query)->result_array();
   }
 }

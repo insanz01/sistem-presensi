@@ -31,6 +31,7 @@ class SettingModel extends CI_Model {
 
   public function set_gaji($data) {
     $this->db->set("gaji", $data['nominal']);
+    $this->db->set("tunjangan", $data['tunjangan']);
     $this->db->where("id_golongan", $data['id_golongan']);
     $this->db->update("pengaturan_gaji");
     

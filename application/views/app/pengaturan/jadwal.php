@@ -109,6 +109,11 @@
                 </div>
 
                 <div class="form-group">
+                  <label for="tunjangan">Tunjangan Bulanan</label>
+                  <input type="number" id="tunjangan" name="tunjangan" class="form-control">
+                </div>
+
+                <div class="form-group">
                   <button type="submit" class="btn btn-primary btn-block">UPDATE PENGATURAN GAJI</button>
                 </div>
               </form>
@@ -135,6 +140,7 @@
       console.log("result.error", result.error);
       
       document.getElementById("nominal").value = result.data.gaji;
+      document.getElementById("tunjangan").value = result.data.tunjangan;
     }
   }
 </script>

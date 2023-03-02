@@ -33,4 +33,12 @@ class NonAdminModel extends CI_Model {
     $this->db->insert("lembur", $data);
     return $this->db->insert_id();
   }
+
+  public function current_month_presensi() {
+    $id_karyawan = $this->session->userdata("SESS_PRESENSI_USERID");
+
+    $query = "SELECT created_at FROM presensi WHERE MONTH(created_at) = MONTH(NOW()) AND id_karyawan = $id_karyawan";
+
+    return $this->db->query()->result_array();
+  }
 }

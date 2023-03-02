@@ -33,7 +33,7 @@
             <?= $this->session->flashdata('pesan') ?>
           </div>
         <?php endif; ?>
-        <div class="col-7 mx-auto">
+        <div class="col-9 mx-auto">
           <div class="card">
             <div class="card-body">
               <form action="<?= base_url("na/do_presensi") ?>" method="post">
@@ -59,6 +59,30 @@
                   <button type="submit" class="btn btn-primary btn-block">PRESENSI</button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-9 mx-auto">
+          <div class="card">
+            <div class="card-body">
+              <table class="table table-bordered tabel2">
+                <thead>
+                  <th>#</th>
+                  <th>Jam Presensi</th>
+                  <th>Tanggal Presensi</th>
+                </thead>
+                <tbody>
+                  <?php $nomor = 1 ?>
+                  <?php foreach($presensi as $p): ?>
+                    <tr>
+                      <td><?= $nomor++ ?></td>
+                      <td><?= date('H:i:s', strtotime($p['created_at'])) ?></td>
+                      <td><?= date("d M Y", strtotime($p['created_at'])) ?></td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

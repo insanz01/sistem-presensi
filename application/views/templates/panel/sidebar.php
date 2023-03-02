@@ -132,14 +132,14 @@
             </a>
           </li>
           <?php if($this->session->userdata("SESS_PRESENSI_ROLEID") != 4): ?>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="<?= base_url("na/ajukan_lembur") ?>" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 AJUKAN LEMBUR
               </p>
             </a>
-          </li>
+          </li> -->
           <?php endif; ?>
         <?php endif; ?>
 

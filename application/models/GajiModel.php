@@ -13,10 +13,11 @@ class GajiModel extends CI_Model {
     foreach($karyawan as $k) {
       $temp = $k;
       $gaji_bulan_ini = $this->count_salary($k['golongan_id']);
+      $tunjangan = $this->count_tunjangan($k['golongan_id']);
       $absensi = $this->get_absensi($k['id']);
       $potongan_gaji = $this->get_cut_salary();
 
-      $temp['gaji_bulan_ini'] = $gaji_bulan_ini - ($absensi * $potongan_gaji);
+      $temp['gaji_bulan_ini'] = ($gaji_bulan_ini + $tunjangan) - ($absensi * $potongan_gaji);
       array_push($results, $temp);
     }
     
@@ -28,6 +29,13 @@ class GajiModel extends CI_Model {
     $data = $this->db->query($query)->row_array();
     
     return $data['gaji'];
+  }
+
+  public function count_tunjangan($golongan) {
+    $query = "SELECT tunjangan FROM pengaturan_gaji WHERE id_golongan = $golongan";
+    $data = $this->db->query($query)->row_array();
+    
+    return $data['tunjangan'];
   }
   
   public function get_cut_salary() {
@@ -49,13 +57,14 @@ class GajiModel extends CI_Model {
     foreach($karyawan as $k) {
       $temp = $k;
       $gaji_bulan_ini = $this->count_salary($k['golongan_id']);
+      $tunjangan = $this->count_tunjangan($k['golongan_id']);
       $absensi = $this->get_absensi($k['id']);
       if($filter['filter_bulan']) {
         $absensi = $this->get_absensi_filter($k['id'], $filter['filter_bulan']);
       }
       $potongan_gaji = $this->get_cut_salary();
 
-      $temp['gaji_bulan_ini'] = $gaji_bulan_ini - ($absensi * $potongan_gaji);
+      $temp['gaji_bulan_ini'] = ($gaji_bulan_ini + $tunjangan) - ($absensi * $potongan_gaji);
       array_push($results, $temp);
     }
     

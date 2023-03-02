@@ -16,15 +16,15 @@ class AppController extends CI_Controller
 
   public function index()
   {
-    // $data['total_bpd'] = $this->app_m->get_total_biaya_perjalanan_dinas();
-    // $data['total_lpd'] = $this->app_m->get_total_laporan_perjalanan_dinas();
-    // $data['total_sppd'] = $this->app_m->get_total_surat_perintah_perjalanan_dinas();
-    // $data['total_spt'] = $this->app_m->get_total_surat_perintah_tugas();
+    $data['total_karyawan'] = $this->app_m->get_total_karyawan();
+    $data['total_magang'] = $this->app_m->get_total_magang();
+    $data['total_presensi_today'] = $this->app_m->get_total_presensi_today();
+    $data['total_terlambat'] = $this->app_m->get_total_terlambat();
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
     $this->load->view('templates/panel/navbar');
-    $this->load->view('app/dashboard');
+    $this->load->view('app/dashboard', $data);
     $this->load->view('templates/panel/footer');
   }
 

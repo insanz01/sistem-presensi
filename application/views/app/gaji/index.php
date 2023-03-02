@@ -83,7 +83,7 @@
                     <td><?= $data['tipe'] ?></td>
                     <td><?= $data['email'] ?></td>
                     <td><?= $data['golongan'] ?></td>
-                    <td><?= $data['gaji'] ?></td>
+                    <td><?= $data['gaji_bulan_ini'] ?></td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>

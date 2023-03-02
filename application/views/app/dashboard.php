@@ -52,7 +52,7 @@
 
           <div class="small-box bg-warna-1">
             <div class="inner">
-              <h3><?= 0 ?></h3>
+              <h3><?= $total_karyawan ?></h3>
               <p>Jumlah Karyawan</p>
             </div>
             <div class="icon">
@@ -66,7 +66,7 @@
 
           <div class="small-box bg-warna-2">
             <div class="inner">
-              <h3><?= 0 ?></h3>
+              <h3><?= $total_magang ?></h3>
               <p>Jumlah Magang</p>
             </div>
             <div class="icon">
@@ -80,7 +80,7 @@
 
           <div class="small-box bg-warna-3">
             <div class="inner">
-              <h3><?= 0 ?></h3>
+              <h3><?= $total_presensi_today ?></h3>
               <p>Presensi Hari Ini</p>
             </div>
             <div class="icon">
@@ -94,7 +94,7 @@
 
           <div class="small-box bg-warna-4">
             <div class="inner">
-              <h3><?= 0 ?></h3>
+              <h3><?= $total_terlambat ?></h3>
               <p>Keterlambatan</p>
             </div>
             <div class="icon">
@@ -105,8 +105,16 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 mx-auto">
+        <!-- <div class="col-12 mx-auto">
           <div id="map"></div>
+        </div> -->
+
+        <div class="col-7 mx-auto">
+          <div class="card">
+            <div class="card-body">
+              <div class="h1 text-center" id="clock" onload="currentTime()"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -124,4 +132,31 @@
 
     var marker = L.marker([-3.3266479, 114.5737938]).addTo(map);
   })
+
+  function currentTime() {
+    let date = new Date(); 
+    let hh = date.getHours();
+    let mm = date.getMinutes();
+    let ss = date.getSeconds();
+    let session = "AM";
+
+    if(hh === 0){
+        hh = 12;
+    }
+    if(hh > 12){
+        hh = hh - 12;
+        session = "PM";
+    }
+
+    hh = (hh < 10) ? "0" + hh : hh;
+    mm = (mm < 10) ? "0" + mm : mm;
+    ss = (ss < 10) ? "0" + ss : ss;
+      
+    let time = hh + ":" + mm + ":" + ss + " " + session;
+
+    document.getElementById("clock").innerText = time; 
+    let t = setTimeout(function(){ currentTime() }, 1000);
+  }
+
+  currentTime();
 </script>

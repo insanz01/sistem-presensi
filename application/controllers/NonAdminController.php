@@ -21,7 +21,7 @@ class NonAdminController extends CI_Controller {
   }
 
   public function do_presensi() {
-    date_default_timezone_set('Asia/Jakarta');
+    date_default_timezone_set('Asia/Makassar');
 
     $NIP = $this->input->post('NIP');
 
@@ -58,20 +58,26 @@ class NonAdminController extends CI_Controller {
   
           redirect("na/presensi");
         }
+      } else if($kategori_presensi == 5) {
+        if($current_time < $jadwal_pns['waktu_akhir_pulang_kerja']) {
+          $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Jadwal presensi lembur belum dibuka</div>");
+  
+          redirect("na/presensi");
+        }
       }
     } else {
       if($kategori_presensi == 1) {
-        if($current_time < $jadwal_honorer['waktu_awal_mulai_kerja']) {
+        if($current_time < $jadwal_pns['waktu_awal_mulai_kerja']) {
           $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Jadwal presensi belum dibuka</div>");
   
           redirect("na/presensi");
         }
   
-        if($current_time > $jadwal_honorer['waktu_akhir_mulai_kerja']) {
+        if($current_time > $jadwal_pns['waktu_akhir_mulai_kerja']) {
           $terlambat = 1;
         }
       } else if($kategori_presensi == 2) {
-        if($current_time < $jadwal_honorer['waktu_awal_pulang_kerja']) {
+        if($current_time < $jadwal_pns['waktu_awal_pulang_kerja']) {
           $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Jadwal presensi pulang belum dibuka</div>");
   
           redirect("na/presensi");
@@ -94,6 +100,20 @@ class NonAdminController extends CI_Controller {
     }
 
     if($this->non_admin_m->presensi($data)) {
+      if($kategori_presensi == 5) {
+        $lemburData = [
+          'id_karyawan' => $karyawan['id'],
+          'tanggal_lembur' => date("Y-m-d", time()),
+          'durasi' => 4,
+          'jam_mulai' => date("H:i:s", time()),
+          'jam_selesai' => "21:00:00",
+          'keterangan' => "",
+          'status' => 1
+        ];
+
+        $this->non_admin_m->ajukan_lembur($lemburData);
+      }
+
       if($terlambat) {
         $this->session->set_flashdata("pesan", "<div class='alert alert-warning' role='alert'>Berhasil melakukan presensi, tapi anda terlambat !</div>");
       } else {

@@ -42,7 +42,7 @@ class GajiModel extends CI_Model {
       $mulai = $lem['jam_mulai'];
       $selesai = $lem['jam_selesai'];
 
-      $durasi = strtotime($selesai) - $strtotime($mulai);
+      $durasi = strtotime($selesai) - strtotime($mulai);
 
       $totalDurasi += $durasi;
     }

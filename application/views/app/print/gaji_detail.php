@@ -39,7 +39,7 @@
       <h3 class="text-center mb-2">LAPORAN GAJI <?= $nama_bulan ?></h3>
       <table class="table table-bordered">
         <thead>
-          <th>#</th>
+          <th>NIP</th>
           <th>Nama Pegawai</th>
           <th>Tipe</th>
           <th>Email</th>
@@ -48,24 +48,25 @@
           <th>Durasi Lembur</th>
           <th>Bayaran Lembur</th>
           <th>Tunjangan</th>
-          <th>Gaji Bulan ini</th>
         </thead>
         <tbody>
-          <?php $nomor = 1 ?>
-          <?php foreach($all_laporan as $laporan): ?>
-            <tr>
-              <td><?= $nomor++ ?></td>
-              <td><?= $laporan['nama'] ?></td>
-              <td><?= $laporan['tipe'] ?></td>
-              <td><?= $laporan['email'] ?></td>
-              <td><?= $laporan['golongan'] ?></td>
-              <td><?= $laporan['jumlah_terlambat'] ?></td>
-              <td><?= $laporan['durasi_lembur'] ?></td>
-              <td><?= number_format($laporan['bayaran_lembur'], 0, ',', '.') ?></td>
-              <td><?= number_format($laporan['tunjangan'], 0, ',', '.') ?></td>
-              <td><?= number_format($laporan['gaji_bulan_ini'], 0, ',', '.') ?></td>
-            </tr>
-          <?php endforeach; ?>
+          <tr>
+            <td><?= $laporan['NIP'] ?></td>
+            <td><?= $laporan['nama'] ?></td>
+            <td><?= $laporan['tipe'] ?></td>
+            <td><?= $laporan['email'] ?></td>
+            <td><?= $laporan['golongan'] ?></td>
+            <td><?= $laporan['jumlah_terlambat'] ?></td>
+            <td><?= $laporan['durasi_lembur'] ?></td>
+            <td><?= number_format($laporan['bayaran_lembur'], 0, ',', '.') ?></td>
+            <td><?= number_format($laporan['tunjangan'], 0, ',', '.') ?></td>
+          </tr>
+          <tr class="font-weight-bold">
+            <td colspan="7">Total :</td>
+            <td colspan="2">
+              Rp <?= number_format($laporan['gaji_bulan_ini'], 0, ',', '.') ?>
+            </td>
+          </tr>
         </tbody>
       </table>
 

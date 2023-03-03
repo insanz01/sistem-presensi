@@ -74,8 +74,11 @@
                     <th>Email</th>
                     <th>Golongan</th>
                     <th>Jumlah Keterlambatan</th>
+                    <th>Durasi Lembur</th>
+                    <th>Bayaran Lembur</th>
                     <th>Tunjangan</th>
                     <th>Gaji Bulan ini</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -88,8 +91,15 @@
                     <td><?= $data['email'] ?></td>
                     <td><?= $data['golongan'] ?></td>
                     <td><?= $data['jumlah_terlambat'] ?></td>
+                    <td><?= $data['durasi_lembur'] ?></td>
+                    <td><?= number_format($data['bayaran_lembur'], 0, ',', '.') ?></td>
                     <td><?= number_format($data['tunjangan'], 0, ',', '.') ?></td>
                     <td><?= number_format($data['gaji_bulan_ini'], 0, ',', '.') ?></td>
+                    <td>
+                      <a class="badge badge-sm badge-primary" role="button" href="<?= base_url("print/gaji/") . $data['id'] ?>">
+                        print
+                      </a>
+                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>

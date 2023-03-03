@@ -80,4 +80,27 @@ class PrintController extends CI_Controller {
 
     $this->load->view("app/print/gaji", $data);
   }
+
+  public function detail_gaji($id_karyawan) {
+    $bulan = ["", "JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOPEMBER", "DESEMBER"];
+
+    $filter_bulan = $this->session->userdata("FILTER_BULAN");
+
+    if(!$filter_bulan) {
+      $filter_bulan = date('n', time());
+    }
+
+    $filter = [
+      'filter_bulan' => $filter_bulan
+    ];
+
+    $gaji = $this->gaji_m->get_single_filter($id_karyawan, $filter);
+
+    $nama_bulan = "BULAN " . $bulan[$filter_bulan];
+
+    $data['laporan'] = $gaji;
+    $data['nama_bulan'] = $nama_bulan;
+
+    $this->load->view("app/print/gaji_detail", $data);
+  }
 }

@@ -125,7 +125,7 @@
         <?php else: ?>
           <li class="nav-item">
             <a href="<?= base_url("na/presensi") ?>" class="nav-link">
-              <i class="nav-icon fas fa-home"></i>
+              <i class="nav-icon fas fa-book"></i>
               <p>
                 PRESENSI
               </p>

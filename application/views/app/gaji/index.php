@@ -56,7 +56,9 @@
                   </select>
                 </div>
               </div>
-              <div class="col-4"></div>
+              <div class="col-4">
+                <a href="<?= base_url("print/gaji") ?>" class="btn btn-primary float-right" role="button" target="_blank">PRINT LAPORAN</a>
+              </div>
             </div>
           </form>
         </div>

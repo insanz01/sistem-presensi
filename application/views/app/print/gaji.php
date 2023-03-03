@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
-    <title>Laporan Presensi</title>
+    <title>Laporan Lembur</title>
   </head>
   <body>
     
@@ -36,36 +36,26 @@
         </div>
       </div>
 
-      <h3 class="text-center mb-2">LAPORAN PRESENSI</h3>
+      <h3 class="text-center mb-2">LAPORAN LEMBUR <?= $nama_bulan ?></h3>
       <table class="table table-bordered">
         <thead>
           <th>#</th>
-          <th>NIP</th>
           <th>Nama Pegawai</th>
-          <th>Tipe Pegawai</th>
-          <th>Terlambat</th>
-          <th>Jam Masuk</th>
+          <th>Tipe</th>
+          <th>Email</th>
+          <th>Golongan</th>
+          <th>Gaji Bulan ini</th>
         </thead>
         <tbody>
           <?php $nomor = 1 ?>
           <?php foreach($all_laporan as $laporan): ?>
             <tr>
               <td><?= $nomor++ ?></td>
-              <td><?= $laporan['NIP'] ?></td>
               <td><?= $laporan['nama'] ?></td>
-              <td>
-                <?php if($laporan['tipe_karyawan'] == 1): ?>
-                  Pegawai Negeri Sipil
-                <?php elseif($laporan['tipe_karyawan'] == 2): ?>
-                  Honorer
-                <?php else: ?>
-                  Magang
-                <?php endif; ?>
-              </td>
-              <td>
-                <?= ($laporan['terlambat']) ? 'Ya' : 'Tidak' ?>
-              </td>
-              <td><?= $laporan['created_at'] ?></td>
+              <td><?= $laporan['tipe'] ?></td>
+              <td><?= $laporan['email'] ?></td>
+              <td><?= $laporan['golongan'] ?></td>
+              <td><?= $laporan['gaji_bulan_ini'] ?></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

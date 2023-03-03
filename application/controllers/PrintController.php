@@ -5,6 +5,7 @@ class PrintController extends CI_Controller {
     parent::__construct();
 
     $this->load->model("AppModel", "app_m");
+    $this->load->model("GajiModel", "gaji_m");
   }
 
   public function presensi() {
@@ -49,5 +50,33 @@ class PrintController extends CI_Controller {
     $data["all_laporan"] = $lembur;
     
     $this->load->view("app/print/lembur", $data);
+  }
+
+  public function gaji() {
+    $bulan = ["", "JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOPEMBER", "DESEMBER"];
+    
+    $filter_bulan = $this->session->userdata("FILTER_BULAN");
+    $filter_golongan = $this->session->userdata("FILTER_GOLONGAN");
+
+    $gaji = $this->gaji_m->get_all();
+
+    if($filter_bulan || $filter_golongan) {
+      $filter = [
+        'filter_bulan' => $filter_bulan,
+        'filter_golongan' => $filter_golongan
+      ];
+
+      $gaji = $this->gaji_m->get_all_filter($filter);
+    }
+
+    $nama_bulan = "";
+
+    if($filter_bulan) {
+      $nama_bulan = "BULAN " . $bulan[$filter_bulan];
+    }
+
+    $data["all_laporan"] = $gaji;
+
+    $this->load->view("app/print/gaji", $data);
   }
 }

@@ -135,4 +135,6 @@ $route["print/presensi/magang"] = "PrintController/presensi_magang";
 $route["print/lembur/pns"] = "PrintController/lembur_pns";
 $route["print/lembur/honorer"] = "PrintController/lembur_honorer";
 
+$route['print/gaji'] = "PrintController/gaji";
+
 $route["api/gaji/(:any)"] = "APIController/golongan_gaji/$1";

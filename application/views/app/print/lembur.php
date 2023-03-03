@@ -41,7 +41,7 @@
         <thead>
           <th>#</th>
           <th>NIP</th>
-          <th>Nama Karyawan</th>
+          <th>Nama Pegawai</th>
           <!-- <th>Durasi Lembur</th> -->
           <th>Jam Mulai</th>
           <th>Jam Selesai</th>

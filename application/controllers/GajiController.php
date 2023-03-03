@@ -20,13 +20,13 @@ class GajiController extends CI_Controller {
         'filter_golongan' => $filter_golongan
       ];
 
-      // if($filter_bulan) {
-      //   $this->session->userdata("FILTER_BULAN", $filter_bulan);
-      // }
+      if($filter_bulan) {
+        $this->session->userdata("FILTER_BULAN", $filter_bulan);
+      }
 
-      // if($filter_golongan) {
-      //   $this->session->userdata("FILTER_GOLONGAN", $filter_golongan);
-      // }
+      if($filter_golongan) {
+        $this->session->userdata("FILTER_GOLONGAN", $filter_golongan);
+      }
 
       $gaji = $this->gaji_m->get_all_filter($filter);
     }
@@ -36,10 +36,6 @@ class GajiController extends CI_Controller {
 
     if(!$filter_bulan) {
       $filter_bulan = (string) date("n", time());
-
-      // if($this->session->userdata("FILTER_BULAN")) {
-      //   $filter_bulan = $this->session->userdata("FILTER_BULAN");
-      // }
     }
 
     $data['filter_bulan'] = $filter_bulan;

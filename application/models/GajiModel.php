@@ -44,12 +44,10 @@ class GajiModel extends CI_Model {
 
       $durasi = strtotime($selesai) - strtotime($mulai);
 
-      var_dump('H:i:s', $durasi); die;
-
-      $totalDurasi += $durasi;
+      $totalDurasi += ($durasi / 3600);
     }
 
-    return $totalDurasi;
+    return date($totalDurasi);
   }
   
   public function count_salary($golongan) {
@@ -118,7 +116,7 @@ class GajiModel extends CI_Model {
 
       $durasi = strtotime($selesai) - strtotime($mulai);
 
-      $totalDurasi += $durasi;
+      $totalDurasi += ($durasi / 3600);
     }
 
     return $totalDurasi;

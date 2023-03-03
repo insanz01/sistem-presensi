@@ -96,7 +96,7 @@
                     <td><?= number_format($data['tunjangan'], 0, ',', '.') ?></td>
                     <td><?= number_format($data['gaji_bulan_ini'], 0, ',', '.') ?></td>
                     <td>
-                      <a class="badge badge-sm badge-primary" role="button" href="<?= base_url("print/gaji/") . $data['id'] ?>">
+                      <a class="badge badge-sm badge-primary" role="button" href="<?= base_url("print/gaji/") . $data['id'] ?>" target="_blank">
                         print
                       </a>
                     </td>

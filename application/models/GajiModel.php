@@ -47,7 +47,7 @@ class GajiModel extends CI_Model {
       $totalDurasi += ($durasi / 3600);
     }
 
-    return date($totalDurasi);
+    return round($totalDurasi);
   }
   
   public function count_salary($golongan) {
@@ -119,7 +119,7 @@ class GajiModel extends CI_Model {
       $totalDurasi += ($durasi / 3600);
     }
 
-    return $totalDurasi;
+    return round($totalDurasi);
   }
 
   public function count_salary_filter($golongan) {

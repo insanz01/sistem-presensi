@@ -39,8 +39,22 @@ class NonAdminModel extends CI_Model {
 
     $karyawan = $this->db->get_where("karyawan", ["NIP" => $nip_karyawan])->row_array();
 
-    $query = "SELECT created_at FROM presensi WHERE MONTH(created_at) = MONTH(NOW()) AND id_karyawan = $karyawan[id]";
+    $query = "SELECT presensi.created_at, kategori_presensi.nama as tipe_presensi FROM presensi JOIN kategori_presensi ON presensi.katagori_presensi = kategori_presensi.id WHERE MONTH(presensi.created_at) = MONTH(NOW()) AND presensi.id_karyawan = $karyawan[id]";
 
     return $this->db->query($query)->result_array();
+  }
+
+  public function get_lembur_hari_ini($id_karyawan) {
+    $query = "SELECT * FROM lembur WHERE id_karyawan = $id_karyawan AND DATE(created_at) = CURRENT_DATE";
+
+    return $this->db->query($query)->row_array();
+  }
+
+  public function update_lembur($id_lembur, $data) {
+    $this->db->set($data);
+    $this->db->where("id", $id_lembur);
+    $this->db->update("lembur");
+
+    return $this->db->affected_rows();
   }
 }

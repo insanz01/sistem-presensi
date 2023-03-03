@@ -71,6 +71,7 @@
                   <th>#</th>
                   <th>Jam Presensi</th>
                   <th>Tanggal Presensi</th>
+                  <th>Tipe Presensi/th>
                 </thead>
                 <tbody>
                   <?php $nomor = 1 ?>
@@ -79,6 +80,9 @@
                       <td><?= $nomor++ ?></td>
                       <td><?= date('H:i:s', strtotime($p['created_at'])) ?></td>
                       <td><?= date("d M Y", strtotime($p['created_at'])) ?></td>
+                      <td>
+                        <?= $p['tipe_presensi'] ?>
+                      </td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>

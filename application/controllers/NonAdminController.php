@@ -104,14 +104,27 @@ class NonAdminController extends CI_Controller {
         $lemburData = [
           'id_karyawan' => $karyawan['id'],
           'tanggal_lembur' => date("Y-m-d", time()),
-          'durasi' => 4,
+          'durasi' => 0,
           'jam_mulai' => date("H:i:s", time()),
-          'jam_selesai' => "21:00:00",
+          'jam_selesai' => NULL,
           'keterangan' => "",
           'status' => 1
         ];
 
         $this->non_admin_m->ajukan_lembur($lemburData);
+      }
+
+      if($kategori_presensi == 6) {
+        $lembur = $this->non_admin_m->get_lembur_hari_ini($karyawan['id']);
+
+        $durasi = time() - strtotime($lembur['jam_mulai']);
+
+        $lemburData = [
+          'durasi' => $durasi,
+          'jam_selesai' => date("H:i:s", time())
+        ];
+
+        $this->non_admin_m->update_lembur($lembur['id'], $lemburData);
       }
 
       if($terlambat) {

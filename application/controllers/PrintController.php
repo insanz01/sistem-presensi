@@ -76,6 +76,7 @@ class PrintController extends CI_Controller {
     }
 
     $data["all_laporan"] = $gaji;
+    $data["nama_bulan"] = $nama_bulan;
 
     $this->load->view("app/print/gaji", $data);
   }

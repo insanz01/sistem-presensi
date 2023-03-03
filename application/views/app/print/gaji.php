@@ -44,6 +44,8 @@
           <th>Tipe</th>
           <th>Email</th>
           <th>Golongan</th>
+          <th>Jumlah Keterlambatan</th>
+          <th>Tunjangan</th>
           <th>Gaji Bulan ini</th>
         </thead>
         <tbody>
@@ -55,7 +57,9 @@
               <td><?= $laporan['tipe'] ?></td>
               <td><?= $laporan['email'] ?></td>
               <td><?= $laporan['golongan'] ?></td>
-              <td><?= $laporan['gaji_bulan_ini'] ?></td>
+              <td><?= $laporan['jumlah_terlambat'] ?></td>
+              <td><?= number_format($laporan['tunjangan'], 0, ',', '.') ?></td>
+              <td><?= number_format($laporan['gaji_bulan_ini'], 0, ',', '.') ?></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

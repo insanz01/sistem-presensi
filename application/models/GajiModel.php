@@ -17,6 +17,8 @@ class GajiModel extends CI_Model {
       $absensi = $this->get_absensi($k['id']);
       $potongan_gaji = $this->get_cut_salary();
 
+      $temp['jumlah_terlambat'] = $absensi;
+      $temp['tunjangan'] = $tunjangan;
       $temp['gaji_bulan_ini'] = ($gaji_bulan_ini + $tunjangan) - ($absensi * $potongan_gaji);
       array_push($results, $temp);
     }
@@ -63,7 +65,9 @@ class GajiModel extends CI_Model {
         $absensi = $this->get_absensi_filter($k['id'], $filter['filter_bulan']);
       }
       $potongan_gaji = $this->get_cut_salary();
-
+      
+      $temp['jumlah_terlambat'] = $absensi;
+      $temp['tunjangan'] = $tunjangan;
       $temp['gaji_bulan_ini'] = ($gaji_bulan_ini + $tunjangan) - ($absensi * $potongan_gaji);
       array_push($results, $temp);
     }

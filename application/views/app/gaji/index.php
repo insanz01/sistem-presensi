@@ -73,6 +73,8 @@
                     <th>Tipe</th>
                     <th>Email</th>
                     <th>Golongan</th>
+                    <th>Jumlah Keterlambatan</th>
+                    <th>Tunjangan</th>
                     <th>Gaji Bulan ini</th>
                   </tr>
                 </thead>
@@ -85,7 +87,9 @@
                     <td><?= $data['tipe'] ?></td>
                     <td><?= $data['email'] ?></td>
                     <td><?= $data['golongan'] ?></td>
-                    <td><?= $data['gaji_bulan_ini'] ?></td>
+                    <td><?= $data['jumlah_terlambat'] ?></td>
+                    <td><?= number_format($data['tunjangan'], 0, ',', '.') ?></td>
+                    <td><?= number_format($data['gaji_bulan_ini'], 0, ',', '.') ?></td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>

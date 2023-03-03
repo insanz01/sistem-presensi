@@ -35,9 +35,11 @@ class NonAdminModel extends CI_Model {
   }
 
   public function current_month_presensi() {
-    $id_karyawan = $this->session->userdata("SESS_PRESENSI_USERID");
+    $nip_karyawan = $this->session->userdata("SESS_PRESENSI_NIP");
 
-    $query = "SELECT created_at FROM presensi WHERE MONTH(created_at) = MONTH(NOW()) AND id_karyawan = $id_karyawan";
+    $karyawan = $this->db->get_where("karyawan", ["NIP" => $nip_karyawan])->row_array();
+
+    $query = "SELECT created_at FROM presensi WHERE MONTH(created_at) = MONTH(NOW()) AND id_karyawan = $karyawan[id]";
 
     return $this->db->query($query)->result_array();
   }

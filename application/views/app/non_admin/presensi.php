@@ -71,7 +71,7 @@
                   <th>#</th>
                   <th>Jam Presensi</th>
                   <th>Tanggal Presensi</th>
-                  <th>Tipe Presensi/th>
+                  <th>Tipe Presensi</th>
                 </thead>
                 <tbody>
                   <?php $nomor = 1 ?>

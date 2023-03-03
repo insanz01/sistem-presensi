@@ -6,7 +6,7 @@ class GajiModel extends CI_Model {
   }
 
   public function get_all() {
-    $query = "SELECT karyawan.*, tipe_karyawan.nama as tipe, pengaturan_gaji.gaji as gaji, golongan.id as golongan_id, golongan.nama as golongan FROM karyawan JOIN tipe_karyawan ON karyawan.tipe_karyawan = tipe_karyawan.id JOIN pengaturan_gaji ON pengaturan_gaji.id_golongan = karyawan.id_golongan JOIN golongan ON golongan.id = karyawan.id_golongan";
+    $query = "SELECT karyawan.*, tipe_karyawan.nama as tipe, pengaturan_gaji.gaji as gaji, golongan.id as golongan_id, golongan.nama as golongan FROM karyawan JOIN tipe_karyawan ON karyawan.tipe_karyawan = tipe_karyawan.id JOIN pengaturan_gaji ON pengaturan_gaji.id_golongan = karyawan.id_golongan JOIN golongan ON golongan.id = karyawan.id_golongan WHERE karyawan.tipe_karyawan <> 3";
     $karyawan = $this->db->query($query)->result_array();
 
     $results = [];
@@ -45,10 +45,10 @@ class GajiModel extends CI_Model {
   }
 
   public function get_all_filter($filter) {
-    $query = "SELECT karyawan.*, tipe_karyawan.nama as tipe, pengaturan_gaji.gaji as gaji, golongan.id as golongan_id, golongan.nama as golongan FROM karyawan JOIN tipe_karyawan ON karyawan.tipe_karyawan = tipe_karyawan.id JOIN pengaturan_gaji ON pengaturan_gaji.id_golongan = karyawan.id_golongan JOIN golongan ON golongan.id = karyawan.id_golongan";
+    $query = "SELECT karyawan.*, tipe_karyawan.nama as tipe, pengaturan_gaji.gaji as gaji, golongan.id as golongan_id, golongan.nama as golongan FROM karyawan JOIN tipe_karyawan ON karyawan.tipe_karyawan = tipe_karyawan.id JOIN pengaturan_gaji ON pengaturan_gaji.id_golongan = karyawan.id_golongan JOIN golongan ON golongan.id = karyawan.id_golongan WHERE karyawan.tipe_karyawan <> 3";
 
     if($filter['filter_golongan']) {
-      $query .= " WHERE golongan.id = $filter[filter_golongan]";
+      $query .= " AND golongan.id = $filter[filter_golongan]";
     }
 
     $karyawan = $this->db->query($query)->result_array();

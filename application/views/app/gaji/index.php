@@ -31,18 +31,18 @@
               <div class="col-4">
                 <div class="form-group">
                   <select name="filter_bulan" id="filter_bulan" class="form-control" onchange="submitFilter(this)">
-                    <option value="1">JANUARI</option>
-                    <option value="2">FEBRUARI</option>
-                    <option value="3">MARET</option>
-                    <option value="4">APRIL</option>
-                    <option value="5">MEI</option>
-                    <option value="6">JUNI</option>
-                    <option value="7">JULI</option>
-                    <option value="8">AGUSTUS</option>
-                    <option value="9">SEPTEMBER</option>
-                    <option value="10">OKTOBER</option>
-                    <option value="11">NOPEMBER</option>
-                    <option value="12">DESEMBER</option>
+                    <option value="1" <?= ($filter_bulan == "1") ? "selected": "" ?>>JANUARI</option>
+                    <option value="2" <?= ($filter_bulan == "2") ? "selected": "" ?>>FEBRUARI</option>
+                    <option value="3" <?= ($filter_bulan == "3") ? "selected": "" ?>>MARET</option>
+                    <option value="4" <?= ($filter_bulan == "4") ? "selected": "" ?>>APRIL</option>
+                    <option value="5" <?= ($filter_bulan == "5") ? "selected": "" ?>>MEI</option>
+                    <option value="6" <?= ($filter_bulan == "6") ? "selected": "" ?>>JUNI</option>
+                    <option value="7" <?= ($filter_bulan == "7") ? "selected": "" ?>>JULI</option>
+                    <option value="8" <?= ($filter_bulan == "8") ? "selected": "" ?>>AGUSTUS</option>
+                    <option value="9" <?= ($filter_bulan == "9") ? "selected": "" ?>>SEPTEMBER</option>
+                    <option value="10" <?= ($filter_bulan == "10") ? "selected": "" ?>>OKTOBER</option>
+                    <option value="11" <?= ($filter_bulan == "11") ? "selected": "" ?>>NOPEMBER</option>
+                    <option value="12" <?= ($filter_bulan == "12") ? "selected": "" ?>>DESEMBER</option>
                   </select>
                 </div>
               </div>
@@ -51,7 +51,7 @@
                   <select name="filter_golongan" id="filter_golongan" class="form-control" onchange="submitFilter(this)">
                     <option value="">SEMUA</option>
                     <?php foreach($golongan as $gol): ?>
-                      <option value="<?= $gol['id'] ?>"><?= $gol['nama'] ?> (<?= $gol['detail'] ?>)</option>
+                      <option value="<?= $gol['id'] ?>" <?= ($gol['id'] == $filter_golongan) ? "selected": "" ?>><?= $gol['nama'] ?> (<?= $gol['detail'] ?>)</option>
                     <?php endforeach; ?>
                   </select>
                 </div>

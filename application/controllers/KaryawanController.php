@@ -6,6 +6,7 @@ class KaryawanController extends CI_Controller {
 
     $this->load->model("KaryawanModel", "karyawan_m");
     $this->load->model("GolonganModel", "golongan_m");
+    $this->load->model("JabatanModel", "jabatan_m");
   }
 
   public function index() {
@@ -21,6 +22,7 @@ class KaryawanController extends CI_Controller {
   public function add() {
     $data['tipe_karyawan'] = $this->karyawan_m->get_all_tipe();
     $data['golongan'] = $this->golongan_m->get_all();
+    $data['jabatan'] = $this->jabatan_m->get_all();
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
@@ -46,6 +48,7 @@ class KaryawanController extends CI_Controller {
     $data['tipe_karyawan'] = $this->karyawan_m->get_all_tipe();
     $data['karyawan'] = $this->karyawan_m->get_all_single($id);
     $data['golongan'] = $this->golongan_m->get_all();
+    $data['jabatan'] = $this->jabatan_m->get_all();
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');

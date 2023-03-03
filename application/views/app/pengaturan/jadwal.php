@@ -122,16 +122,38 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="tunjangan">Tunjangan Bulanan</label>
-                  <input type="number" id="tunjangan" name="tunjangan" class="form-control">
-                </div>
-
-                <div class="form-group">
                   <button type="submit" class="btn btn-primary btn-block">UPDATE PENGATURAN GAJI</button>
                 </div>
               </form>
             </div>
           </div>
+
+          <div class="card mb-4">
+            <div class="card-body">
+              <form action="<?= base_url("setting/jadwal/jabatan") ?>" method="post">
+                <h3>Pengaturan Jabatan</h3>
+                <div class="form-group">
+                  <label for="id_jabatan">Jabatan</label>
+                  <select name="id_jabatan" id="id_jabatan" class="form-control" onchange="setJabatan(this)">
+                    <option value="">- PILIH -</option>
+                    <?php foreach($jabatan as $jab): ?>
+                      <option value="<?= $jab['id'] ?>"><?= $jab['nama'] ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="nominal">Tunjangan Bulanan</label>
+                  <input type="number" id="tunjangan" name="nominal" class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-block">UPDATE PENGATURAN TUNJANGAN</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -153,7 +175,23 @@
       console.log("result.error", result.error);
       
       document.getElementById("nominal").value = result.data.gaji;
-      document.getElementById("tunjangan").value = result.data.tunjangan;
+    }
+  }
+
+  const getNominalTunjangan = async (id_jabatan) => {
+    return await axios.get(`<?= base_url() ?>api/jabatan/${id_jabatan}`).then(res => res.data);
+  }
+
+  const setJabatan = async (target) => {
+    const id = target.value;
+    const result = await getNominalTunjangan(id).then(res => res);
+    console.log("result", result);
+
+    if(result) {
+      console.log("result.data", result.data);
+      console.log("result.error", result.error);
+      
+      document.getElementById("tunjangan").value = result.data.nominal;
     }
   }
 </script>

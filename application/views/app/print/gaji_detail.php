@@ -62,7 +62,7 @@
             <td><?= number_format($laporan['tunjangan'], 0, ',', '.') ?></td>
           </tr>
           <tr class="font-weight-bold">
-            <td colspan="7">Total :</td>
+            <td colspan="7">Total Gaji :</td>
             <td colspan="2">
               Rp <?= number_format($laporan['gaji_bulan_ini'], 0, ',', '.') ?>
             </td>

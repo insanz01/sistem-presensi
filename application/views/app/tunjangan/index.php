@@ -39,7 +39,7 @@
                 </thead>
                 <tbody>
                   <?php $nomor = 1; ?>
-                  <?php foreach($karyawan as $data): ?>
+                  <?php foreach($tunjangan as $data): ?>
                   <tr>
                     <td><?= $nomor++ ?></td>
                     <td><?= $data['nama'] ?></td>

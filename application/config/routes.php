@@ -128,6 +128,7 @@ $route['setting/jadwal'] = "SettingController/jadwal";
 $route['setting/jadwal/pns'] = "SettingController/jadwal_pns";
 $route['setting/jadwal/honorer'] = "SettingController/jadwal_honorer";
 $route['setting/jadwal/gaji'] = "SettingController/gaji";
+$route['setting/jadwal/jabatan'] = "SettingController/jabatan";
 
 $route["print/presensi"] = "PrintController/presensi";
 $route["print/presensi/magang"] = "PrintController/presensi_magang";
@@ -135,4 +136,8 @@ $route["print/presensi/magang"] = "PrintController/presensi_magang";
 $route["print/lembur/pns"] = "PrintController/lembur_pns";
 $route["print/lembur/honorer"] = "PrintController/lembur_honorer";
 
+$route['print/gaji'] = "PrintController/gaji";
+$route['print/gaji/(:any)'] = "PrintController/detail_gaji/$1";
+
 $route["api/gaji/(:any)"] = "APIController/golongan_gaji/$1";
+$route["api/jabatan/(:any)"] = "APIController/jabatan_tunjangan/$1";

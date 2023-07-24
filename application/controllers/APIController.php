@@ -5,6 +5,7 @@ class APIController extends CI_Controller {
     parent::__construct();
 
     $this->load->model("GajiModel", "gaji_m");
+    $this->load->model("JabatanModel", "jabatan_m");
   }
 
   public function golongan_gaji($id_golongan) {
@@ -18,6 +19,24 @@ class APIController extends CI_Controller {
     if($gaji) {
       $data = [
         "data" => $gaji,
+        "error" => null
+      ];
+    }
+
+    echo json_encode($data, JSON_PRETTY_PRINT);
+  }
+
+  public function jabatan_tunjangan($id_jabatan) {
+    $data = [
+      "data" => null,
+      "error" => "tidak ada data"
+    ];
+
+    $tunjangan = $this->jabatan_m->get_tunjangan_by_jabatan_id($id_jabatan);
+    
+    if($tunjangan) {
+      $data = [
+        "data" => $tunjangan,
         "error" => null
       ];
     }

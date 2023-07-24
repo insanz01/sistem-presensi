@@ -41,8 +41,8 @@
         <thead>
           <th>#</th>
           <th>NIP</th>
-          <th>Nama Karyawan</th>
-          <th>Durasi Lembur</th>
+          <th>Nama Pegawai</th>
+          <!-- <th>Durasi Lembur</th> -->
           <th>Jam Mulai</th>
           <th>Jam Selesai</th>
           <th>Tanggal Lembur</th>
@@ -54,7 +54,7 @@
               <td><?= $nomor++ ?></td>
               <td><?= $laporan['NIP'] ?></td>
               <td><?= $laporan['nama'] ?></td>
-              <td><?= $laporan['durasi'] ?></td>
+              <!-- <td><?= $laporan['durasi'] ?></td> -->
               <td><?= $laporan['jam_mulai'] ?></td>
               <td><?= $laporan['jam_selesai'] ?></td>
               <td><?= $laporan['tanggal_lembur'] ?></td>

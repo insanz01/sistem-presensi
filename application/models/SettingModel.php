@@ -36,4 +36,12 @@ class SettingModel extends CI_Model {
     
     return $this->db->affected_rows();
   }
+
+  public function set_jabatan($data) {
+    $this->db->set("nominal", $data['nominal']);
+    $this->db->where("id_jabatan", $data['id_jabatan']);
+    $this->db->update("pengaturan_tunjangan");
+    
+    return $this->db->affected_rows();
+  }
 }

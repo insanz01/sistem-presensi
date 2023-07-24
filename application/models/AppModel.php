@@ -79,4 +79,32 @@ class AppModel extends CI_Model {
     
     return $this->db->query($query)->result_array();
   }
+
+  public function get_total_karyawan() {
+    $query = "SELECT COUNT(*) AS total FROM karyawan WHERE tipe_karyawan = 1 OR tipe_karyawan = 2";
+    $data = $this->db->query($query)->row_array();
+
+    return $data['total'];
+  }
+
+  public function get_total_magang() {
+    $query = "SELECT COUNT(*) AS total FROM karyawan WHERE tipe_karyawan = 3";
+    $data = $this->db->query($query)->row_array();
+
+    return $data['total'];
+  }
+
+  public function get_total_presensi_today() {
+    $query = "SELECT COUNT(*) AS total FROM presensi WHERE terlambat = 0 AND DATE(created_at) = DATE( NOW())";
+    $data = $this->db->query($query)->row_array();
+
+    return $data['total'];
+  }
+
+  public function get_total_terlambat() {
+    $query = "SELECT COUNT(*) AS total FROM presensi WHERE terlambat = 1 AND DATE(created_at) = DATE( NOW())";
+    $data = $this->db->query($query)->row_array();
+
+    return $data['total'];
+  }
 }

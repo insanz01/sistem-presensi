@@ -31,18 +31,18 @@
               <div class="col-4">
                 <div class="form-group">
                   <select name="filter_bulan" id="filter_bulan" class="form-control" onchange="submitFilter(this)">
-                    <option value="1">JANUARI</option>
-                    <option value="2">FEBRUARI</option>
-                    <option value="3">MARET</option>
-                    <option value="4">APRIL</option>
-                    <option value="5">MEI</option>
-                    <option value="6">JUNI</option>
-                    <option value="7">JULI</option>
-                    <option value="8">AGUSTUS</option>
-                    <option value="9">SEPTEMBER</option>
-                    <option value="10">OKTOBER</option>
-                    <option value="11">NOPEMBER</option>
-                    <option value="12">DESEMBER</option>
+                    <option value="1" <?= ($filter_bulan == "1") ? "selected": "" ?>>JANUARI</option>
+                    <option value="2" <?= ($filter_bulan == "2") ? "selected": "" ?>>FEBRUARI</option>
+                    <option value="3" <?= ($filter_bulan == "3") ? "selected": "" ?>>MARET</option>
+                    <option value="4" <?= ($filter_bulan == "4") ? "selected": "" ?>>APRIL</option>
+                    <option value="5" <?= ($filter_bulan == "5") ? "selected": "" ?>>MEI</option>
+                    <option value="6" <?= ($filter_bulan == "6") ? "selected": "" ?>>JUNI</option>
+                    <option value="7" <?= ($filter_bulan == "7") ? "selected": "" ?>>JULI</option>
+                    <option value="8" <?= ($filter_bulan == "8") ? "selected": "" ?>>AGUSTUS</option>
+                    <option value="9" <?= ($filter_bulan == "9") ? "selected": "" ?>>SEPTEMBER</option>
+                    <option value="10" <?= ($filter_bulan == "10") ? "selected": "" ?>>OKTOBER</option>
+                    <option value="11" <?= ($filter_bulan == "11") ? "selected": "" ?>>NOPEMBER</option>
+                    <option value="12" <?= ($filter_bulan == "12") ? "selected": "" ?>>DESEMBER</option>
                   </select>
                 </div>
               </div>
@@ -51,12 +51,14 @@
                   <select name="filter_golongan" id="filter_golongan" class="form-control" onchange="submitFilter(this)">
                     <option value="">SEMUA</option>
                     <?php foreach($golongan as $gol): ?>
-                      <option value="<?= $gol['id'] ?>"><?= $gol['nama'] ?> (<?= $gol['detail'] ?>)</option>
+                      <option value="<?= $gol['id'] ?>" <?= ($gol['id'] == $filter_golongan) ? "selected": "" ?>><?= $gol['nama'] ?> (<?= $gol['detail'] ?>)</option>
                     <?php endforeach; ?>
                   </select>
                 </div>
               </div>
-              <div class="col-4"></div>
+              <div class="col-4">
+                <a href="<?= base_url("print/gaji") ?>" class="btn btn-primary float-right" role="button" target="_blank">PRINT LAPORAN</a>
+              </div>
             </div>
           </form>
         </div>
@@ -71,7 +73,12 @@
                     <th>Tipe</th>
                     <th>Email</th>
                     <th>Golongan</th>
+                    <th>Jumlah Keterlambatan</th>
+                    <th>Durasi Lembur</th>
+                    <th>Bayaran Lembur</th>
+                    <th>Tunjangan</th>
                     <th>Gaji Bulan ini</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -83,7 +90,16 @@
                     <td><?= $data['tipe'] ?></td>
                     <td><?= $data['email'] ?></td>
                     <td><?= $data['golongan'] ?></td>
-                    <td><?= $data['gaji'] ?></td>
+                    <td><?= $data['jumlah_terlambat'] ?></td>
+                    <td><?= $data['durasi_lembur'] ?></td>
+                    <td><?= number_format($data['bayaran_lembur'], 0, ',', '.') ?></td>
+                    <td><?= number_format($data['tunjangan'], 0, ',', '.') ?></td>
+                    <td><?= number_format($data['gaji_bulan_ini'], 0, ',', '.') ?></td>
+                    <td>
+                      <a class="badge badge-sm badge-primary" role="button" href="<?= base_url("print/gaji/") . $data['id'] ?>" target="_blank">
+                        print
+                      </a>
+                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>

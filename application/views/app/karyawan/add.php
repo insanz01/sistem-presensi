@@ -67,8 +67,13 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="jabatan">Jabatan</label>
-                  <input type="text" name="jabatan" id="jabatan" class="form-control" required>
+                  <label for="id_jabatan">Jabatan</label>
+                  <!-- <input type="text" name="jabatan" id="jabatan" class="form-control" required> -->
+                  <select name="id_jabatan" id="id_jabatan" class="form-control">
+                    <?php foreach($jabatan as $jab): ?>
+                      <option value="<?= $jab['id'] ?>"><?= $jab['nama'] ?></option>
+                    <?php endforeach; ?>
+                  </select>
                 </div>
 
                 <div class="form-group">

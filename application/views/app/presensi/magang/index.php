@@ -53,6 +53,7 @@
                     <th>#</th>
                     <th>NIP</th>
                     <th>Nama Karyawan</th>
+                    <th>Tipe Karyawan</th>
                     <th>Terlambat</th>
                     <th>Jam Masuk</th>
                   </tr>
@@ -64,6 +65,7 @@
                     <td><?= $nomor++ ?></td>
                     <td><?= $data['NIP'] ?></td>
                     <td><?= $data['nama'] ?></td>
+                    <td><?= "Pegawai Magang" ?></td>
                     <td>
                       <?= ($data['terlambat']) ? 'Ya' : 'Tidak' ?>
                     </td>

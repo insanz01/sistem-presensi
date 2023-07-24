@@ -33,7 +33,7 @@
                   <tr>
                     <th>#</th>
                     <th>Nama Tunjangan</th>
-                    <th>Nilai</th>
+                    <th>Nilai (%)</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>

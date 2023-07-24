@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="nilai">Nilai Tunjangan</label>
+                  <label for="nilai">Nilai Tunjangan (%)</label>
                   <input type="number" name="nilai" id="nilai" class="form-control">
                 </div>
                 

@@ -61,6 +61,12 @@
                   <p>Tunjangan</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?= base_url('potongan') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon ml-3"></i>
+                  <p>Potongan</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item has-treeview">

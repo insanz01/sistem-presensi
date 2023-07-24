@@ -134,6 +134,10 @@ $route['tunjangan'] = "TunjanganController/index";
 $route['tunjangan/add'] = "TunjanganController/add";
 $route['tunjangan/do_add'] = "TunjanganController/do_add";
 
+$route['potongan'] = "PotonganController/index";
+$route['potongan/add'] = "PotonganController/add";
+$route['potongan/do_add'] = "PotonganController/do_add";
+
 $route["print/presensi"] = "PrintController/presensi";
 $route["print/presensi/magang"] = "PrintController/presensi_magang";
 

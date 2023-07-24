@@ -122,6 +122,32 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                MAGANG
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <!-- <a href="<?= base_url('magang/agenda') ?>" class="nav-link"> -->
+                <a href="#!" class="nav-link">
+                  <i class="far fa-circle nav-icon ml-3"></i>
+                  <p>Agenda Kegiatan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <!-- <a href="<?= base_url('magang/penilaian') ?>" class="nav-link"> -->
+                <a href="#!" class="nav-link">
+                  <i class="far fa-circle nav-icon ml-3"></i>
+                  <p>Penilaian</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         <?php else: ?>
           <li class="nav-item">
             <a href="<?= base_url("na/presensi") ?>" class="nav-link">

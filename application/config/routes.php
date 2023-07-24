@@ -130,6 +130,10 @@ $route['setting/jadwal/honorer'] = "SettingController/jadwal_honorer";
 $route['setting/jadwal/gaji'] = "SettingController/gaji";
 $route['setting/jadwal/jabatan'] = "SettingController/jabatan";
 
+$route['tunjangan'] = "TunjanganController/index";
+$route['tunjangan/add'] = "TunjanganController/add";
+$route['tunjangan/do_add'] = "TunjanganController/do_add";
+
 $route["print/presensi"] = "PrintController/presensi";
 $route["print/presensi/magang"] = "PrintController/presensi_magang";
 

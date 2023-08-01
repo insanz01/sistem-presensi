@@ -29,6 +29,10 @@ class NonAdminModel extends CI_Model {
     return $this->db->insert_id();
   }
 
+  public function get_all_logbook() {
+    return $this->db->get("logbook")->result_array();
+  }
+
   public function ajukan_lembur($data) {
     $this->db->insert("lembur", $data);
     return $this->db->insert_id();

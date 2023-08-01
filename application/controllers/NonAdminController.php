@@ -20,6 +20,35 @@ class NonAdminController extends CI_Controller {
     $this->load->view('templates/panel/footer');
   }
 
+  public function logbook() {
+    $data['logbook'] = $this->non_admin_m->get_all_logbook();
+
+    $this->load->view('templates/panel/header');
+    $this->load->view('templates/panel/sidebar');
+    $this->load->view('templates/panel/navbar');
+    $this->load->view('app/non_admin/logbook', $data);
+    $this->load->view('templates/panel/footer');
+  }
+
+  public function do_logbook() {
+    date_default_timezone_set("Asia/Makassar");
+
+    $NIP = $this->session->userdata("SESS_PERSENSI_NIP");
+
+    $data = [
+      "NIP" => $NIP,
+      "catatan" => $this->input->post("catatan")
+    ];
+
+    if($this->non_admin_m->add_logbook($data)) {
+      $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil menambahkan logbook</div>");
+    } else {
+      $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal menambahkan logbook</div>");
+    }
+
+    redirect("na/logbook");
+  }
+
   public function do_presensi() {
     date_default_timezone_set('Asia/Makassar');
 

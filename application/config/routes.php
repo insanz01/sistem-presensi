@@ -120,7 +120,9 @@ $route['lembur/status/(:any)/(:any)/(:any)'] = "LemburController/status/$1/$2/$3
 $route['gaji'] = "GajiController/index";
 
 $route['na/presensi'] = "NonAdminController/presensi";
+$route['na/logbook'] = "NonAdminController/logbook";
 $route['na/do_presensi'] = "NonAdminController/do_presensi";
+$route['na/do_logbook'] = "NonAdminController/do_logbook";
 $route['na/ajukan_lembur'] = "NonAdminController/ajukan_lembur";
 $route['na/do_ajukan_lembur'] = "NonAdminController/do_ajukan_lembur";
 

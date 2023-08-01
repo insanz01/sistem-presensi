@@ -50,10 +50,10 @@
                   </select>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="presensi">Masukan NIP Anda</label>
                   <input type="text" class="form-control" name="NIP">
-                </div>
+                </div> -->
 
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary btn-block">PRESENSI</button>

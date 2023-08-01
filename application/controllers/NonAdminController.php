@@ -23,13 +23,13 @@ class NonAdminController extends CI_Controller {
   public function do_presensi() {
     date_default_timezone_set('Asia/Makassar');
 
-    $NIP = $this->input->post('NIP');
+    $NIP = $this->session->userdata("SESS_PRESENSI_NIP");
 
-    if($NIP != $this->session->userdata("SESS_PRESENSI_NIP")) {
-      $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>NIP tidak valid</div>");
+    // if($NIP != $this->session->userdata("SESS_PRESENSI_NIP")) {
+    //   $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>NIP tidak valid</div>");
 
-      redirect("na/presensi");
-    }
+    //   redirect("na/presensi");
+    // }
 
     $jadwal_pns = $this->setting_m->get_jadwal_pns();
     $jadwal_honorer = $this->setting_m->get_jadwal_honorer();

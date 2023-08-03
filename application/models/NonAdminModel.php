@@ -61,4 +61,8 @@ class NonAdminModel extends CI_Model {
 
     return $this->db->affected_rows();
   }
+
+  public function add_logbook($data) {
+    return $this->db->insert("logbook", $data);
+  }
 }

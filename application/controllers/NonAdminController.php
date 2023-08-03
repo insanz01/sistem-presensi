@@ -33,13 +33,12 @@ class NonAdminController extends CI_Controller {
   public function do_logbook() {
     date_default_timezone_set("Asia/Makassar");
 
-    $NIP = $this->session->userdata("SESS_PERSENSI_NIP");
+    $NIP = $this->session->userdata("SESS_PRESENSI_NIP");
 
     $data = [
       "NIP" => $NIP,
       "catatan" => $this->input->post("catatan")
     ];
-
     if($this->non_admin_m->add_logbook($data)) {
       $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil menambahkan logbook</div>");
     } else {

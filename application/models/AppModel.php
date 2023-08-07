@@ -15,6 +15,12 @@ class AppModel extends CI_Model {
     "ontime" => 0,
     "terlambat" => 1
   ];
+
+  public function get_all_karyawan_PNS() {
+    $query = "SELECT p.id, p.id_user, p.NIP_PNS as NIP, p.nama, t.nama as tipe_karyawan, p.email, p.nomor_hp, p.alamat, g.nama as golongan, j.nama as jabatan, p.tempat_lahir, p.tanggal_lahir FROM karyawan p JOIN tipe_karyawan t ON p.tipe_karyawan = t.id JOIN jabatan j ON p.id_jabatan = j.id JOIN golongan g ON p.id_golongan = g.id WHERE p.tipe_karyawan = 1";
+
+    return $this->db->query($query)->result_array();
+  }
   
   public function get_all_presensi() {
     $query = "SELECT p.id, p.id_karyawan, k.NIP, k.nama, k.tipe_karyawan, p.terlambat, p.created_at FROM presensi p JOIN karyawan k ON p.id_karyawan = k.id WHERE k.tipe_karyawan <> 3";

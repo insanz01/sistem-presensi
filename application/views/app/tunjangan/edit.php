@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Tambah Tunjangan</h1>
+          <h1 class="m-0 text-dark">Edit Tunjangan</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <!-- <ol class="breadcrumb float-sm-right">
@@ -25,19 +25,19 @@
         <div class="col-10 mx-auto">
           <div class="card">
             <div class="card-body">
-              <form action="<?= base_url("tunjangan/do_add") ?>" method="post">
+              <form action="<?= base_url("tunjangan/do_edit/") . $id ?>" method="post">
                 <div class="form-group">
                   <label for="id_karyawan">Nama Karyawan</label>
                   <select name="id_karyawan" id="id_karyawan" class="form-control">
                     <?php foreach($karyawan as $k): ?>
-                      <option value="<?= $k['id'] ?>"><?= $k['nama'] ?></option>
+                      <option value="<?= $k['id'] ?>" <?= $k['id'] == $tunjangan['id_karyawan'] ? 'selected': '' ?>><?= $k['nama'] ?></option>
                     <?php endforeach; ?>
                   </select>
                 </div>
 
                 <div class="form-group">
                   <label for="nominal">Nominal Tunjangan</label>
-                  <input type="number" name="nominal" id="nominal" class="form-control">
+                  <input type="number" name="nominal" id="nominal" class="form-control" value="<?= $tunjangan['nominal'] ?>">
                 </div>
                 
                 <div class="form-group">

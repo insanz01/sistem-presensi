@@ -11,6 +11,12 @@ class KaryawanModel extends CI_Model {
     return $this->db->query($query)->result_array();
   }
 
+  public function get_all_PNS() {
+    $query = "SELECT karyawan.*, tipe_karyawan.nama as tipe FROM karyawan JOIN tipe_karyawan ON karyawan.tipe_karyawan = tipe_karyawan.id WHERE tipe_karyawan.id = 1";
+
+    return $this->db->query($query)->result_array();
+  }
+
   public function get_all_single($id) {
     return $this->db->get_where("karyawan", ["id" => $id])->row_array();
   }

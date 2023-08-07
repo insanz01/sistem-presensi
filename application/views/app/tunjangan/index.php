@@ -32,8 +32,8 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Nama Tunjangan</th>
-                    <th>Nilai (%)</th>
+                    <th>Nama Pegawai</th>
+                    <th>Nominal</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -43,7 +43,7 @@
                   <tr>
                     <td><?= $nomor++ ?></td>
                     <td><?= $data['nama'] ?></td>
-                    <td><?= $data['nilai'] ?></td>
+                    <td><?= $data['nominal'] ?></td>
                     <td>
                       <!-- <a href="<?= base_url("karyawan/edit/") . $data['id'] ?>" class="badge badge-info badge-sm badge-pill">edit</a> -->
                       <!-- <a href="<?= base_url("karyawan/delete/") . $data['id'] ?>" class="badge badge-danger badge-sm badge-pill">hapus</a> -->

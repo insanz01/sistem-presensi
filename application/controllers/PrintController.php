@@ -8,6 +8,12 @@ class PrintController extends CI_Controller {
     $this->load->model("GajiModel", "gaji_m");
   }
 
+  public function karyawan() {
+    $data['all_laporan'] = $this->app_m->get_all_karyawan_PNS();
+
+    $this->load->view("app/print/karyawan", $data);
+  }
+
   public function presensi() {
     $filter = $this->session->userdata("SESS_PRESENSI_FILTER");
 

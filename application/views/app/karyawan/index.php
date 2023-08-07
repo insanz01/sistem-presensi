@@ -24,7 +24,10 @@
       <div class="row">
         <div class="col-10 mx-auto mb-2">
           <a href="<?= base_url("karyawan/add") ?>" class="btn btn-primary float-right" role="button">TAMBAH PEGAWAI</a>
-        </div>
+          <a href="<?= base_url("print/karyawan") ?>" target="_blank" class="btn btn-info float-right mx-2" role="button">
+            <i class="fas fa-fw fa-print"></i> PRINT
+          </a>
+          </div>
         <div class="col-10 mx-auto">
           <div class="card">
             <div class="card-body">

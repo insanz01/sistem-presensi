@@ -70,6 +70,7 @@ $route['karyawan/delete/(:any)'] = "KaryawanController/delete/$1";
 
 // PRESENSI
 $route['presensi'] = "AppController/presensi";
+$route['presensi/logbook/(:any)'] = "AppController/presensi_logbook/$1";
 
 $route['presensi/pns'] = "PresensiController/index";
 $route['presensi/pns/add'] = "PresensiController/add";

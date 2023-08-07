@@ -1,3 +1,9 @@
+<style>
+  th, td {
+    font-size: 0.8em !important;
+  }
+</style>
+
 <div class="content-wrapper">
 
   <!-- Content Header (Page header) -->
@@ -63,6 +69,7 @@
                     <th>Tipe Karyawan</th>
                     <th>Terlambat</th>
                     <th>Jam Masuk</th>
+                    <th>Opsi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -83,6 +90,9 @@
                       <?= ($data['terlambat']) ? 'Ya' : 'Tidak' ?>
                     </td>
                     <td><?= $data['created_at'] ?></td>
+                    <td>
+                      <a href="<?= base_url("presensi/logbook/") . $data['id'] ?>" class="badge badge-sm badge-primary" role="button">detail</a>
+                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>

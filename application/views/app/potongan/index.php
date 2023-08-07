@@ -45,8 +45,8 @@
                     <td><?= $data['nama'] ?></td>
                     <td><?= $data['nilai'] ?></td>
                     <td>
-                      <!-- <a href="<?= base_url("karyawan/edit/") . $data['id'] ?>" class="badge badge-info badge-sm badge-pill">edit</a> -->
-                      <!-- <a href="<?= base_url("karyawan/delete/") . $data['id'] ?>" class="badge badge-danger badge-sm badge-pill">hapus</a> -->
+                      <a href="<?= base_url("potongan/edit/") . $data['id'] ?>" class="badge badge-info badge-sm badge-pill">edit</a>
+                      <a href="<?= base_url("potongan/delete/") . $data['id'] ?>" class="badge badge-danger badge-sm badge-pill">hapus</a>
                     </td>
                   </tr>
                   <?php endforeach; ?>

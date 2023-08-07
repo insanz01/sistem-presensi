@@ -43,10 +43,10 @@
                   <tr>
                     <td><?= $nomor++ ?></td>
                     <td><?= $data['nama'] ?></td>
-                    <td><?= $data['nominal'] ?></td>
+                    <td><?= number_format($data['nominal'], 0, ',', '.') ?></td>
                     <td>
-                      <!-- <a href="<?= base_url("karyawan/edit/") . $data['id'] ?>" class="badge badge-info badge-sm badge-pill">edit</a> -->
-                      <!-- <a href="<?= base_url("karyawan/delete/") . $data['id'] ?>" class="badge badge-danger badge-sm badge-pill">hapus</a> -->
+                      <a href="<?= base_url("tunjangan/edit/") . $data['id'] ?>" class="badge badge-info badge-sm badge-pill">edit</a>
+                      <a href="<?= base_url("tunjangan/delete/") . $data['id'] ?>" class="badge badge-danger badge-sm badge-pill">hapus</a>
                     </td>
                   </tr>
                   <?php endforeach; ?>

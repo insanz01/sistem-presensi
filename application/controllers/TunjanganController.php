@@ -9,7 +9,17 @@ class TunjanganController extends CI_Controller {
   }
 
   public function index() {
-    $data['tunjangan'] = $this->tunjangan_m->get_all_tunjangan();
+    $tunjangan = $this->tunjangan_m->get_all_tunjangan();
+
+    $result = [];
+    foreach($tunjangan as $t) {
+      $additional = $this->tunjangan_m->get_tunjangan_dari_jabatan($t['id']);
+
+      $t["nominal"] += $additional['nominal'];
+      $result[] = $t;
+    }
+
+    $data['tunjangan'] = $result;
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
@@ -59,6 +69,16 @@ class TunjanganController extends CI_Controller {
       $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil mengubah data</div>");
     } else {
       $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal mengubah data</div>");
+    }
+
+    redirect("tunjangan");
+  }
+
+  public function delete($id) {
+    if($this->tunjangan_m->delete_tunjangan($id)) {
+      $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil menghapus data</div>");
+    } else {
+      $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal menghapus data</div>");
     }
 
     redirect("tunjangan");

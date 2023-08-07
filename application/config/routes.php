@@ -135,10 +135,16 @@ $route['setting/jadwal/jabatan'] = "SettingController/jabatan";
 $route['tunjangan'] = "TunjanganController/index";
 $route['tunjangan/add'] = "TunjanganController/add";
 $route['tunjangan/do_add'] = "TunjanganController/do_add";
+$route['tunjangan/edit/(:any)'] = "TunjanganController/edit/$1";
+$route['tunjangan/do_edit/(:any)'] = "TunjanganController/do_edit/$1";
+$route['tunjangan/delete/(:any)'] = "TunjanganController/delete/$1";
 
 $route['potongan'] = "PotonganController/index";
 $route['potongan/add'] = "PotonganController/add";
 $route['potongan/do_add'] = "PotonganController/do_add";
+$route['potongan/edit/(:any)'] = "PotonganController/edit/$1";
+$route['potongan/do_edit/(:any)'] = "PotonganController/do_edit/$1";
+$route['potongan/delete/(:any)'] = "PotonganController/delete/$1";
 
 $route["print/presensi"] = "PrintController/presensi";
 $route["print/presensi/magang"] = "PrintController/presensi_magang";

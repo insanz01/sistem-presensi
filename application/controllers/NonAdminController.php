@@ -178,6 +178,18 @@ class NonAdminController extends CI_Controller {
 
   public function do_ajukan_lembur() {
     $data = $this->input->post();
+
+    $config['upload_path']          = './uploads/';
+    $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf';
+
+    $this->load->library('upload', $config);
+
+    if ($this->upload->do_upload('file_bukti'))
+    {
+      $imageData = array('upload_data' => $this->upload->data());
+
+      $data['file_bukti'] = $imageData['upload_data']['file_name'];
+    }
     
     $karyawan = $this->non_admin_m->get_karyawan_by_NIP($this->session->userdata("SESS_PRESENSI_NIP"));
     $data['id_karyawan'] = $karyawan['id'];

@@ -36,7 +36,7 @@
         <div class="col-7 mx-auto">
           <div class="card">
             <div class="card-body">
-              <form action="<?= base_url("na/do_ajukan_lembur") ?>" method="post">
+              <form action="<?= base_url("na/do_ajukan_lembur") ?>" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="tanggal_lembur">Tanggal Lembur</label>
                   <input type="date" class="form-control" name="tanggal_lembur">
@@ -52,6 +52,14 @@
                 <div class="form-group">
                   <label for="jam_selesai">Jam Selesai</label>
                   <input type="time" class="form-control" name="jam_selesai">
+                </div>
+                <div class="form-group">
+                  <label for="keterangan">Alasan</label>
+                  <textarea name="keterangan" id="keterangan" class="form-control" cols="30" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="file_bukti">Bukti</label>
+                  <input type="file" class="form-control" name="file_bukti" id="file_bukti">
                 </div>
 
                 <div class="form-group">

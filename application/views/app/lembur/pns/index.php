@@ -1,3 +1,9 @@
+<style>
+  th, td {
+    font-size: 0.8em;
+  }
+</style>
+
 <div class="content-wrapper">
 
   <!-- Content Header (Page header) -->
@@ -43,8 +49,10 @@
                     <th>Jam Mulai</th>
                     <th>Jam Selesai</th>
                     <th>Tanggal Lembur</th>
-                    <!-- <th>Status</th> -->
-                    <!-- <th>Aksi</th> -->
+                    <th>Keterangan</th>
+                    <th>File</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -57,7 +65,13 @@
                     <td><?= $data['jam_mulai'] ?></td>
                     <td><?= $data['jam_selesai'] ?></td>
                     <td><?= $data['tanggal_lembur'] ?></td>
-                    <!-- <td>
+                    <td><?= $data['keterangan'] ?></td>
+                    <td>
+                      <?php if($data['file_bukti']): ?>
+                        <a href="<?= base_url('uploads/') . $data['file_bukti'] ?>" target="_blank" download>lihat file</a>
+                      <?php endif; ?>
+                    </td>
+                    <td>
                       <?php if($data['status'] == 1): ?>
                         diterima
                       <?php elseif($data['status'] == -1): ?>
@@ -65,13 +79,13 @@
                       <?php else: ?>
                         menunggu
                       <?php endif; ?>
-                    </td> -->
-                    <!-- <td>
+                    </td>
+                    <td>
                       <?php if($data['status'] == 0): ?>
                         <a href="<?= base_url("lembur/status/") . $data['id'] . '/setuju/pns' ?>" class="badge badge-sm badge-success" role="button">Setuju</a>
                         <a href="<?= base_url("lembur/status/")  . $data['id'] . '/tolak/pns' ?>" class="badge badge-sm badge-danger" role="button">Tolak</a>
                       <?php endif; ?>
-                    </td> -->
+                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>

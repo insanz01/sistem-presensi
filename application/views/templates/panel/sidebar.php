@@ -169,15 +169,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="<?= base_url("na/logbook") ?>" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                LOG BOOK
-              </p>
-            </a>
-          </li>
-          <?php if($this->session->userdata("SESS_PRESENSI_ROLEID") != 4): ?>
+          <?php if($this->session->userdata("SESS_PRESENSI_ROLEID") != 4 AND $this->session->userdata("SESS_PRESENSI_ROLEID") != 1): ?>
           <!-- <li class="nav-item">
             <a href="<?= base_url("na/ajukan_lembur") ?>" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
@@ -186,6 +178,14 @@
               </p>
             </a>
           </li> -->
+          <li class="nav-item">
+            <a href="<?= base_url("na/logbook") ?>" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                LOG BOOK
+              </p>
+            </a>
+          </li>
           <?php endif; ?>
         <?php endif; ?>
 

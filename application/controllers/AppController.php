@@ -62,4 +62,12 @@ class AppController extends CI_Controller
     $this->load->view('app/presensi/karyawan/index', $data);
     $this->load->view('templates/panel/footer');
   }
+
+  public function presensi_logbook($id) {
+    $this->load->view('templates/panel/header');
+    $this->load->view('templates/panel/sidebar');
+    $this->load->view('templates/panel/navbar');
+    $this->load->view('app/presensi/karyawan/index', $data);
+    $this->load->view('templates/panel/footer');
+  }
 }

@@ -30,7 +30,11 @@ class NonAdminModel extends CI_Model {
   }
 
   public function get_all_logbook() {
-    return $this->db->get("logbook")->result_array();
+    $NIP = $this->session->userdata("SESS_PRESENSI_NIP");
+
+    $query = "SELECT * FROM logbook WHERE DATE(created_at) = CURDATE() AND NIP = '$NIP'";
+
+    return $this->db->query($query)->result_array();
   }
 
   public function ajukan_lembur($data) {
@@ -63,6 +67,21 @@ class NonAdminModel extends CI_Model {
   }
 
   public function add_logbook($data) {
+    $now = date("Y-m-d", time());
+
+    $query = "SELECT * FROM logbook WHERE NIP = '$data[NIP]' AND DATE(created_at) = '$now'";
+    $logbook = $this->db->query($query)->row_array();
+
+    if($logbook) {
+      $catatan = $logbook['catatan'];
+
+      $catatan .= "\n" . $data['catatan'];
+
+      $queryUpdate = "UPDATE logbook SET catatan = '$catatan' WHERE NIP = '$data[NIP]' AND DATE(created_at) = '$now'";
+
+      return $this->db->query($queryUpdate);
+    }
+    
     return $this->db->insert("logbook", $data);
   }
 }

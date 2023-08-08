@@ -11,7 +11,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Presensi Karyawan</h1>
+          <h1 class="m-0 text-dark">Logbook Presensi Karyawan</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <!-- <ol class="breadcrumb float-sm-right">
@@ -31,25 +31,24 @@
         <div class="row mb-2">
           <div class="col-4">
             <div class="form-group">
-              <select name="filter_karyawan" id="filter_karyawan" class="form-control" onchange="filterKaryawan(this)">
+              <!-- <select name="filter_karyawan" id="filter_karyawan" class="form-control" onchange="filterKaryawan(this)">
                 <option value="" <?= ($filter_karyawan == "") ? "selected" : "" ?>>TAMPIL SEMUA</option>
                 <option value="pns" <?= ($filter_karyawan == "pns") ? "selected" : "" ?>>PEGAWAI NEGERI SIPIL</option>
                 <option value="honorer" <?= ($filter_karyawan == "honorer") ? "selected" : "" ?>>PEGAWAI HONORER</option>
-              </select>
+              </select> -->
             </div>
           </div>
           <div class="col-4">
             <div class="form-group">
-              <select name="filter_absen" id="filter_absen" class="form-control" onchange="filterAbsen(this)">
+              <!-- <select name="filter_absen" id="filter_absen" class="form-control" onchange="filterAbsen(this)">
                 <option value="" <?= ($filter_absen == "") ? "selected" : "" ?>>TAMPIL SEMUA</option>
-                <!-- <option value="absen">PEGAWAI ABSEN</option> -->
                 <option value="terlambat" <?= ($filter_absen == "terlambat") ? "selected" : "" ?>>PRESENSI TERLAMBAT</option>
                 <option value="ontime" <?= ($filter_absen == "ontime") ? "selected" : "" ?>>PRESENSI TEPAT WAKTU</option>
-              </select>
+              </select> -->
             </div>
           </div>
           <div class="col-4">
-            <a href="<?= base_url("print/presensi") ?>" class="btn btn-primary float-right" target="_blank">PRINT LAPORAN</a>
+            <!-- <a href="<?= base_url("print/presensi") ?>" class="btn btn-primary float-right" target="_blank">PRINT LAPORAN</a> -->
           </div>
         </div>
       </form>
@@ -64,12 +63,7 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>NIP</th>
-                    <th>Nama Karyawan</th>
-                    <th>Tipe Karyawan</th>
-                    <th>Terlambat</th>
-                    <th>Jam Masuk</th>
-                    <th>Logbook</th>
+                    <th>Catatan</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -90,10 +84,6 @@
                       <?= ($data['terlambat']) ? 'Ya' : 'Tidak' ?>
                     </td>
                     <td><?= $data['created_at'] ?></td>
-                    <td>
-                      <?= $data['catatan'] ?>
-                      <!-- <a href="<?= base_url("presensi/logbook/") . $data['id'] ?>" class="badge badge-sm badge-primary" role="button">detail</a> -->
-                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>

@@ -23,7 +23,7 @@ class AppModel extends CI_Model {
   }
   
   public function get_all_presensi() {
-    $query = "SELECT p.id, p.id_karyawan, k.NIP, k.nama, k.tipe_karyawan, p.terlambat, p.created_at FROM presensi p JOIN karyawan k ON p.id_karyawan = k.id WHERE k.tipe_karyawan <> 3";
+    $query = "SELECT p.id, p.id_karyawan, k.NIP, k.nama, k.tipe_karyawan, p.terlambat, l.catatan, p.created_at FROM presensi p JOIN karyawan k ON p.id_karyawan = k.id LEFT JOIN logbook l ON DATE(p.created_at) = DATE(l.created_at) WHERE k.tipe_karyawan <> 3 AND l.NIP = k.NIP";
     
     return $this->db->query($query)->result_array();
   }

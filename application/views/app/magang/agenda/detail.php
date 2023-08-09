@@ -26,10 +26,10 @@
           <a href="<?= base_url("magang/add_penilaian") ?>" class="btn btn-primary float-right mx-2" role="button">
             PENILAIAN
           </a>
-          <!-- <a href="<?= base_url("print/karyawan") ?>" target="_blank" class="btn btn-info float-right mx-2" role="button">
+          <a href="<?= base_url("print/agenda_kegiatan/") . $id ?>" target="_blank" class="btn btn-info float-right mx-2" role="button">
             <i class="fas fa-fw fa-print"></i> PRINT
-          </a> -->
-          </div>
+          </a>
+        </div>
         <div class="col-10 mx-auto">
           <div class="card">
             <div class="card-body">

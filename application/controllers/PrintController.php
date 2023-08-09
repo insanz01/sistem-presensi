@@ -6,6 +6,7 @@ class PrintController extends CI_Controller {
 
     $this->load->model("AppModel", "app_m");
     $this->load->model("GajiModel", "gaji_m");
+    $this->load->model("MagangModel", "magang_m");
   }
 
   public function karyawan() {
@@ -26,6 +27,12 @@ class PrintController extends CI_Controller {
     $data["all_laporan"] = $presensi;
 
     $this->load->view("app/print/presensi", $data);
+  }
+
+  public function agenda_kegiatan($id) {
+    $data['all_laporan'] = $this->magang_m->get_all_agenda_by_magang_id($id);
+
+    $this->load->view("app/print/agenda_kegiatan", $data);
   }
 
   public function presensi_magang() {

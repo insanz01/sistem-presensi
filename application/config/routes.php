@@ -153,6 +153,8 @@ $route["print/presensi/magang"] = "PrintController/presensi_magang";
 $route["print/lembur/pns"] = "PrintController/lembur_pns";
 $route["print/lembur/honorer"] = "PrintController/lembur_honorer";
 
+$route['print/agenda_kegiatan/(:any)'] = "PrintController/agenda_kegiatan/$1";
+
 $route["print/karyawan"] = "PrintController/karyawan"; // SEMENTARA HANYA PNS
 
 $route['magang/add_agenda'] = "MagangController/add_agenda";

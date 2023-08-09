@@ -82,12 +82,44 @@ class MagangController extends CI_Controller {
   public function do_add_penilaian() {
     // $data['penilaian'] = $this->magang_m->
     $data = $this->input->post();
-    $data['id_magang'] = $this->session->userdata("SESS_PRESENSI_MAGANGID");
 
     if($this->magang_m->add_penilaian($data)) {
       $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil menambahkan penilaian</div>");
     } else {
       $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal menambahkan penilaian</div>");
+    }
+
+    redirect("magang/penilaian");
+  }
+
+  public function edit_penilaian($id) {
+    $data['penilaian'] = $this->magang_m->get_single_penilaian_magang($id);
+    $data['id'] = $id;
+
+    $this->load->view('templates/panel/header');
+    $this->load->view('templates/panel/sidebar');
+    $this->load->view('templates/panel/navbar');
+    $this->load->view('app/magang/agenda/edit_penilaian', $data);
+    $this->load->view('templates/panel/footer');
+  }
+
+  public function do_edit_penilaian($id) {
+    $data = $this->input->post();
+
+    if($this->magang_m->edit_penilaian($data, $id)) {
+      $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil mengubah penilaian</div>");
+    } else {
+      $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal mengubah penilaian</div>");
+    }
+
+    redirect("magang/penilaian");
+  }
+
+  public function delete_penilaian($id) {
+    if($this->magang_m->delete_penilaian($id)) {
+      $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil menghapus penilaian</div>");
+    } else {
+      $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal menghapus penilaian</div>");
     }
 
     redirect("magang/penilaian");

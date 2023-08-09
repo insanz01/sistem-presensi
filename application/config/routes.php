@@ -165,7 +165,10 @@ $route['magang/agenda'] = "MagangController/agenda";
 // $route['magang/agenda'] = "MagangController/agenda";
 $route['magang/penilaian'] = "MagangController/penilaian";
 $route['magang/add_penilaian'] = "MagangController/add_penilaian";
-$route['magang/add_add_penilaian'] = "MagangController/do_add_penilaian";
+$route['magang/do_add_penilaian'] = "MagangController/do_add_penilaian";
+$route['magang/penilaian/edit/(:any)'] = "MagangController/edit_penilaian/$1";
+$route['magang/do_edit_penilaian/(:any)'] = "MagangController/do_edit_penilaian/$1";
+$route['magang/penilaian/hapus/(:any)'] = "MagangController/delete_penilaian/$1";
 
 $route['print/gaji'] = "PrintController/gaji";
 $route['print/gaji/(:any)'] = "PrintController/detail_gaji/$1";

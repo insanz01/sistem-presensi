@@ -44,8 +44,30 @@ class MagangModel extends CI_Model {
     return $this->db->insert("agenda_kegiatan", $data);
   }
 
+  public function get_single_penilaian_magang($id) {
+    $query = "SELECT p.id, m.id as id_magang, m.nama, p.disiplin_kerja, p.komunikasi, p.motivasi, p.inisiatif, p.kerjasama, p.etika, p.tanggung_jawab FROM penilaian_magang p JOIN magang m WHERE p.id_magang = m.id AND p.id = $id";
+
+    return $this->db->query($query)->row_array();
+  }
+
+  public function add_penilaian($data) {
+    return $this->db->insert("penilaian_magang", $data);
+  }
+
+  public function edit_penilaian($data, $id) {
+    $this->db->set($data);
+    $this->db->where("id", $id);
+    $this->db->update("penilaian_magang");
+
+    return $this->db->affected_rows();
+  }
+
+  public function delete_penilaian($id) {
+    return $this->db->delete("penilaian_magang", ["id" => $id]);
+  }
+
   public function get_all_penilaian_magang() {
-    $query = "SELECT m.id, m.nama, p.disiplin_kerja, p.komunikasi, p.motivasi, p.inisiatif, p.kerjasama, p.etika, p.tanggung_jawab FROM penilaian_magang p JOIN magang m WHERE p.id_magang = m.id";
+    $query = "SELECT p.id, m.id as id_magang, m.nama, p.disiplin_kerja, p.komunikasi, p.motivasi, p.inisiatif, p.kerjasama, p.etika, p.tanggung_jawab FROM penilaian_magang p JOIN magang m WHERE p.id_magang = m.id";
 
     return $this->db->query($query)->result_array();
   }

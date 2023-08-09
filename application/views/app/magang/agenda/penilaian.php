@@ -45,7 +45,7 @@
                     <th>Kerjasama</th>
                     <th>Etika</th>
                     <th>Tanggung Jawab</th>
-                    <!-- <th>Aksi</th> -->
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -61,9 +61,11 @@
                     <td><?= $data['kerjasama'] ?></td>
                     <td><?= $data['etika'] ?></td>
                     <td><?= $data['tanggung_jawab'] ?></td>
-                    <!-- <td>
-                      <a href="<?= base_url("magang/penilaian/hapus/") . $data['id'] ?>" class="badge badge-info badge-sm badge-pill">hapus</a>
-                    </td> -->
+                    <td>
+                      <a href="<?= base_url("magang/penilaian/edit/") . $data['id'] ?>" class="badge badge-info badge-sm badge-pill">edit</a> 
+                       
+                      <a href="<?= base_url("magang/penilaian/hapus/") . $data['id'] ?>" class="badge badge-danger badge-sm badge-pill">hapus</a>
+                    </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>

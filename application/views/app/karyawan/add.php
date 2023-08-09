@@ -46,7 +46,9 @@
                   <select name="tipe_karyawan" id="tipe_karyawan" class="form-control">
                     <option value="">- PILIH -</option>
                     <?php foreach($tipe_karyawan as $data): ?>
-                    <option value="<?= $data['id'] ?>"><?= $data['nama'] ?></option>
+                      <?php if($data['id'] != 3): ?>
+                        <option value="<?= $data['id'] ?>"><?= $data['nama'] ?></option>
+                      <?php endif; ?>
                     <?php endforeach; ?>
                   </select>
                 </div>

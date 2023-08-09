@@ -56,6 +56,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="<?= base_url('magang') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon ml-3"></i>
+                  <p>Magang</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="<?= base_url('tunjangan') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon ml-3"></i>
                   <p>Tunjangan</p>

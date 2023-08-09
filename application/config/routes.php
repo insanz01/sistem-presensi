@@ -68,6 +68,13 @@ $route['karyawan/edit/(:any)'] = "KaryawanController/edit/$1";
 $route['karyawan/do_edit/(:any)'] = "KaryawanController/do_edit/$1";
 $route['karyawan/delete/(:any)'] = "KaryawanController/delete/$1";
 
+$route['magang'] = "KaryawanController/magang";
+$route['magang/add'] = "KaryawanController/add_magang";
+$route['magang/do_add'] = "KaryawanController/do_add_magang";
+$route['magang/edit/(:any)'] = "KaryawanController/edit_magang/$1";
+$route['magang/do_edit/(:any)'] = "KaryawanController/do_edit_magang/$1";
+$route['magang/delete/(:any)'] = "KaryawanController/delete_magang/$1";
+
 // PRESENSI
 $route['presensi'] = "AppController/presensi";
 $route['presensi/logbook/(:any)'] = "AppController/presensi_logbook/$1";

@@ -57,4 +57,32 @@ class KaryawanModel extends CI_Model {
   public function get_all_tipe() {
     return $this->db->get("tipe_karyawan")->result_array();
   }
+
+  public function insert_magang($data) {
+    $userData = [
+      "username" => $data['email'],
+      "password" => password_hash($data['nomor_hp'], PASSWORD_DEFAULT),
+      "role_id" => 4,
+      "is_active" => 1
+    ];
+
+    $user_id = $this->register_user($userData);
+
+    $data['id_user'] = $user_id;
+
+    $this->db->insert("magang", $data);
+    return $this->db->insert_id();
+  }
+
+  public function update_magang($data, $id) {
+    $this->db->set($data);
+    $this->db->where('id', $id);
+    $this->db->update('magang');
+
+    return $this->db->affected_rows();
+  }
+
+  public function remove_magang($id) {
+    return $this->db->delete('magang', ['id' => $id]);
+  }
 }

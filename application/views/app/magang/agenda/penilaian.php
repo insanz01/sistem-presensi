@@ -23,13 +23,13 @@
     <div class="container">
       <div class="row">
         <div class="col-10 mx-auto mb-2">
-          <!-- <a href="<?= base_url("print/karyawan") ?>" target="_blank" class="btn btn-info float-right mx-2" role="button">
+          <a href="<?= base_url("print/penilaian") ?>" target="_blank" class="btn btn-info float-right mx-2" role="button">
             <i class="fas fa-fw fa-print"></i> PRINT
-          </a> -->
-            <a href="<?= base_url("magang/add_penilaian") ?>" class="btn btn-primary float-right mx-2" role="button">
-              PENILAIAN
-            </a>
-          </div>
+          </a>
+          <a href="<?= base_url("magang/add_penilaian") ?>" class="btn btn-primary float-right mx-2" role="button">
+            PENILAIAN
+          </a>
+        </div>
         <div class="col-10 mx-auto">
           <div class="card">
             <div class="card-body">
@@ -63,7 +63,7 @@
                     <td><?= $data['tanggung_jawab'] ?></td>
                     <td>
                       <a href="<?= base_url("magang/penilaian/edit/") . $data['id'] ?>" class="badge badge-info badge-sm badge-pill">edit</a> 
-                       
+
                       <a href="<?= base_url("magang/penilaian/hapus/") . $data['id'] ?>" class="badge badge-danger badge-sm badge-pill">hapus</a>
                     </td>
                   </tr>

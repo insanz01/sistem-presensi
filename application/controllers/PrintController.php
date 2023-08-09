@@ -35,6 +35,12 @@ class PrintController extends CI_Controller {
     $this->load->view("app/print/agenda_kegiatan", $data);
   }
 
+  public function penilaian() {
+    $data['all_laporan'] = $this->magang_m->get_all_penilaian_magang();
+
+    $this->load->view("app/print/penilaian_kegiatan", $data);
+  }
+
   public function presensi_magang() {
     $filter = $this->session->userdata("SESS_PRESENSI_FILTER");
 

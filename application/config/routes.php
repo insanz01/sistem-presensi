@@ -155,6 +155,16 @@ $route["print/lembur/honorer"] = "PrintController/lembur_honorer";
 
 $route["print/karyawan"] = "PrintController/karyawan"; // SEMENTARA HANYA PNS
 
+$route['magang/add_agenda'] = "MagangController/add_agenda";
+$route['magang/do_add_agenda'] = "MagangController/do_add_agenda";
+$route['magang/detail/(:any)'] = "MagangController/detail/$1";
+
+$route['magang/agenda'] = "MagangController/agenda";
+// $route['magang/agenda'] = "MagangController/agenda";
+$route['magang/penilaian'] = "MagangController/penilaian";
+$route['magang/add_penilaian'] = "MagangController/add_penilaian";
+$route['magang/add_add_penilaian'] = "MagangController/do_add_penilaian";
+
 $route['print/gaji'] = "PrintController/gaji";
 $route['print/gaji/(:any)'] = "PrintController/detail_gaji/$1";
 

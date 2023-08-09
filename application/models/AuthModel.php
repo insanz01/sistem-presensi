@@ -15,9 +15,14 @@ class AuthModel extends CI_Model {
 			}
 
 			$karyawan = $this->db->get_where('karyawan', ['id_user' => $user['id']])->row_array();
+			$magang = $this->db->get_where('magang', ['id_user' => $user['id']])->row_array();
 
 			if($karyawan) {
 				$this->session->set_userdata("SESS_PRESENSI_NIP", $karyawan['NIP']);
+				$this->session->set_userdata("SESS_PRESENSI_NAMA", $karyawan['nama']);
+			} else {
+				$this->session->set_userdata("SESS_PRESENSI_MAGANGID", $magang['id']);
+				$this->session->set_userdata("SESS_PRESENSI_NAMA", $magang['nama']);
 			}
 			
 			$this->session->set_userdata('SESS_PRESENSI_USERID', $user['id']);

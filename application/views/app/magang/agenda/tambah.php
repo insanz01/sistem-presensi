@@ -11,7 +11,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Logbook</h1>
+          <h1 class="m-0 text-dark">Agenda Kegiatan</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <!-- <ol class="breadcrumb float-sm-right">
@@ -36,11 +36,11 @@
         <div class="col-9 mx-auto">
           <div class="card">
             <div class="card-body">
-              <form action="<?= base_url("na/do_logbook") ?>" method="post">
-                <h3>Log Book</h3>
+              <form action="<?= base_url("magang/do_add_agenda") ?>" method="post">
+                <h3>Agenda Kegiatan</h3>
                 <div class="form-group">
-                  <label for="catatan">Catatan Logbook</label>
-                  <textarea name="catatan" id="catatan" cols="30" rows="10" class="form-control"></textarea>
+                  <label for="kegiatan">Catatan Agenda Kegiatan</label>
+                  <textarea name="kegiatan" id="kegiatan" cols="30" rows="10" class="form-control"></textarea>
                 </div>
 
                 <!-- <div class="form-group">
@@ -49,7 +49,7 @@
                 </div> -->
 
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-block">TAMBAH LOGBOOK</button>
+                  <button type="submit" class="btn btn-primary btn-block">TAMBAH AGENDA</button>
                 </div>
               </form>
             </div>
@@ -63,15 +63,15 @@
                 <thead>
                   <th>#</th>
                   <th>Catatan</th>
-                  <th>Tanggal Logbook</th>
+                  <th>Tanggal Agenda</th>
                 </thead>
                 <tbody>
                   <?php $nomor = 1 ?>
-                  <?php foreach($logbook as $p): ?>
+                  <?php foreach($agenda as $p): ?>
                     <tr>
                       <td><?= $nomor++ ?></td>
                       <td>
-                        <?= $p['catatan'] ?>
+                        <?= $p['kegiatan'] ?>
                       </td>
                       <td><?= date("d M Y", strtotime($p['created_at'])) ?></td>
                     </tr>

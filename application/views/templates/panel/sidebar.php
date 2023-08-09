@@ -145,15 +145,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <!-- <a href="<?= base_url('magang/agenda') ?>" class="nav-link"> -->
-                <a href="#!" class="nav-link">
+                <a href="<?= base_url('magang/agenda') ?>" class="nav-link">
+                <!-- <a href="#!" class="nav-link"> -->
                   <i class="far fa-circle nav-icon ml-3"></i>
                   <p>Agenda Kegiatan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <!-- <a href="<?= base_url('magang/penilaian') ?>" class="nav-link"> -->
-                <a href="#!" class="nav-link">
+                <a href="<?= base_url('magang/penilaian') ?>" class="nav-link">
+                <!-- <a href="#!" class="nav-link"> -->
                   <i class="far fa-circle nav-icon ml-3"></i>
                   <p>Penilaian</p>
                 </a>
@@ -171,7 +171,7 @@
           </li>
           <?php if($this->session->userdata("SESS_PRESENSI_ROLEID") == 4): ?>
             <li class="nav-item">
-              <a href="<?= base_url("na/logbook") ?>" class="nav-link">
+              <a href="<?= base_url("magang/add_agenda") ?>" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
                   AGENDA KEGIATAN

@@ -7,6 +7,7 @@ class KaryawanController extends CI_Controller {
     $this->load->model("KaryawanModel", "karyawan_m");
     $this->load->model("GolonganModel", "golongan_m");
     $this->load->model("JabatanModel", "jabatan_m");
+    $this->load->model("MagangModel", "magang_m");
   }
 
   public function index() {

@@ -8,7 +8,18 @@ class LemburController extends CI_Controller {
   }
 
   public function index() {
-    $data['lembur'] = $this->lembur_m->get_all('pns');
+    $filter_bulan = $this->input->post("filter_bulan");
+
+    $lembur = $this->lembur_m->get_all('pns');
+
+    if($filter_bulan) {
+      $lembur = $this->lembur_m->get_all_filter('pns', $filter_bulan);
+    } else {
+      $filter_bulan = 0;
+    }
+
+    $data['lembur'] = $lembur;
+    $data['filter_bulan'] = $filter_bulan;
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
@@ -71,7 +82,18 @@ class LemburController extends CI_Controller {
 
   // Honorer
   public function index_honorer() {
-    $data['lembur'] = $this->lembur_m->get_all('honorer');
+    $filter_bulan = $this->input->post("filter_bulan");
+
+    $lembur = $this->lembur_m->get_all('honorer');
+
+    if($filter_bulan) {
+      $lembur = $this->lembur_m->get_all_filter('honorer', $filter_bulan);
+    } else {
+      $filter_bulan = 0;
+    }
+
+    $data['lembur'] = $lembur;
+    $data['filter_bulan'] = $filter_bulan;
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');

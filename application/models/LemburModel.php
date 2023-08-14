@@ -19,6 +19,14 @@ class LemburModel extends CI_Model {
     return $this->db->query($query)->result_array();
   }
 
+  public function get_all_filter($tipe_karyawan, $filter_bulan) {
+    $id_tipe_karyawan = $this->map_karyawan[$tipe_karyawan];
+
+    $query = "SELECT l.id, l.id_karyawan, k.NIP, k.nama, l.tanggal_lembur, l.durasi, l.jam_mulai, l.jam_selesai, l.keterangan, l.file_bukti, l.status FROM lembur l JOIN karyawan k ON l.id_karyawan = k.id WHERE k.tipe_karyawan = $id_tipe_karyawan AND MONTH(l.created_at) = $filter_bulan";
+    
+    return $this->db->query($query)->result_array();
+  }
+
   public function get_all_single($id) {
     return $this->db->get_where("lembur", ["id" => $id])->row_array();
   }

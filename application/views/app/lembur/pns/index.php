@@ -27,9 +27,27 @@
   <!-- Main content -->
   <section class="content">
     <div class="container">
-      <form id="lemburForm" action="<?= base_url("lembur/pns") ?>" method="post">
+      <form id="form_lembur" action="<?= base_url("lembur/pns") ?>" method="post">
         <div class="row mb-2">
-          <div class="col-4"></div>
+          <div class="col-4">
+            <div class="form-group">
+              <select name="filter_bulan" id="filter_bulan" class="form-control" onchange="submitFilter(this)">
+                <option value="0" <?= ($filter_bulan == "0") ? "selected": "" ?>>SEMUA</option>
+                <option value="1" <?= ($filter_bulan == "1") ? "selected": "" ?>>JANUARI</option>
+                <option value="2" <?= ($filter_bulan == "2") ? "selected": "" ?>>FEBRUARI</option>
+                <option value="3" <?= ($filter_bulan == "3") ? "selected": "" ?>>MARET</option>
+                <option value="4" <?= ($filter_bulan == "4") ? "selected": "" ?>>APRIL</option>
+                <option value="5" <?= ($filter_bulan == "5") ? "selected": "" ?>>MEI</option>
+                <option value="6" <?= ($filter_bulan == "6") ? "selected": "" ?>>JUNI</option>
+                <option value="7" <?= ($filter_bulan == "7") ? "selected": "" ?>>JULI</option>
+                <option value="8" <?= ($filter_bulan == "8") ? "selected": "" ?>>AGUSTUS</option>
+                <option value="9" <?= ($filter_bulan == "9") ? "selected": "" ?>>SEPTEMBER</option>
+                <option value="10" <?= ($filter_bulan == "10") ? "selected": "" ?>>OKTOBER</option>
+                <option value="11" <?= ($filter_bulan == "11") ? "selected": "" ?>>NOPEMBER</option>
+                <option value="12" <?= ($filter_bulan == "12") ? "selected": "" ?>>DESEMBER</option>
+              </select>
+            </div>
+          </div>
           <div class="col-4"></div>
           <div class="col-4">
             <a href="<?= base_url("print/lembur/pns") ?>" class="btn btn-primary float-right" target="_blank">PRINT LAPORAN</a>
@@ -97,3 +115,9 @@
     </div>
   </section>
 </div>
+
+<script>
+  const submitFilter = (target) => {
+    document.getElementById("form_lembur").submit();
+  }
+</script>

@@ -21,11 +21,13 @@ class GajiController extends CI_Controller {
       ];
 
       if($filter_bulan) {
-        $this->session->userdata("FILTER_BULAN", $filter_bulan);
+        // $this->session->userdata("FILTER_BULAN", $filter_bulan);
+        $this->session->set_userdata("FILTER_BULAN", $filter_bulan);
       }
 
       if($filter_golongan) {
-        $this->session->userdata("FILTER_GOLONGAN", $filter_golongan);
+        // $this->session->userdata("FILTER_GOLONGAN", $filter_golongan);
+        $this->session->set_userdata("FILTER_GOLONGAN", $filter_golongan);
       }
 
       $gaji = $this->gaji_m->get_all_filter($filter);

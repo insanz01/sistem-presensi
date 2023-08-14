@@ -31,6 +31,7 @@ class PrintController extends CI_Controller {
 
   public function agenda_kegiatan($id) {
     $data['all_laporan'] = $this->magang_m->get_all_agenda_by_magang_id($id);
+    $data['magang'] = $this->magang_m->get_single_magang($id);
 
     $this->load->view("app/print/agenda_kegiatan", $data);
   }

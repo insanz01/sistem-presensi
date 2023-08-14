@@ -37,6 +37,15 @@
       </div>
 
       <h3 class="text-center mb-2">LAPORAN AGENDA KEGIATAN</h3>
+
+      <div class="row mb-2">
+        <div class="col-6">
+          <h5>Nama : <?= $magang['nama'] ?></h5>
+          <h5>Email : <?= $magang['email'] ?></h5>
+        </div>
+        <div class="col-6"></div>
+      </div>
+
       <table class="table table-bordered" style="width: 100%">
         <thead>
           <th width="5%">#</th>

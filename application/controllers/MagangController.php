@@ -50,6 +50,7 @@ class MagangController extends CI_Controller {
 
   public function detail($id) {
     $data['agenda'] = $this->magang_m->get_all_agenda_by_magang_id($id);
+    $data['magang'] = $this->magang_m->get_single_magang($id);
     $data['id'] = $id;
 
     $this->load->view('templates/panel/header');

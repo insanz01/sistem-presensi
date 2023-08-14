@@ -30,6 +30,16 @@
             <i class="fas fa-fw fa-print"></i> PRINT
           </a>
         </div>
+
+        <div class="col-10 mx-auto mb-1">
+          <div class="card">
+            <div class="card-body">
+              <h3><?= $magang['nama'] ?></h3>
+              <h5><?= $magang['email'] ?></h5>
+            </div>
+          </div>
+        </div>
+        
         <div class="col-10 mx-auto">
           <div class="card">
             <div class="card-body">

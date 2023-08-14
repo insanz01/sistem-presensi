@@ -17,7 +17,7 @@ class AppModel extends CI_Model {
   ];
 
   public function get_all_karyawan_PNS() {
-    $query = "SELECT p.id, p.id_user, p.NIP_PNS as NIP, p.nama, t.nama as tipe_karyawan, p.email, p.nomor_hp, p.alamat, g.nama as golongan, j.nama as jabatan, p.tempat_lahir, p.tanggal_lahir, l.catatan FROM karyawan p JOIN tipe_karyawan t ON p.tipe_karyawan = t.id JOIN jabatan j ON p.id_jabatan = j.id JOIN golongan g ON p.id_golongan = g.id LEFT JOIN logbook l ON DATE(p.created_at) = DATE(l.created_at) WHERE p.tipe_karyawan = 1 AND l.NIP = k.NIP";
+    $query = "SELECT p.id, p.id_user, p.NIP_PNS as NIP, p.nama, t.nama as tipe_karyawan, p.email, p.nomor_hp, p.alamat, g.nama as golongan, j.nama as jabatan, p.tempat_lahir, p.tanggal_lahir FROM karyawan p JOIN tipe_karyawan t ON p.tipe_karyawan = t.id JOIN jabatan j ON p.id_jabatan = j.id JOIN golongan g ON p.id_golongan = g.id WHERE p.tipe_karyawan = 1";
 
     return $this->db->query($query)->result_array();
   }

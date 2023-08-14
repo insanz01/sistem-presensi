@@ -24,6 +24,12 @@ class NonAdminModel extends CI_Model {
     return $this->db->query($query)->row_array();
   }
 
+  public function exists_presensi_magang($data) {
+    $query = "SELECT * FROM presensi WHERE id_magang = $data[id_magang] AND kategori_presensi = $data[kategori_presensi] AND DATE(created_at) = DATE(now())";
+
+    return $this->db->query($query)->row_array();
+  }
+
   public function presensi($data) {
     $this->db->insert("presensi", $data);
     return $this->db->insert_id();
@@ -48,6 +54,14 @@ class NonAdminModel extends CI_Model {
     $karyawan = $this->db->get_where("karyawan", ["NIP" => $nip_karyawan])->row_array();
 
     $query = "SELECT presensi.created_at, kategori_presensi.nama as tipe_presensi FROM presensi JOIN kategori_presensi ON presensi.kategori_presensi = kategori_presensi.id WHERE MONTH(presensi.created_at) = MONTH(NOW()) AND presensi.id_karyawan = $karyawan[id]";
+
+    return $this->db->query($query)->result_array();
+  }
+
+  public function current_month_presensi_magang() {
+    $id_magang = $this->session->userdata("SESS_PRESENSI_MAGANGID");
+
+    $query = "SELECT presensi.created_at, kategori_presensi.nama as tipe_presensi FROM presensi JOIN kategori_presensi ON presensi.kategori_presensi = kategori_presensi.id WHERE MONTH(presensi.created_at) = MONTH(NOW()) AND presensi.id_magang = $id_magang";
 
     return $this->db->query($query)->result_array();
   }

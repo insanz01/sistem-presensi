@@ -43,9 +43,18 @@
                   <select name="kategori_presensi" id="kategori_presensi" class="form-control">
                     <option value="">- PILIH -</option>
                     <?php foreach($kategori_presensi as $kategori): ?>
-                      <option value="<?= $kategori['id'] ?>">
-                        <?= $kategori['nama'] ?>
-                      </option>
+                      <?php if($kategori['id'] == 5 || $kategori['id'] == 6): ?>
+                        <?php if($this->session->userdata("SESS_PRESENSI_MAGANGID")): ?>
+                        <?php else: ?>
+                          <option value="<?= $kategori['id'] ?>">
+                            <?= $kategori['nama'] ?>
+                          </option>
+                        <?php endif; ?>
+                      <?php else: ?>
+                        <option value="<?= $kategori['id'] ?>">
+                          <?= $kategori['nama'] ?>
+                        </option>
+                      <?php endif ?>
                     <?php endforeach; ?>
                   </select>
                 </div>

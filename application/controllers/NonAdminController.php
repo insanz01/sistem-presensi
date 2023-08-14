@@ -11,7 +11,15 @@ class NonAdminController extends CI_Controller {
 
   public function presensi() {
     $data['kategori_presensi'] = $this->kategori_m->get_all();
-    $data['presensi'] = $this->non_admin_m->current_month_presensi();
+
+    $presensi = [];
+    if($this->session->userdata("SESS_PRESENSI_NIP")) {
+      $presensi = $this->non_admin_m->current_month_presensi();
+    } else {
+      $presensi = $this->non_admin_m->current_month_presensi_magang();
+    }
+    
+    $data['presensi'] = $presensi;
 
     $this->load->view('templates/panel/header');
     $this->load->view('templates/panel/sidebar');
@@ -53,6 +61,15 @@ class NonAdminController extends CI_Controller {
 
     $NIP = $this->session->userdata("SESS_PRESENSI_NIP");
 
+    $id_magang = 0;
+    if(!$NIP) {
+      $id_magang = $this->session->userdata("SESS_PRESENSI_MAGANGID");
+    }
+
+    if(!$this->input->post('kategori_presensi')) {
+      redirect('na/presensi');
+    }
+
     // if($NIP != $this->session->userdata("SESS_PRESENSI_NIP")) {
     //   $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>NIP tidak valid</div>");
 
@@ -62,7 +79,13 @@ class NonAdminController extends CI_Controller {
     $jadwal_pns = $this->setting_m->get_jadwal_pns();
     $jadwal_honorer = $this->setting_m->get_jadwal_honorer();
     
-    $karyawan = $this->non_admin_m->get_karyawan_by_NIP($NIP);
+    $karyawan = null;
+
+    if($id_magang == 0) {
+      $karyawan = $this->non_admin_m->get_karyawan_by_NIP($NIP); 
+    } else {
+      $karyawan['tipe_karyawan'] = 2;
+    }
 
     $kategori_presensi = $this->input->post("kategori_presensi");
 
@@ -115,54 +138,83 @@ class NonAdminController extends CI_Controller {
 
     // $terlambat = $this->non_admin_m->check_keterlambatan();
 
-    $data = [
-      'id_karyawan' => $karyawan['id'],
-      'terlambat' => $terlambat,
-      'kategori_presensi' => $kategori_presensi
-    ];
+    $data = null;
 
-    if($this->non_admin_m->exists_presensi($data)) {
-      $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Anda sudah melakukan presensi ini</div>");
-
-      redirect('na/presensi');
-    }
-
-    if($this->non_admin_m->presensi($data)) {
-      if($kategori_presensi == 5) {
-        $lemburData = [
-          'id_karyawan' => $karyawan['id'],
-          'tanggal_lembur' => date("Y-m-d", time()),
-          'durasi' => 0,
-          'jam_mulai' => date("H:i:s", time()),
-          'jam_selesai' => NULL,
-          'keterangan' => "",
-          'status' => 1
-        ];
-
-        $this->non_admin_m->ajukan_lembur($lemburData);
-      }
-
-      if($kategori_presensi == 6) {
-        $lembur = $this->non_admin_m->get_lembur_hari_ini($karyawan['id']);
-
-        $durasi = time() - strtotime($lembur['jam_mulai']);
-
-        $lemburData = [
-          'durasi' => $durasi,
-          'jam_selesai' => date("H:i:s", time())
-        ];
-
-        $this->non_admin_m->update_lembur($lembur['id'], $lemburData);
-      }
-
-      if($terlambat) {
-        $this->session->set_flashdata("pesan", "<div class='alert alert-warning' role='alert'>Berhasil melakukan presensi, tapi anda terlambat !</div>");
-      } else {
-        $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil Presensi</div>");
-      }
-
+    if($id_magang == 0) {
+      $data = [
+        'id_karyawan' => $karyawan['id'],
+        'terlambat' => $terlambat,
+        'kategori_presensi' => $kategori_presensi
+      ];
     } else {
-      $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal Presensi</div>");
+      $data = [
+        'id_magang' => $id_magang,
+        'terlambat' => $terlambat,
+        'kategori_presensi' => $kategori_presensi
+      ];
+    }
+    
+    if($id_magang == 0) {
+      if($this->non_admin_m->exists_presensi($data)) {
+        $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Anda sudah melakukan presensi ini</div>");
+  
+        redirect('na/presensi');
+      }
+  
+      if($this->non_admin_m->presensi($data)) {
+        if($kategori_presensi == 5) {
+          $lemburData = [
+            'id_karyawan' => $karyawan['id'],
+            'tanggal_lembur' => date("Y-m-d", time()),
+            'durasi' => 0,
+            'jam_mulai' => date("H:i:s", time()),
+            'jam_selesai' => NULL,
+            'keterangan' => "",
+            'status' => 1
+          ];
+  
+          $this->non_admin_m->ajukan_lembur($lemburData);
+        }
+  
+        if($kategori_presensi == 6) {
+          $lembur = $this->non_admin_m->get_lembur_hari_ini($karyawan['id']);
+  
+          $durasi = time() - strtotime($lembur['jam_mulai']);
+  
+          $lemburData = [
+            'durasi' => $durasi,
+            'jam_selesai' => date("H:i:s", time())
+          ];
+  
+          $this->non_admin_m->update_lembur($lembur['id'], $lemburData);
+        }
+  
+        if($terlambat) {
+          $this->session->set_flashdata("pesan", "<div class='alert alert-warning' role='alert'>Berhasil melakukan presensi, tapi anda terlambat !</div>");
+        } else {
+          $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil Presensi</div>");
+        }
+  
+      } else {
+        $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal Presensi</div>");
+      }
+    } else {
+      if($this->non_admin_m->exists_presensi_magang($data)) {
+        $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Anda sudah melakukan presensi ini</div>");
+  
+        redirect('na/presensi');
+      }
+  
+      if($this->non_admin_m->presensi($data)) {
+        if($terlambat) {
+          $this->session->set_flashdata("pesan", "<div class='alert alert-warning' role='alert'>Berhasil melakukan presensi, tapi anda terlambat !</div>");
+        } else {
+          $this->session->set_flashdata("pesan", "<div class='alert alert-success' role='alert'>Berhasil Presensi</div>");
+        }
+  
+      } else {
+        $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal Presensi</div>");
+      }
     }
 
     redirect('na/presensi');

@@ -36,7 +36,7 @@
         </div>
       </div>
 
-      <h3 class="text-center mb-2">LAPORAN AGENDA KEGIATAN</h3>
+      <h3 class="text-center mb-2">LAPORAN PENILAIAN MAGANG</h3>
       <table class="table table-bordered" style="width: 100%">
         <thead>
           <th>#</th>

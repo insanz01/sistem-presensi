@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Presensi Karyawan</h1>
+          <h1 class="m-0 text-dark">Presensi Magang</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <!-- <ol class="breadcrumb float-sm-right">
@@ -51,7 +51,7 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>NIP</th>
+                    <th>Email</th>
                     <th>Nama Karyawan</th>
                     <th>Tipe Karyawan</th>
                     <th>Terlambat</th>
@@ -63,7 +63,7 @@
                   <?php foreach($presensi as $data): ?>
                   <tr>
                     <td><?= $nomor++ ?></td>
-                    <td><?= $data['NIP'] ?></td>
+                    <td><?= $data['email'] ?></td>
                     <td><?= $data['nama'] ?></td>
                     <td><?= "Pegawai Magang" ?></td>
                     <td>

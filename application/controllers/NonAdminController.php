@@ -15,7 +15,7 @@ class NonAdminController extends CI_Controller {
     $presensi = [];
     if($this->session->userdata("SESS_PRESENSI_NIP")) {
       $presensi = $this->non_admin_m->current_month_presensi();
-    } else {
+    } else if($this->session->userdata("SESS_PRESENSI_MAGANGID")) {
       $presensi = $this->non_admin_m->current_month_presensi_magang();
     }
     

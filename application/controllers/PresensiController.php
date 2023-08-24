@@ -137,7 +137,7 @@ class PresensiController extends CI_Controller {
   public function index_magang() {
     $filter_absen = $this->input->post("filter_absen");
 
-    $presensi = $this->presensi_m->get_all("magang");
+    $presensi = $this->presensi_m->get_all_magang();
 
     if($filter_absen) {
       $filter = [
@@ -146,7 +146,7 @@ class PresensiController extends CI_Controller {
 
       $this->session->set_userdata("SESS_PRESENSI_FILTER", $filter);
       
-      $presensi = $this->presensi_m->get_all_filter("magang", $filter);
+      $presensi = $this->presensi_m->get_all_magang_filter($filter);
     }
 
     $data["presensi"] = $presensi;

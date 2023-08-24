@@ -53,7 +53,7 @@ class PrintController extends CI_Controller {
 
     $data["all_laporan"] = $presensi;
 
-    $this->load->view("app/print/presensi", $data);
+    $this->load->view("app/print/presensi_magang", $data);
   }
 
   public function lembur_pns() {

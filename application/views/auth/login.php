@@ -60,3 +60,4 @@
     </div>
   </div>
 </div>
+<body class="hold-transition" style="background-image: url('<?= base_url('assets/bahan/bg_login.jpg') ?>'); background-size: cover">

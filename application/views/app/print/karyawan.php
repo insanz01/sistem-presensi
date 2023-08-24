@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <h3 class="text-center mb-2">LAPORAN DATA KARYAWAN PNS</h3>
+      <h3 class="text-center mb-2">LAPORAN DATA KARYAWAN </h3>
       <table class="table table-bordered">
         <thead>
           <th>#</th>

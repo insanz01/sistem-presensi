@@ -80,8 +80,20 @@ class AppModel extends CI_Model {
     return $this->db->query($query)->result_array();
   }
 
+  public function get_all_lembur_pns_filter($filter_bulan) {
+    $query = "SELECT l.id, l.id_karyawan, k.NIP, k.nama, l.tanggal_lembur, l.durasi, l.jam_mulai, l.jam_selesai, l.status FROM lembur l JOIN karyawan k ON l.id_karyawan = k.id WHERE k.tipe_karyawan = 1 AND MONTH(l.tanggal_lembur) = $filter_bulan";
+    
+    return $this->db->query($query)->result_array();
+  }
+
   public function get_all_lembur_honorer() {
     $query = "SELECT l.id, l.id_karyawan, k.NIP, k.nama, l.tanggal_lembur, l.durasi, l.jam_mulai, l.jam_selesai, l.status FROM lembur l JOIN karyawan k ON l.id_karyawan = k.id WHERE k.tipe_karyawan = 2";
+    
+    return $this->db->query($query)->result_array();
+  }
+
+  public function get_all_lembur_honorer_filter($filter_bulan) {
+    $query = "SELECT l.id, l.id_karyawan, k.NIP, k.nama, l.tanggal_lembur, l.durasi, l.jam_mulai, l.jam_selesai, l.status FROM lembur l JOIN karyawan k ON l.id_karyawan = k.id WHERE k.tipe_karyawan = 2 AND MONTH(l.tanggal_lembur) = $filter_bulan";
     
     return $this->db->query($query)->result_array();
   }

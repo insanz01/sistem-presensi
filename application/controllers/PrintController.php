@@ -58,6 +58,11 @@ class PrintController extends CI_Controller {
 
   public function lembur_pns() {
     $lembur = $this->app_m->get_all_lembur_pns();
+    
+    $filter_bulan = $this->session->userdata("FILTER_BULAN_PNS_LEMBUR");
+    if($filter_bulan) {
+      $lembur = $this->app_m->get_all_lembur_pns_filter($filter_bulan);
+    }
 
     $data["all_laporan"] = $lembur;
     
@@ -66,6 +71,11 @@ class PrintController extends CI_Controller {
 
   public function lembur_honorer() {
     $lembur = $this->app_m->get_all_lembur_honorer();
+
+    $filter_bulan = $this->session->userdata("FILTER_BULAN_HONORER_LEMBUR");
+    if($filter_bulan) {
+      $lembur = $this->app_m->get_all_lembur_honorer_filter($filter_bulan);
+    }
 
     $data["all_laporan"] = $lembur;
     

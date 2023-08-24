@@ -14,8 +14,10 @@ class LemburController extends CI_Controller {
 
     if($filter_bulan) {
       $lembur = $this->lembur_m->get_all_filter('pns', $filter_bulan);
+      $this->session->set_userdata("FILTER_BULAN_PNS_LEMBUR", $filter_bulan);
     } else {
       $filter_bulan = 0;
+      $this->session->set_userdata("FILTER_BULAN_PNS_LEMBUR", 0);
     }
 
     $data['lembur'] = $lembur;
@@ -88,8 +90,12 @@ class LemburController extends CI_Controller {
 
     if($filter_bulan) {
       $lembur = $this->lembur_m->get_all_filter('honorer', $filter_bulan);
+
+      $this->session->set_userdata("FILTER_BULAN_HONORER_LEMBUR", $filter_bulan);
     } else {
       $filter_bulan = 0;
+      
+      $this->session->set_userdata("FILTER_BULAN_HONORER_LEMBUR", 0);
     }
 
     $data['lembur'] = $lembur;

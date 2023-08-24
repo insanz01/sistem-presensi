@@ -94,7 +94,7 @@ class AppModel extends CI_Model {
   }
 
   public function get_total_magang() {
-    $query = "SELECT COUNT(*) AS total FROM karyawan WHERE tipe_karyawan = 3";
+    $query = "SELECT COUNT(*) AS total FROM magang";
     $data = $this->db->query($query)->row_array();
 
     return $data['total'];

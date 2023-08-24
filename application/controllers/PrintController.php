@@ -73,7 +73,7 @@ class PrintController extends CI_Controller {
   }
 
   public function gaji() {
-    $bulan = ["", "JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOPEMBER", "DESEMBER"];
+    $bulan = ["", "JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOPEMBER", "DESEMBER", "SEMUA"];
     
     $filter_bulan = $this->session->userdata("FILTER_BULAN");
     $filter_golongan = $this->session->userdata("FILTER_GOLONGAN");
@@ -91,8 +91,10 @@ class PrintController extends CI_Controller {
 
     $nama_bulan = "";
 
-    if($filter_bulan) {
+    if($filter_bulan && $filter_bulan != 13) {
       $nama_bulan = "BULAN " . $bulan[$filter_bulan];
+    } else {
+      $nama_bulan = "SATU TAHUN";
     }
 
     $data["all_laporan"] = $gaji;

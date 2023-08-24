@@ -75,6 +75,22 @@ class KaryawanModel extends CI_Model {
   }
 
   public function update_magang($data, $id) {
+    $lastData = $this->db->get_where("magang", ["id" => $id])->row_array();
+    
+    if($lastData['nomor_hp'] != $data['nomor_hp']) {
+      $password = password_hash($data['nomor_hp'], PASSWORD_DEFAULT);
+
+      $this->db->set("password", $password);
+      $this->db->where("id_user", $lastData["id_user"]);
+      $this->db->update("users");
+    }
+
+    if($lastData['email'] != $data['email']) {
+      $this->db->set("username", $data['email']);
+      $this->db->where("id_user", $lastData["id_user"]);
+      $this->db->update("users");
+    }
+
     $this->db->set($data);
     $this->db->where('id', $id);
     $this->db->update('magang');

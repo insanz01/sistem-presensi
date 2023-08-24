@@ -31,6 +31,7 @@
               <div class="col-4">
                 <div class="form-group">
                   <select name="filter_bulan" id="filter_bulan" class="form-control" onchange="submitFilter(this)">
+                    <option value="13" <?= ($filter_bulan == "13" ) ? "selected" : ""?>>SEMUA</option>
                     <option value="1" <?= ($filter_bulan == "1") ? "selected": "" ?>>JANUARI</option>
                     <option value="2" <?= ($filter_bulan == "2") ? "selected": "" ?>>FEBRUARI</option>
                     <option value="3" <?= ($filter_bulan == "3") ? "selected": "" ?>>MARET</option>

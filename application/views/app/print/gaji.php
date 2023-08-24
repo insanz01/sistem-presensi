@@ -48,7 +48,13 @@
           <th>Durasi Lembur</th>
           <th>Bayaran Lembur</th>
           <th>Tunjangan</th>
-          <th>Gaji Bulan ini</th>
+          <th>
+            <?php if($nama_bulan == "SATU TAHUN"): ?>
+              Gaji Tahun ini
+            <?php else: ?>
+              Gaji Bulan ini
+            <?php endif; ?>
+          </th>
         </thead>
         <tbody>
           <?php $nomor = 1 ?>

@@ -107,7 +107,7 @@ class KaryawanController extends CI_Controller {
       $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal menambahkan data</div>");
     }
 
-    redirect("karyawan");
+    redirect("magang");
   }
 
   public function edit_magang($id) {
@@ -130,7 +130,7 @@ class KaryawanController extends CI_Controller {
       $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal mengubah data</div>");
     }
 
-    redirect("karyawan");
+    redirect("magang");
   }
 
   public function delete_magang($id) {
@@ -140,7 +140,7 @@ class KaryawanController extends CI_Controller {
       $this->session->set_flashdata("pesan", "<div class='alert alert-danger' role='alert'>Gagal menghapus data</div>");
     }
 
-    redirect("karyawan");
+    redirect("magang");
   }
 
 

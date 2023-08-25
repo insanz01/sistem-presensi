@@ -43,6 +43,8 @@ class AuthController extends CI_Controller
   {
 		$this->session->unset_userdata("SESS_PRESENSI_USERID");
 		$this->session->unset_userdata("SESS_PRESENSI_USERNAME");
+		$this->session->unset_userdata("SESS_PRESENSI_NAMA");
+		$this->session->unset_userdata("SESS_PRESENSI_ROLEID");
 		$this->session->unset_userdata("SESS_PRESENSI_NIP");
 		$this->session->unset_userdata("SESS_PRESENSI_MAGANGID");
 

@@ -33,7 +33,7 @@ class PresensiModel extends CI_Model {
   public function get_all($tipe_karyawan) {
     $id_tipe_karyawan = $this->map_karyawan[$tipe_karyawan];
 
-    $query = "SELECT p.id, p.id_karyawan, k.NIP, k.nama, p.terlambat, l.catatan, p.created_at FROM presensi p JOIN karyawan k ON p.id_karyawan = k.id LEFT JOIN logbook l ON DATE(p.created_at) = DATE(l.created_at) WHERE k.tipe_karyawan = $id_tipe_karyawan";
+    $query = "SELECT p.id, p.id_karyawan, k.NIP, k.nama, p.terlambat, l.catatan, p.created_at FROM presensi p JOIN karyawan k ON p.id_karyawan = k.id LEFT JOIN logbook l ON DATE(p.created_at) = DATE(l.created_at) WHERE k.tipe_karyawan = $id_tipe_karyawan AND p.kategori_presensi = 1";
     
     return $this->db->query($query)->result_array();
   }
@@ -42,7 +42,7 @@ class PresensiModel extends CI_Model {
     $id_tipe_karyawan = $this->map_karyawan[$tipe_karyawan];
     $tipe_presensi = $this->map_presensi[$filter['filter_absen']];
 
-    $query = "SELECT p.id, p.id_karyawan, k.NIP, k.nama, p.terlambat, l.catatan, p.created_at FROM presensi p JOIN karyawan k ON p.id_karyawan = k.id LEFT JOIN logbook l ON DATE(p.created_at) = DATE(l.created_at) WHERE k.tipe_karyawan = $id_tipe_karyawan AND p.terlambat = $tipe_presensi";
+    $query = "SELECT p.id, p.id_karyawan, k.NIP, k.nama, p.terlambat, l.catatan, p.created_at FROM presensi p JOIN karyawan k ON p.id_karyawan = k.id LEFT JOIN logbook l ON DATE(p.created_at) = DATE(l.created_at) WHERE k.tipe_karyawan = $id_tipe_karyawan AND p.terlambat = $tipe_presensi AND p.kategori_presensi = 1";
     
     return $this->db->query($query)->result_array();
   }

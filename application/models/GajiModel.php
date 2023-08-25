@@ -155,7 +155,7 @@ class GajiModel extends CI_Model {
       $absensi = $this->get_absensi_filter($karyawan['id'], $filter['filter_bulan']);
     }
     $potongan_gaji = $this->get_cut_salary();
-    $lembur = $this->count_durasi_lembur_filter($filter['filter_bulan']);
+    $lembur = $this->count_durasi_lembur_filter($karyawan['id'], $filter['filter_bulan']);
     $biaya_lembur = $lembur * 20000;
     
     $temp['durasi_lembur'] = $lembur;

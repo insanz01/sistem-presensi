@@ -17,7 +17,7 @@ class GajiModel extends CI_Model {
       $absensi = $this->get_absensi($k['id']);
       $potongan_gaji = $this->get_cut_salary();
 
-      $lembur = $this->count_durasi_lembur();
+      $lembur = $this->count_durasi_lembur($k['id']);
       $biaya_lembur = $lembur * 20000;
 
       $temp['durasi_lembur'] = $lembur;
@@ -31,8 +31,8 @@ class GajiModel extends CI_Model {
     return $results;
   }
 
-  public function count_durasi_lembur() {
-    $query = "SELECT jam_mulai, jam_selesai FROM lembur WHERE MONTH(tanggal_lembur) = MONTH(NOW())";
+  public function count_durasi_lembur($id_karyawan) {
+    $query = "SELECT jam_mulai, jam_selesai FROM lembur WHERE MONTH(tanggal_lembur) = MONTH(NOW()) AND id_karyawan = $id_karyawan";
 
     $lembur = $this->db->query($query)->result_array();
 
@@ -95,7 +95,7 @@ class GajiModel extends CI_Model {
         $absensi = $this->get_absensi_filter($k['id'], $filter['filter_bulan']);
       }
       $potongan_gaji = $this->get_cut_salary();
-      $lembur = $this->count_durasi_lembur_filter($filter['filter_bulan']);
+      $lembur = $this->count_durasi_lembur_filter($k['id'], $filter['filter_bulan']);
       $biaya_lembur = $lembur * 20000;
       
       $temp['durasi_lembur'] = $lembur;
@@ -109,8 +109,8 @@ class GajiModel extends CI_Model {
     return $results;
   }
 
-  public function count_durasi_lembur_filter($filter_bulan) {
-    $query = "SELECT jam_mulai, jam_selesai FROM lembur WHERE MONTH(tanggal_lembur) = $filter_bulan";
+  public function count_durasi_lembur_filter($id_karyawan, $filter_bulan) {
+    $query = "SELECT jam_mulai, jam_selesai FROM lembur WHERE MONTH(tanggal_lembur) = $filter_bulan AND id_karyawan = $id_karyawan";
 
     $lembur = $this->db->query($query)->result_array();
 

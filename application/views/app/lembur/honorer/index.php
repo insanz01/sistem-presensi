@@ -96,8 +96,8 @@
                     </td>
                     <td>
                       <?php if($data['status'] == 0): ?>
-                        <a href="<?= base_url("lembur/status/") . $data['id'] . '/setuju/pns' ?>" class="badge badge-sm badge-success" role="button">Setuju</a>
-                        <a href="<?= base_url("lembur/status/")  . $data['id'] . '/tolak/pns' ?>" class="badge badge-sm badge-danger" role="button">Tolak</a>
+                        <a href="<?= base_url("lembur/status/") . $data['id'] . '/setuju/honorer' ?>" class="badge badge-sm badge-success" role="button">Setuju</a>
+                        <a href="<?= base_url("lembur/status/")  . $data['id'] . '/tolak/honorer' ?>" class="badge badge-sm badge-danger" role="button">Tolak</a>
                       <?php endif; ?>
                     </td>
                   </tr>

@@ -32,7 +32,7 @@ class GajiModel extends CI_Model {
   }
 
   public function count_durasi_lembur($id_karyawan) {
-    $query = "SELECT jam_mulai, jam_selesai FROM lembur WHERE MONTH(tanggal_lembur) = MONTH(NOW()) AND id_karyawan = $id_karyawan";
+    $query = "SELECT jam_mulai, jam_selesai FROM lembur WHERE MONTH(tanggal_lembur) = MONTH(NOW()) AND id_karyawan = $id_karyawan AND status = 1";
 
     $lembur = $this->db->query($query)->result_array();
 
@@ -110,7 +110,7 @@ class GajiModel extends CI_Model {
   }
 
   public function count_durasi_lembur_filter($id_karyawan, $filter_bulan) {
-    $query = "SELECT jam_mulai, jam_selesai FROM lembur WHERE MONTH(tanggal_lembur) = $filter_bulan AND id_karyawan = $id_karyawan";
+    $query = "SELECT jam_mulai, jam_selesai FROM lembur WHERE MONTH(tanggal_lembur) = $filter_bulan AND id_karyawan = $id_karyawan AND status = 1";
 
     $lembur = $this->db->query($query)->result_array();
 

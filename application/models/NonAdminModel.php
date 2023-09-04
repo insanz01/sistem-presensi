@@ -82,7 +82,7 @@ class NonAdminModel extends CI_Model {
 
   public function add_logbook($data) {
     $now = date("Y-m-d", time());
-
+    
     $query = "SELECT * FROM logbook WHERE NIP = '$data[NIP]' AND DATE(created_at) = '$now'";
     $logbook = $this->db->query($query)->row_array();
 
